@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Center, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  HStack,
+  Image,
+  SimpleGrid,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
@@ -769,8 +777,8 @@ const Secondlastsection = () => {
         mt={"100px"}
         p={15}
       >
-        <HStack>
-          <Box w="100%" p={10}>
+        <SimpleGrid columns={[1, 1, 2]} spacing={10}>
+          <Box w={"100%"} p={10}>
             <Center>
               <VStack>
                 <Text textAlign={"center"} fontWeight={"600"} fontSize={"23px"}>
@@ -793,7 +801,7 @@ const Secondlastsection = () => {
               </VStack>
             </Center>
           </Box>
-          <Box w="100%" p={10}>
+          <Box w={"100%"} p={10}>
             <Center>
               <VStack>
                 <Text textAlign={"center"} fontWeight={"600"} fontSize={"23px"}>
@@ -815,7 +823,7 @@ const Secondlastsection = () => {
               </VStack>
             </Center>
           </Box>
-        </HStack>
+        </SimpleGrid>
       </Box>
     </>
   );
