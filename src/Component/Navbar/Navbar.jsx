@@ -143,9 +143,6 @@ export default function Navbar() {
             <button onClick={toggleColorMode}>
               {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             </button>
-            <button>
-              <VscLock />
-            </button>
             <Menu>
               <MenuButton>
                 <AiOutlineUser />

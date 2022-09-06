@@ -119,7 +119,7 @@ export default function Footer() {
                 color={"#7F7F7F"}
                 lineHeight={"16px"}
                 fontWeight={"600"}
-                href={"#"}
+                href={"/about"}
               >
                 About Us
               </Link>
