@@ -1,0 +1,31 @@
+.nav{
+    display: flex;
+    background-color: aqua;
+    width:90% ;
+    height: 500px;
+    text-align: center;
+   margin: auto;
+}
+.nav_1{
+    margin-top: 13%;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+.nav_2{
+    margin-top: 7%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.nav_3{
+    margin-top: 7%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.nav_4{
+    margin-top: 7%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.nav_5{
+    margin-top: 7%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.nav_6{
+    margin-top: 13%;
+}

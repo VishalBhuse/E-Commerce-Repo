@@ -1,5 +1,5 @@
 import React from 'react'
-import Homeindex from '../Pages/Home/Homeindex'
+import Homeindex from '../Page/Home/Homeindex'
 
 export const Allroute = () => {
   return (

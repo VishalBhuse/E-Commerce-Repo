@@ -1,0 +1,207 @@
+
+
+  
+  
+  
+  .free{
+    width: 100%;
+    height: 40px;
+    color: white;
+    background-color: #12294f;
+    text-align: center;
+  }
+  
+  
+  /* coursal---------------------------------------------------------------- */
+  
+  
+  #app { height: 100% }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+    
+  }
+  
+  body {
+  
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+   
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    width: 90%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+   
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 90%;
+    height: 60%;
+    object-fit: cover;
+  }
+
+
+
+  /* line3------------------------------------------ */
+
+
+
+
+
+  .main3{
+    width: 100%;
+    height: 500px;
+    
+    text-align: center;
+    background-color: #fde7f6;
+    margin-top: 20px;
+    
+}
+.nav{
+    margin-top: 4%;
+    display: flex;
+}
+.nav_x{
+    margin-top: 3%;
+    margin-left: 31%;
+}
+.main_1{
+    background-color: white;
+    width: 250px;
+    height: 300px;
+    margin-top: 3%;
+    
+
+}
+.nav1{
+text-align: center;
+}
+.nav2{
+    text-align: center;
+    }
+
+
+
+    .nav{
+        display: flex;
+        
+        width:90% ;
+        height: 500px;
+        text-align: center;
+       margin: auto;
+    }
+    .nav_1{
+        /* margin-top: 13%; */
+        
+    }
+    .nav_2{
+        margin-top: 7%;
+      
+    }
+    .nav_3{
+        margin-top: 7%;
+        
+    }
+    .nav_4{
+        margin-top: 7%;
+        
+    }
+    .nav_5{
+        margin-top: 7%;
+    }
+    .nav_6{
+        margin-top: 13%;
+    }
+
+
+    .main4{
+    display: flex;
+    width: 90%;
+    
+    margin: 2%;
+  
+}
+
+
+
+
+.main_4b{
+    display: flex;
+    
+    width: 90%;
+    height: 580px;
+
+margin: auto;
+
+}
+
+
+.main_4a{
+    display: flex;
+    width: 90%;
+    height: 550px;
+    
+    margin: auto;
+}
+.nav_1c{
+    width: 60%;
+    height: 500px;
+    
+    
+}
+.nav_2c{
+    width: 50%;
+    height: 500px;
+    margin-top: 9%;
+    
+}
+.nav_e{
+    text-align: center;
+    font-size: xx-large;
+}
+.nav_c{
+    font-size: medium;
+}
+.nav_b{
+    font-size: larger;
+}
+/* .nav_1d{
+margin-left: 2%;
+} */
+.nav_2d{
+    margin-left: 2%;
+}
+.nav_3d{
+    margin-left: 2%;
+}
+.nav_1a{
+    margin-left: 2%;
+}
+.nav_2a{
+    margin-left: 2%;
+}

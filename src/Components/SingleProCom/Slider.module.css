@@ -1,0 +1,23 @@
+.nav_e{
+    /* text-align: center; */
+    /* font-size: xx-large; */
+    margin-bottom: 3rem;
+    color: rgb(133, 112, 112);
+    /* font-size: 16px; */
+    font-family: Montserrat Light,sans-serif;
+    flex: 1 1 0%;
+    line-height: 2;
+    letter-spacing: 1px;
+    font-size: 22px;
+    margin-left: 6rem;
+    /* border: 2px solid red; */
+    /* width: 30%; */
+}
+
+.box{
+    margin: auto;
+    /* height: 1100px; */
+    width: 90%;
+    margin-bottom: 80px;
+    /* border: 2px solid blue; */
+}

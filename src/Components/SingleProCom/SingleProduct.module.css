@@ -1,0 +1,220 @@
+.mainDiv{
+    /* border: 2px solid black; */
+    display: flex;
+    height: 560px;
+    justify-content: space-around;
+    font-family: Montserrat Light,sans-serif;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 100px;
+    padding-bottom: 20px;
+    background-color: #f8f8f8;
+
+}
+
+.aboutDiv{
+    /* border: 2px solid black; */
+    font-family: Montserrat Light,sans-serif;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 40px;
+
+}
+
+.productDiv > div{
+    /* border: 2px solid blue; */
+    height: 360px;
+    width: 50%;
+}
+
+.productDiv{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(133, 112, 112);
+    font-size: 16px;
+    font-family: Montserrat Light,sans-serif;
+    flex: 1 1 0%;
+    line-height: 2;
+    background-color: #fff;
+    letter-spacing: 1px;
+    
+}
+
+.productDiv > div:first-child {
+    width: 30%;
+    font-size: 26px;
+    padding-left: 2rem;
+    padding-top: 1rem;
+}
+
+.productDiv > div:last-child {
+width: 65%;
+padding-top: 2.5rem;
+
+}
+
+.mainDiv > div{
+    /* border: 2px solid blue; */
+width: 50%;
+
+}
+
+.imgDiv{
+    margin-right: 20px;
+    margin-top: 2rem;
+    align-items: center;
+    padding-left: 3rem;
+background-color: #fff;
+
+}
+
+.mainDiv > div:first-child{
+    margin-right: 20px;
+    align-items: center;
+    margin-left: 3.5rem;
+    width: 12%;
+    background-color: #f8f8f8;
+    margin-top: 2rem;
+}
+
+.mainDiv > div:last-child{
+    background-color: #fff;
+
+}
+
+.mainDiv > div:first-child > div{
+    /* border: 2px solid green; */
+    margin-bottom: 1rem;
+}
+
+.outerdiv{
+    /* border: 2px solid red; */
+    /* background-color: #f8f8f8; */
+    font-family: Montserrat Light,sans-serif;
+
+}
+
+.p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.info{
+    padding-left: 2rem;
+    padding-top: 3rem;
+    padding-top: 5rem;
+    /* border: 2px solid red; */
+
+}
+
+.img{
+    width: 500px;
+    height: 500px;
+    text-align: center
+}
+
+.type{
+    color: #333;
+    font-family: Montserrat Regular,sans-serif;
+    font-size: 18px;
+    margin-bottom: 6px;
+    line-height: 1.125;
+    /* border: 2px solid red; */
+    padding-bottom: 12px
+}
+
+.title{
+    color: #333;
+    font-size: 22px;
+    line-height: 1.125;
+    padding-bottom: 12px
+}
+
+.sell {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 12px
+}
+
+.text{
+    font-size: 14px;
+}
+
+.btnDiv{
+    display: flex;
+    justify-content: space-between;
+    background-color: #12284c;
+    color: #fff;
+    width: 60%;
+    padding: 8px;
+    font-weight: 600;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-top: 2.5rem;
+    /* margin-left: 20px; */
+    cursor: pointer;
+}
+
+.desc{
+    margin-top: 2rem;
+}
+
+.giftBox{
+    border: 1px solid rgb(222, 213, 213);
+    width: 65%;
+    display: flex;
+    margin-top: 2rem;
+    /* justify-content: space-between; */
+}
+
+
+.giftBox > div:first-child {
+   margin-right: 7px;
+   padding: 10px;
+   align-items: center;
+   width: 20%
+}
+
+.giftBox img{
+    width: 120px;
+    height: 60px;
+}
+
+#featured{
+    /* max-width: 500px;
+    max-height: 600px; */
+    object-fit: cover;
+    cursor: pointer;
+    /* border: 2px solid black; */
+}
+
+.thumbnail{
+    /* max-width: 150px;
+    max-height: 70px; */
+    object-fit: cover;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    /* opacity: 0.5; */
+    /* margin: 5px; */
+    /* border: 2px solid rgb(184, 177, 177); */
+}
+
+.thumbnail:hover{
+    opacity: 1;
+}
+
+
+#thumbnail-image{
+    /* border: 1px solid black; */
+    /* margin: auto; */
+    text-align: center;
+    width: 62%;
+   
+}
+
+.sliderDiv{
+    margin-bottom: 90px;
+}
