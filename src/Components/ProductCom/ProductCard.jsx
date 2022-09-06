@@ -49,7 +49,7 @@ export const ProductCard = (props) => {
       <Img
         id="ImageClass"
         cursor={"pointer"}
-        src={props.item.images[0].src}
+        src={props.item.src}
         w="100%"
         h="200px"
         alt=""
@@ -61,18 +61,18 @@ export const ProductCard = (props) => {
         <Text noOfLines={1} fontSize={"lg"} fontWeight={"600"}>
         {props.item.type}
         </Text>
-        <Text noOfLines={1} fontSize={"md"} fontWeight={"200"}>
+        <Text noOfLines={3} fontSize={"md"} fontWeight={"200"}>
         {props.item.title}
         </Text>
         <Text noOfLines={1} fontSize={"md"} fontWeight={"600"}>
         ₹ {props.item.price}
         </Text>
         <Stack direction={"row"} justify="center">
+          {/* <AiFillStar color="gold"/>
           <AiFillStar color="gold"/>
           <AiFillStar color="gold"/>
           <AiFillStar color="gold"/>
-          <AiFillStar color="gold"/>
-          <AiFillStar color="gold"/>
+          <AiFillStar color="gold"/> */}
         </Stack>
       </Box>
     </Box>
