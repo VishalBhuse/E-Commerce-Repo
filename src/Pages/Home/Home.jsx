@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   Center,
-  HStack,
   Image,
   SimpleGrid,
   Text,
@@ -30,62 +29,51 @@ const Firstslider = () => {
       >
         <SwiperSlide>
           <img
-            src="https://cdn.modesens.com/banner/20220613-modesens-AERYNE-1140x400-EN.jpg"
+            src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-pro/section01s.jpg"
             alt="slide1"
           />
         </SwiperSlide>
+
         <SwiperSlide>
           <img
-            src="https://cdn.modesens.com/banner/20220614-modesens-Monnalisa-1140x400-EN.jpg"
+            src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-pro/section03s.jpg"
             alt="slide2"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://cdn.modesens.com/banner/20220612-modesens-TheSportsEdit-1140x400-EN.jpg"
+            src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-pro/section08s.jpg"
             alt="slide3"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://cdn.modesens.com/banner/20220611-modesens-Sugar-1140x400-F-EN.jpg"
+            src="https://images.samsung.com/is/image/samsung/assets/in/offer/online/samsung-fest/b2c-bluefest-mseries-1920x545-010922.jpg"
             alt="slide4"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://cdn.modesens.com/banner/20220613-modesens-SummerFashionGuide-1140x400-EN.jpg"
+            src="https://img.freepik.com/free-vector/realistic-phones-different-views_52683-28436.jpg?size=626&ext=jpg&ga=GA1.2.564934570.1662384569"
             alt="slide5"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://cdn.modesens.com/banner/20220516-modesens-SS22-SALE-1140x400-EN.jpg"
+            src="https://images.samsung.com/is/image/samsung/assets/in/offer/online/samsung-fest/b2c-bluefest-television-1920x545-010922.jpg"
             alt="slide6"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://gcdnb.pbrd.co/images/gJZXphZgjee1.png?o=1"
+            src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-note-11t-5g/section10.jpg"
             alt="slide7"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://gcdnb.pbrd.co/images/H68VJBbChh8Q.png?o=1"
+            src="https://i02.appmifile.com/204_operator_sg/29/11/2021/36d661f93fead82bc3c7443f1c137f39.jpg"
             alt="slide8"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://gcdnb.pbrd.co/images/UIdn53huJhIu.png?o=1"
-            alt="slide9"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://cdn.modesens.com/banner/20220615-modesens-Renaisa-1140x400-US-EN.jpg"
-            alt="slide10"
           />
         </SwiperSlide>
       </Swiper>
@@ -122,15 +110,23 @@ const Secondslider = () => {
         <SwiperSlide>
           <img
             className={styles.img222}
-            src="https://gcdnb.pbrd.co/images/yEEY2jTyGqoo.png?o=1"
+            src="https://i02.appmifile.com/519_operator_sg/01/12/2021/d6c18479fd17cc24fb7c1e0e0d0d31e1.jpg"
             alt="slide1"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className={styles.img222}
-            src="https://gcdnb.pbrd.co/images/EjMhCq4RrvUV.png?o=1"
+            src="https://i02.appmifile.com/992_operator_sg/05/08/2021/9faf7a2855a33748a91e4a374c32d1c0.jpg"
             alt="slide2"
+          />
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <img
+            className={styles.img222}
+            src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-e-learning-edition/section05.jpg"
+            alt="slide3"
           />
         </SwiperSlide>
       </Swiper>
@@ -184,96 +180,113 @@ const Thirdslider = () => {
         >
           <SwiperSlide>
             <img
-              src="https://cdn.modesens.com/banner/20220609-modesens-FPillowBags-364x484-F.jpg"
+              className={styles.thirslsiderimg}
+              src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-g781bzggins/gallery/in-galaxy-s20-fe-5g-g781-sm-g781bzggins-405304988?$PD_GALLERY_L_JPG$"
               alt="img1"
             />
 
             <Center className={styles.flexcssswiper}>
               <VStack>
                 <Text fontSize={"22px"} fontWeight={"600"}>
-                  Relive That Slumber Party Fun
+                  Galexy S20 FE 5G
                 </Text>
                 <Text fontWeight={"600"}>
-                  Discover a pillow bag for everyday wear
+                  ₹ 23999 <i>₹ 28999</i>
                 </Text>
-                <button className={styles.blackbuttonhover}>READ NOW</button>
+
+                <button className={styles.blackbuttonhover}>BUY NOW</button>
               </VStack>
             </Center>
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="https://cdn.modesens.com/banner/20220609-modesens-Sheerpants-364x484-Fgai.jpg"
+              className={styles.thirslsiderimg}
+              src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-g990elviinu/gallery/in-galaxy-s21-fe-g990-sm-g990elviinu-530606544?$PD_GALLERY_L_JPG$"
               alt="img2"
             />
             <Center className={styles.flexcssswiper}>
               <VStack>
                 <Text fontSize={"22px"} fontWeight={"600"}>
-                  New To Sale
+                  Galexy S21 FE 5G
                 </Text>
-                <Text fontWeight={"600"}>Fresh Cut</Text>
-                <button className={styles.blackbuttonhover}>READ NOW</button>
+                <Text fontWeight={"600"}>
+                  ₹ 33999 <i>₹ 38999</i>
+                </Text>
+                <button className={styles.blackbuttonhover}>BUY NOW</button>
               </VStack>
             </Center>
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="https://cdn.modesens.com/banner/20220610-modesens-blog-364x484-F.jpg"
+              className={styles.thirslsiderimg}
+              src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-m135fznpins/gallery/in-galaxy-m13-sm-m135-431575-sm-m135fznpins-533230571?$650_519_PNG$"
               alt="img3"
             />
             <Center className={styles.flexcssswiper}>
               <VStack>
                 <Text fontSize={"22px"} fontWeight={"600"}>
-                  Delight in Your See-Through-Ness{" "}
+                  Galexy M13 (4GB)
                 </Text>
-                <Text fontWeight={"600"}>Wear transparent pants</Text>
-                <button className={styles.blackbuttonhover}>READ NOW</button>
+                <Text fontWeight={"600"}>
+                  ₹ 33999 <i>₹ 38999</i>
+                </Text>
+                <button className={styles.blackbuttonhover}>BUY NOW</button>
               </VStack>
             </Center>
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="https://cdn.modesens.com/banner/20220612-modesens-Gucci-364x484.jpg"
+              className={styles.thirslsiderimg}
+              src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-e236bzggins/gallery/in-galaxy-f23-4gb-ram-sm-e236bzggins-531512373?$2052_1641_PNG$"
               alt="img4"
             />
             <Center className={styles.flexcssswiper}>
               <VStack>
                 <Text fontSize={"22px"} fontWeight={"600"}>
-                  Less Sesons and More Sizes
+                  Galexy M23 (4GB | 128GB)
                 </Text>
-                <Text fontWeight={"600"}>BLog by SSENSE</Text>
-                <button className={styles.blackbuttonhover}>READ NOW</button>
+                <Text fontWeight={"600"}>
+                  ₹ 14999 <i>₹ 20999</i>
+                </Text>
+                <button className={styles.blackbuttonhover}>BUY NOW</button>
               </VStack>
             </Center>
           </SwiperSlide>
+
           <SwiperSlide>
             <img
-              src="https://cdn.modesens.com/banner/20220523-modesens-Guide-364x484.jpg"
+              className={styles.thirslsiderimg}
+              src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-a135flbgins/gallery/in-galaxy-a13-sm-a135-sm-a135flbgins-531576524?$2052_1641_PNG$"
               alt="img5"
             />
             <Center className={styles.flexcssswiper}>
               <VStack>
                 <Text fontSize={"22px"} fontWeight={"600"}>
-                  Gucci
+                  Galexy A13 5G (8GB | 128Gb)
                 </Text>
-                <Text fontWeight={"600"}>Father.s Day Gifts</Text>
-                <button className={styles.blackbuttonhover}>READ NOW</button>
+                <Text fontWeight={"600"}>
+                  ₹ 13999 <i>₹ 18999</i>
+                </Text>
+                <button className={styles.blackbuttonhover}>BUY NOW</button>
               </VStack>
             </Center>
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="https://cdn.modesens.com/banner/20220531-modesens-Sale-364x484.jpg"
+              className={styles.thirslsiderimg}
+              src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-m526bzkiinu/gallery/in-galaxy-m52-5g-m526-404058-sm-m526bzkiinu-514948644?$2052_1641_PNG$"
               alt="img6"
             />
             <Center className={styles.flexcssswiper}>
               <VStack>
                 <Text fontSize={"22px"} fontWeight={"600"}>
-                  You Guide To Sale Season
+                  Galexy M52 5G (8GB | 128Gb)
                 </Text>
                 <Text fontWeight={"600"}>
-                  Top 5 Tips to Get Designer Sale for Less Online{" "}
+                  ₹ 26999 <i>₹ 36999</i>
                 </Text>
-                <button className={styles.blackbuttonhover}>READ NOW</button>
+
+                <button className={styles.blackbuttonhover}>BUY NOW</button>
               </VStack>
             </Center>
           </SwiperSlide>
@@ -290,111 +303,140 @@ const Thirdslider = () => {
 const Product1 = () => {
   const productdata1 = [
     {
-      imgsrc: "https://cdn.modesens.com/product/7298931_66?w=400&",
-      text1: "BURBERRY",
-      text2: "Bbry Carrick Top Tee Cn Ss Chckd Logo Sl In White",
-      text3: "$341 - $570",
-      text4: "24 Store",
-      id: 1,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-g3-24-inch-144hz-1ms-freesync-lf24g35tfwwxxl/",
+      disc: "36% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/lf24g35tfwwxxl/gallery/in-odyssey-g3-24g35tf-lf24g35tfwwxxl-467158852?$2052_1641_PNG$",
+      descr: 'Gaming Monitor with AMD freeSync (24") LF24G35TFWWXXL',
+      price: "₹ 16599",
+      offer: "₹ 25870",
     },
     {
-      imgsrc: "https://cdn.modesens.com/availability/47635068?w=400&",
-      text1: "ZIMMERMANN",
-      text2: "Dancer Empire-waist Linen-silk Blend Midi Dress In Pink",
-      text3: "$548 - $952",
-      text4: "24 Store",
-      id: 2,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-g5-27-inch-144hz-curved-qhd-1440p-lc27g55tqwwxxl/",
+      disc: "36% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/in-gaming-monitor-c27g55tqww-lc27g55tqwwxxl-frontblack-335280359?$2052_1641_PNG$",
+      descr: 'Curved Gaming Monitor with WQHD resolution (27") LC27G55TQWWXXL',
+      price: "₹ 24299",
+      offer: "₹ 38000",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/10535447_122?w=400&",
-      text1: "BALMAIN",
-      text2: "Square-neck Button-shoulder Ribbed Top In Blue",
-      text3: "$560 - $1150",
-      text4: "24 Store",
-      id: 3,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/curved-gaming-monitor-27-inch-lc27rg50fqwxxl/",
+      disc: "56% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/in-gaming-monitor-c27rg50fqw-lc27rg50fqwxxl-frontblack-248905874?$2052_1641_PNG$",
+      descr: 'Curved Gaming Monitor (27") LC27RG50FQWXXL',
+      price: "₹ 19999",
+      offer: "₹ 45000",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/18444081_124?w=400&",
-      text1: "BURBERRY",
-      text2:
-        "Net Sustain Checked Poplin-trimmed Cotton-jersey T-shirt In Black",
-      text3: "$355 - $605",
-      text4: "24 Store",
-      id: 4,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-g5-34-inch-165hz-curved-ultra-wqhd-lc34g55twwwxxl/",
+      disc: "23% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/lc34g55twwwxxl/gallery/in-odyssey-g5-34g5-lc34g55twwwxxl-467164472?$684_547_PNG$",
+      descr: 'Gaming Monitor with WQHD resolution (34") LC34G55TWWWXXL',
+      price: "₹ 46499",
+      offer: "₹ 60000",
     },
     {
-      imgsrc: "https://cdn.modesens.com/availability/37731631?w=400&",
-      text1: "ALEXANDER MCQUEEN",
-      text2: "Glossed-leather Exaggerated-sole Loafers In Black",
-      text3: "$528 - $913",
-      text4: "24 Store",
-      id: 5,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-g9-49-inch-240hz-1ms-curved-lc49g95tsswxxl/",
+      disc: "45% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/in-gaming-monitor-c49g95tssw-lc49g95tsswxxl-frontwhite-335279681?$684_547_PNG$",
+      descr:
+        'Gaming Monitor with 32:9 aspect ratio display (49") LC49G95TSSWXXL',
+      price: "₹ 138399",
+      offer: "₹ 250000",
     },
     {
-      imgsrc: "https://cdn.modesens.com/availability/48287774?w=400&",
-      text1: "GANNI",
-      text2: "Women's Black Other Materials Sandals",
-      text3: "$190 - $471",
-      text4: "24 Store",
-      id: 6,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-g30a-27-inch-144hz-freesync-ls27ag304nwxxl/",
+      disc: "15% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/ls27ag304nwxxl/gallery/in-odyssey-g3-g30a-ls27ag304nwxxl-530836775?$2052_1641_PNG$",
+      descr:
+        '68.9cm (27") Gaming Monitor with 144Hz refresh rate and AMD FreeSync\n                                            Premium',
+      price: "₹ 19899",
+      offer: "₹ 23500",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/7298931_66?w=400&",
-      text1: "BURBERRY",
-      text2: "Bbry Carrick Top Tee Cn Ss Chckd Logo Sl In White",
-      text3: "$341 - $570",
-      text4: "24 Store",
-      id: 7,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-g7-32-inch-240hz-1ms-curved-lc32g75tqswxxl/",
+      disc: "34% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/lc32g75tqswxxl/gallery/in-64-8cm-27-gaming-monitor-with-wqhd-resolution-240hz-refresh-rate-lc32g75tqswxxl-501390268?$684_547_PNG$",
+      descr: 'Gaming Monitor with WQHD resolution (32") LC32G75TQSWXXL',
+      price: "₹ 47499",
+      offer: "₹ 72000",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/40615641_2?w=400&",
-      text1: "SAINT LAURENT",
-      text2: "Université Oversize Cotton Logo Graphic Sweatshirt In Lilla",
-      text3: "$380 - $890",
-      text4: "24 Store",
-      id: 8,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-crg5-24-inch-lc24rg50fzwxxl/",
+      disc: "54% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/lc24rg50fzwxxl/gallery/in-c24rg5-lc24rg50fzwxxl-531703293?$2052_1641_PNG$",
+      descr: '59.8cm (23.5") Curved Gaming Monitor LC24RG50FZWXXL',
+      price: "₹ 14899",
+      offer: "₹ 32300",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/7298931_66?w=400&",
-      text1: "ALEXANDER MCQUEEN",
-      text2: "Crossover-strap Slim-fit Stretch-knit Mini Dress In Black",
-      text3: "$892 - $1999",
-      text4: "24 Store",
-      id: 9,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-g70a-28-inch-ls28ag700nwxxl/",
+      disc: "38% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/ls28ag700nwxxl/gallery/in-odyssey-g7-g70a-ls28ag700nwxxl-531705536?$2052_1641_PNG$",
+      descr:
+        '71.1cm (28") Gaming Monitor With UHD resolution and 144hz refresh rate\n                                            LS28AG700NWXXL',
+      price: "₹ 46399",
+      offer: "₹ 75000",
     },
     {
-      imgsrc:
-        "https://res.cloudinary.com/ssenseweb/image/upload/b_white%2Cc_lpad%2Cg_center%2Ch_960%2Cw_960/c_scale%2Ch_680/f_auto%2Cdpr_1.0/212144F109000_1.jpg",
-      text1: "BURBERRY",
-      text2: "Cotton Poplin Collared Sleeveless Top In White",
-      text3: "$70 - $170",
-      text4: "24 Store",
-      id: 10,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-neo-g7-g75nb-32-inch-ls32bg750nwxxl/",
+      disc: "38% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/ls32bg750nwxxl/gallery/in-odyssey-neo-g7-g75nb-ls32bg750nwxxl-533184849?$1300_1038_PNG$",
+      descr:
+        '81.3cm (32") UHD Gaming monitor with Quantum Mini-LED and 165Hz refresh rate LS32BG750NWXXL',
+      price: "₹ 71799",
+      offer: "₹ 115000",
     },
     {
-      imgsrc: "https://cdn.modesens.com/availability/48383362?w=400&",
-      text1: "ALEXANDER MCQUEEN",
-      text2: "Alexander Macqueen Woman's Black Rave Buckle Leather Ankle Boots",
-      text3: "$553 - $1554",
-      text4: "24 Store",
-      id: 11,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-neo-g8-g85nb-32-inch-ls32bg850nwxxl/",
+      disc: "34% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/ls32bg850nwxxl/gallery/in-odyssey-neo-g8-g85nb-ls32bg850nwxxl-533188031?$1300_1038_PNG$",
+      descr:
+        '81.3cm (32") UHD Gaming monitor with Quantum Mini-LED and 240Hz refresh rate LS32BG850NWXXL',
+      price: "₹ 82899",
+      offer: "₹ 125000",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/41449769_2?w=400&",
-      text1: "JACQUEMUS",
-      text2: "La Robe Limao Cutout Halter Neck Minidress In Pink",
-      text3: "$353 - $775",
-      text4: "24 Store",
-      id: 12,
+      lapyurl:
+        "https://www.samsung.com/in/monitors/gaming/odyssey-g4-g40b-25-inch-ls25bg400ewxxl/",
+      disc: "51% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/ls25bg400ewxxl/gallery/in-odyssey-g4-25g40b-ls25bg400ewxxl-532970873?$1300_1038_PNG$",
+      descr:
+        '63.5cm (25") FHD Gaming Monitor With IPS panel, 240Hz refresh rate LS25BG400EWXXL',
+      price: "₹ 22099",
+      offer: "₹ 45000",
     },
   ];
   return (
     <>
       <div className={styles.mid2text}>
         <h2>
-          <span>Trending Now</span>
+          <span>Trending Now In Lappy</span>
         </h2>
       </div>
+      <Box w="95%" m="auto">
       <Swiper
         breakpoints={{
           0: {
@@ -418,9 +460,7 @@ const Product1 = () => {
             spaceBetween: 30,
           },
         }}
-        // slidesPerView={4}
-        // spaceBetween={30}
-        slidesPerGroup={3}
+        slidesPerGroup={4}
         loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
@@ -433,14 +473,19 @@ const Product1 = () => {
         {productdata1.map((el) => (
           <SwiperSlide className={styles.product1img} key={el.id}>
             <span>♡</span>
-            <img src={el.imgsrc} alt={"slide" + el.id} />
+            <img src={el.imgUrl} alt={"slide" + el.id} />
             <div className={styles.product1quckview}>
               <h2>QUICK VIEW</h2>
             </div>
             <Center>
               <VStack>
-                <Text fontWeight={"600"} fontSize={"15px"} mt={"1rem"}>
-                  {el.text1}
+                <Text
+                  fontWeight={"600"}
+                  fontSize={"15px"}
+                  mt={"1rem"}
+                  noOfLines={2}
+                >
+                  {el.descr}
                 </Text>
                 <Text
                   color={"#A3A3A3"}
@@ -448,17 +493,20 @@ const Product1 = () => {
                   fontSize={"12px"}
                   noOfLines={1}
                 >
-                  {el.text2}
+                  {el.offer}
                 </Text>
-                <Text fontSize={"12px"} fontWeight={"500"}>
-                  {el.text3}
+                <Text fontSize={"15px"} fontWeight={"500"}>
+                  {el.price}
                 </Text>
-                <Text fontSize={"12px"}>{el.text4}</Text>
+                <Text mb={"20px"} fontSize={"12px"}>
+                  {el.disc}
+                </Text>
               </VStack>
             </Center>
           </SwiperSlide>
         ))}
       </Swiper>
+      </Box>
 
       <Center>
         <button className={styles.blackbuttonhover}>VIEW MORE</button>
@@ -470,111 +518,150 @@ const Product1 = () => {
 const Product2 = () => {
   const productdata1 = [
     {
-      imgsrc: "https://cdn.modesens.com/product/7298931_66?w=400&",
-      text1: "BURBERRY",
-      text2: "Bbry Carrick Top Tee Cn Ss Chckd Logo Sl In White",
-      text3: "$341 - $570",
-      text4: "24 Store",
-      id: 1,
+      disc: "18% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-m136bdbdins/gallery/in-galaxy-m13-5g-4gb-sm-m136bdbdins-533154468?$1300_1038_PNG$",
+      descr: "Galaxy M13 5G (4GB | 64GB)",
+      price: "₹ 13999",
+      offer: "₹ 16999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/availability/47635068?w=400&",
-      text1: "ZIMMERMANN",
-      text2: "Dancer Empire-waist Linen-silk Blend Midi Dress In Pink",
-      text3: "$548 - $952",
-      text4: "24 Store",
-      id: 2,
+      disc: "20% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-m536bzbeinu/gallery/in-galaxy-m53-5g-sm-m536-sm-m536bzbeinu-532180211?$2052_1641_PNG$",
+      descr: "Galaxy M53 5G (6GB | 128GB)",
+      price: "₹ 26499",
+      offer: "₹ 32999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/10535447_122?w=400&",
-      text1: "BALMAIN",
-      text2: "Square-neck Button-shoulder Ribbed Top In Blue",
-      text3: "$560 - $1150",
-      text4: "24 Store",
-      id: 3,
+      disc: "24% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-m336bzbpins/gallery/in-galaxy-m33-5g-6gb-ram-sm-m336bzbpins-531839740?$2052_1641_PNG$",
+      descr: "Galaxy M33 5G (6GB | 128GB)",
+      price: "₹ 18999",
+      offer: "₹ 24999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/18444081_124?w=400&",
-      text1: "BURBERRY",
-      text2:
-        "Net Sustain Checked Poplin-trimmed Cotton-jersey T-shirt In Black",
-      text3: "$355 - $605",
-      text4: "24 Store",
-      id: 4,
+      disc: "20% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e135fiddins/gallery/in-galaxy%C2%A0f13-4gb-sm-e135fiddins-532880446?$1300_1038_PNG$",
+      descr: "Galaxy F13 (4GB | 64GB)",
+      price: "₹ 11999",
+      offer: "₹ 14999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/availability/37731631?w=400&",
-      text1: "ALEXANDER MCQUEEN",
-      text2: "Glossed-leather Exaggerated-sole Loafers In Black",
-      text3: "$528 - $913",
-      text4: "24 Store",
-      id: 5,
+      disc: "25% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e426bzbgins/gallery/in-galaxy-f42-5g-6gb-ram-sm-e426bzbgins-514539974?$2052_1641_PNG$",
+      descr: "Galaxy F42 5G (6GB | 128GB)",
+      price: "₹ 17999",
+      offer: "₹ 23999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/availability/48287774?w=400&",
-      text1: "GANNI",
-      text2: "Women's Black Other Materials Sandals",
-      text3: "$190 - $471",
-      text4: "24 Store",
-      id: 6,
+      disc: "19% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-m536bzbfinu/gallery/in-galaxy-m53-5g-sm-m536-421705-sm-m536bzbfinu-532181615?$2052_1641_PNG$",
+      descr: "Galaxy M53 5G (8GB | 128GB)",
+      price: "₹ 28499",
+      offer: "₹ 34999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/7298931_66?w=400&",
-      text1: "BURBERRY",
-      text2: "Bbry Carrick Top Tee Cn Ss Chckd Logo Sl In White",
-      text3: "$341 - $570",
-      text4: "24 Store",
-      id: 7,
+      disc: "21% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-m336bzgrins/gallery/in-galaxy-m33-5g-8gb-ram-sm-m336bzgrins-531842525?$2052_1641_PNG$",
+      descr: "Galaxy M33 5G (8GB | 128GB)",
+      price: "₹ 20499",
+      offer: "₹ 25999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/40615641_2?w=400&",
-      text1: "SAINT LAURENT",
-      text2: "Université Oversize Cotton Logo Graphic Sweatshirt In Lilla",
-      text3: "$380 - $890",
-      text4: "24 Store",
-      id: 8,
+      disc: "12% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-f127glbgins/gallery/in-galaxy-f12-4gb-ram-sm-f127glbgins-419015707?$684_547_PNG$",
+      descr: "Galaxy F12 (4GB | 64GB)",
+      price: "₹ 11499",
+      offer: "₹ 12999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/7298931_66?w=400&",
-      text1: "ALEXANDER MCQUEEN",
-      text2: "Crossover-strap Slim-fit Stretch-knit Mini Dress In Black",
-      text3: "$892 - $1999",
-      text4: "24 Store",
-      id: 9,
+      disc: "23% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e426bzahins/gallery/in-galaxy-f42-5g-8gb-ram-sm-e426bzahins-514504593?$2052_1641_PNG$",
+      descr: "Galaxy F42 5G (8GB | 128GB)",
+      price: "₹ 19999",
+      offer: "₹ 25999",
     },
     {
-      imgsrc:
-        "https://res.cloudinary.com/ssenseweb/image/upload/b_white%2Cc_lpad%2Cg_center%2Ch_960%2Cw_960/c_scale%2Ch_680/f_auto%2Cdpr_1.0/212144F109000_1.jpg",
-      text1: "BURBERRY",
-      text2: "Cotton Poplin Collared Sleeveless Top In White",
-      text3: "$70 - $170",
-      text4: "24 Store",
-      id: 10,
+      disc: "12% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-a736bzaginu/gallery/in-galaxy-a73-5g-a736-sm-a736bzaginu-531831004?$PD_GALLERY_L_JPG$",
+      descr: "Galaxy A73 5G (8GB | 128GB)",
+      price: "₹ 41999",
+      offer: "₹ 47490",
     },
     {
-      imgsrc: "https://cdn.modesens.com/availability/48383362?w=400&",
-      text1: "ALEXANDER MCQUEEN",
-      text2: "Alexander Macqueen Woman's Black Rave Buckle Leather Ankle Boots",
-      text3: "$553 - $1554",
-      text4: "24 Store",
-      id: 11,
+      disc: "23% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/2202/gallery/in-galaxy-a53-5g-a536-sm-a536elbdins-531436087?$PD_GALLERY_L_JPG$",
+      descr: "Galaxy A53 5G (6GB | 128GB)",
+      price: "₹ 31499",
+      offer: "₹ 40999",
     },
     {
-      imgsrc: "https://cdn.modesens.com/product/41449769_2?w=400&",
-      text1: "JACQUEMUS",
-      text2: "La Robe Limao Cutout Halter Neck Minidress In Pink",
-      text3: "$353 - $775",
-      text4: "24 Store",
-      id: 12,
+      disc: "23% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-a336elbpins/gallery/in-galaxy-a33-5g-a336-sm-a336elbpins-531437082?$PD_GALLERY_L_JPG$",
+      descr: "Galaxy A33 5G (6GB | 128GB)",
+      price: "₹ 25499",
+      offer: "₹ 32999",
+    },
+    {
+      disc: "22% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/2202/gallery/in-galaxy-a53-5g-a536-416923-sm-a536elbgins-531436247?$PD_GALLERY_L_JPG$",
+      descr: "Galaxy A53 5G (8GB | 128GB)",
+      price: "₹ 32999",
+      offer: "₹ 42499",
+    },
+    {
+      disc: "23% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-a336ezkrins/gallery/in-galaxy-a33-5g-a336-416930-sm-a336ezkrins-531437280?$PD_GALLERY_L_JPG$",
+      descr: "Galaxy A33 5G (8GB | 128GB)",
+      price: "₹ 26999",
+      offer: "₹ 34999",
+    },
+    {
+      disc: "23% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-a235flbhins/gallery/in-galaxy-a23-sm-a235-sm-a235flbhins-531577286?$2052_1641_PNG$",
+      descr: "Galaxy A23 (6GB | 128GB)",
+      price: "₹ 18499",
+      offer: "₹ 23990",
+    },
+    {
+      disc: "",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-a035fzbdins/gallery/in-galaxy-a03-a035m-sm-a035fzbdins-531298431?$2052_1641_PNG$",
+      descr: "Galaxy A03 (3GB | 32GB)",
+      price: "₹ 10499",
+      offer: "",
+    },
+    {
+      disc: "10% off",
+      imgUrl:
+        "https://images.samsung.com/is/image/samsung/p6pim/in/sm-a736blghinu/gallery/in-galaxy-a73-5g-a736-sm-a736blghinu-531830984?$PD_GALLERY_L_JPG$",
+      descr: "Galaxy A73 5G (8GB | 256GB)",
+      price: "₹ 44999",
+      offer: "₹ 49990",
     },
   ];
   return (
     <>
       <div className={styles.mid2text}>
         <h2>
-          <span>Recently Viewed</span>
+          <span>Trending Viewed In Mobile</span>
         </h2>
       </div>
+      <Box w="95%" m="auto">
       <Swiper
         breakpoints={{
           0: {
@@ -598,7 +685,7 @@ const Product2 = () => {
             spaceBetween: 30,
           },
         }}
-        slidesPerGroup={3}
+        slidesPerGroup={4}
         loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
@@ -611,14 +698,19 @@ const Product2 = () => {
         {productdata1.map((el) => (
           <SwiperSlide className={styles.product1img} key={el.id}>
             <span>♡</span>
-            <img src={el.imgsrc} alt={"slide" + el.id} />
+            <img src={el.imgUrl} alt={"slide" + el.id} />
             <div className={styles.product1quckview}>
               <h2>QUICK VIEW</h2>
             </div>
             <Center>
               <VStack>
-                <Text fontWeight={"600"} fontSize={"15px"} mt={"1rem"}>
-                  {el.text1}
+                <Text
+                  fontWeight={"600"}
+                  fontSize={"15px"}
+                  mt={"1rem"}
+                  noOfLines={2}
+                >
+                  {el.descr}
                 </Text>
                 <Text
                   color={"#A3A3A3"}
@@ -626,18 +718,20 @@ const Product2 = () => {
                   fontSize={"12px"}
                   noOfLines={1}
                 >
-                  {el.text2}
+                  {el.offer}
                 </Text>
-                <Text fontSize={"12px"} fontWeight={"500"}>
-                  {el.text3}
+                <Text fontSize={"15px"} fontWeight={"500"}>
+                  {el.price}
                 </Text>
-                <Text fontSize={"12px"}>{el.text4}</Text>
+                <Text mb={"20px"} fontSize={"12px"}>
+                  {el.disc}
+                </Text>
               </VStack>
             </Center>
           </SwiperSlide>
         ))}
       </Swiper>
-
+</Box>
       <Center>
         <button className={styles.blackbuttonhover}>VIEW MORE</button>
       </Center>
@@ -648,121 +742,11 @@ const Product2 = () => {
 const Lastslider = () => {
   return (
     <>
-      <div className={styles.mid2text}>
-        <h2>
-          <span>Community Posts</span>
-        </h2>
-      </div>
-      <Swiper
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          480: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-          1280: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-        }}
-        slidesPerGroup={3}
-        loop={true}
-        loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{ delay: 5000 }}
-        navigation={true}
-        modules={[Pagination, Navigation, Autoplay]}
-      >
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1593167s?w=400&"
-            alt="slide1"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1592136s?w=400&"
-            alt="slide2"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1587648s?w=400&"
-            alt="Slide3"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/14180s?w=400&"
-            alt="Slide4"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1587542s?w=400&"
-            alt="Slide5"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1567328s?w=400&"
-            alt="Slide6"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1564720s?w=400&"
-            alt="Slide7"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1567811s?w=400&"
-            alt="Slide8"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1572505s?w=400&"
-            alt="Slide9"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1580264s?w=400&"
-            alt="slide10"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1583751s?w=400&"
-            alt="slide11"
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.lastsliderimg}>
-          <img
-            src="https://cdn.modesens.com/umedia/1580264s?w=400&"
-            alt="slide12"
-          />
-        </SwiperSlide>
-      </Swiper>
-
-      <Center>
-        <button className={styles.blackbuttonhover}>VIEW ALL</button>
-      </Center>
+      <div className={styles.mid2text}></div>
+      <Image src="https://i02.appmifile.com/951_operator_sg/05/08/2021/b18c28f62fdfb784ed90eece534c91d6.jpg" />
+      <Image src="https://i02.appmifile.com/336_operator_sg/05/08/2021/61bc0ccb604da41e5c10a669b8071224.jpg" />
+      <Image src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-e-learning-edition/section08.jpg" />
+      <Image src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-e-learning-edition/talktet-pc.jpg" />
     </>
   );
 };

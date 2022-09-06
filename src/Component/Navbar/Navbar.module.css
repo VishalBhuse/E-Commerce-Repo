@@ -1,61 +1,48 @@
-.close
-{
-  font-size:x-large;
-  border: 1px  red;
+.close {
+  font-size: x-large;
+  border: 1px red;
   display: flex;
   justify-content: end;
   cursor: pointer;
 }
 
-.logo
-{
+.logo {
   width: 40%;
-    margin: auto;
-  
+  margin: auto;
 }
 
-.inputBox
-{
+.inputBox {
   margin-top: 4%;
   text-align: center;
-
 }
 
-.logBtn
-{
+.logBtn {
   background-color: black;
   color: white;
-  
 }
 
-.line:before, .line:after {
-  content:'\00a0\00a0\00a0\00a0\00a0\00a0';
+.line:before,
+.line:after {
+  /* content: "\00a0\00a0\00a0\00a0\00a0\00a0"; */
   text-decoration: line-through;
   margin: auto 0.5em;
-  border: 1px  red;
-  
-  
+  border: 1px red;
 }
 
-
-.wrapper
-{
-  border: 1px  red;
+.wrapper {
+  border: 1px red;
   display: flex;
   justify-content: center;
   gap: 70px;
   margin-top: 18px;
   margin-bottom: 18px;
-
 }
 
-.wrapper div
-{
-  border: 1px  green;
+.wrapper div {
+  border: 1px green;
 }
 
-.wrapper img
-{
+.wrapper img {
   width: 40px;
   height: 40px;
   object-fit: contain;

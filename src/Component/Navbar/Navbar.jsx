@@ -323,21 +323,19 @@ export default function Navbar() {
 
             <HStack>
               <FiSearch />
-              <Text>
-                <Menu>
-                  <MenuButton as={Box} style={{ cursor: "pointer" }}>
-                    Search
-                  </MenuButton>
-                  <MenuList width={"100%"} mr="150px" p={0}>
-                    <HStack>
-                      <Input
-                        placeholder="Search by keyword and store URL"
-                        width={"100%"}
-                      />
-                    </HStack>
-                  </MenuList>
-                </Menu>
-              </Text>
+              <Menu>
+                <MenuButton as={Box} style={{ cursor: "pointer" }}>
+                  Search
+                </MenuButton>
+                <MenuList width={"100%"} mr="150px" p={0}>
+                  <HStack>
+                    <Input
+                      placeholder="Search by keyword and store URL"
+                      width={"100%"}
+                    />
+                  </HStack>
+                </MenuList>
+              </Menu>
             </HStack>
           </Stack>
         </Flex>
@@ -356,7 +354,7 @@ const DesktopNav = () => {
     <Stack direction={"row"} spacing={4}>
       <Box>
         <HStack spacing={"25px"}>
-          <Link to={"/products/0"}>
+          <Link to={"/markup"}>
             <Text
               fontSize={"13px"}
               fontWeight={"500"}
@@ -365,7 +363,7 @@ const DesktopNav = () => {
                 borderBottom: "1px solid red",
               }}
             >
-              WOMEN
+              Laptop
             </Text>
           </Link>
           <Link to={"/products/1"}>
@@ -378,10 +376,10 @@ const DesktopNav = () => {
                 borderBottom: "1px solid red",
               }}
             >
-              MEN
+              Mobile
             </Text>
           </Link>
-          <Link to={"/products/2"}>
+          <Link to={"/review"}>
             <Text
               border="1px inherit"
               _hover={{
@@ -391,10 +389,10 @@ const DesktopNav = () => {
               fontSize={"13px"}
               fontWeight={"500"}
             >
-              BEAUTY
+              Reviews
             </Text>
           </Link>
-          <Link to={"/products/3"}>
+          <Link to={"/about"}>
             <Text
               border="1px inherit"
               _hover={{
@@ -404,10 +402,10 @@ const DesktopNav = () => {
               fontSize={"13px"}
               fontWeight={"500"}
             >
-              KIDS
+              About Us
             </Text>
           </Link>
-          <Link to={"/products/4"}>
+          <Link to={"/faq"}>
             <Text
               border="1px inherit"
               _hover={{
@@ -417,10 +415,10 @@ const DesktopNav = () => {
               fontSize={"13px"}
               fontWeight={"500"}
             >
-              HOME
+              Faq
             </Text>
           </Link>
-          <Link to={"#"}>
+          <Link to={"/help"}>
             <Text
               border="1px inherit"
               _hover={{
@@ -430,7 +428,7 @@ const DesktopNav = () => {
               fontSize={"13px"}
               fontWeight={"500"}
             >
-              OFFERS
+              Help
             </Text>
           </Link>
           <Link to={"/products/5"}>
@@ -487,10 +485,10 @@ const MobileNav = () => {
     >
       <Box>
         <VStack>
-          <Link to={"#"}>WOMEN</Link>
-          <Link to={"#"}>MEN</Link>
-          <Link to={"#"}>BEAUTY</Link>
-          <Link to={"#"}>KIDS</Link>
+          <Link to={"#"}>Laptop</Link>
+          <Link to={"#"}>Mobile</Link>
+          <Link to={"#"}>Reviews</Link>
+          <Link to={"#"}>About Us</Link>
           <Link
             to={"#"}
             p={2}
@@ -498,16 +496,16 @@ const MobileNav = () => {
             fontWeight={"500"}
             color={"grey.300"}
           >
-            HOME
+            Faq
           </Link>
           <Link
-            to={"#"}
+            to={"/help"}
             p={2}
             fontSize={"15px"}
             fontWeight={"500"}
             color={"grey.300"}
           >
-            OFFERS
+            Help
           </Link>
           <Link
             to={"#"}
