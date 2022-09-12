@@ -16,7 +16,7 @@ import { DeleteIcon } from "@chakra-ui/icons";
 import { deleteitem, getCart } from "../../Redux/CartReducer/action";
 export const CartShowList = (props) => {
   const { price, type, title, quantity, vendor, id } = props;
-  const { src } = props.images[0];
+  // const { src } = props.src;
   const [count, setCount] = useState(quantity);
   const [abovethreeOrder, setAbovethreeOrder] = useState(false);
   const dispatch = useDispatch();
@@ -65,7 +65,7 @@ export const CartShowList = (props) => {
       >
         <Stack direction={"row"}>
           <Box w={"120px"} h="150px">
-            <Image src={src} />
+            <Image src={props.src} />
           </Box>
           <Box width={"180px"} overflow={"hidden"} whiteSpace={"nowrap"}>
             <Text>{title}</Text>
@@ -119,7 +119,7 @@ export const CartShowList = (props) => {
               w="40px"
               m={"auto"}
             >
-              {quantity}
+              {props.qty}
             </Box>
             <Button
               borderRadius="0px"

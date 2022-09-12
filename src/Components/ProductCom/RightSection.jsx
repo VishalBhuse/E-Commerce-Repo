@@ -67,7 +67,8 @@ export const RightSection = () => {
 
   const FetchDataFromServer = () => {
     axios
-      .get(`http://localhost:8080/${category}?_page=${curretpage}&_limit=50`)
+      // .get(`https://ecommercecombine.herokuapp.com/${category}?_page=${curretpage}&_limit=50`)
+      .get(`https://ecommercecombine.herokuapp.com/${category}`)
       .then((res) => {
         console.log(res.data);
         setproducts(res.data);

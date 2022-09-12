@@ -20,11 +20,11 @@ export const ProductCard = (props) => {
   const AddToFevrate = () => {
     let newWishList=[...WithListData]
     let newProId=[...ProId]
-    if(ProId.includes(props.item.id)){
-      newProId.splice(newProId.indexOf(props.item.id),1)
-      newWishList.splice(ProId.indexOf(props.item.id),1)
+    if(ProId.includes(props.item.src)){
+      newProId.splice(newProId.indexOf(props.item.src),1)
+      newWishList.splice(ProId.indexOf(props.item.src),1)
     }else{
-      newProId=[...ProId,props.item.id]
+      newProId=[...ProId,props.item.src]
       newWishList = [...WithListData,props.item]
     }
 
@@ -38,14 +38,14 @@ export const ProductCard = (props) => {
     <Box  py={2}>
       <Box mt={1} align="right">
         <Box w="30px" h="30px" mr={1} align="center" onClick={()=>AddToFevrate()} cursor={"pointer"}>
-          {ProId.includes(props.item.id)?
+          {ProId.includes(props.item.src)?
           <AiFillHeart style={{ fontSize: "30px", color:"red" }}/>:
           <AiOutlineHeart style={{ fontSize: "30px" }} />
           }
         </Box>
       </Box>
       <Link
-       to={`/${props.category}/${props.item.id}`}>
+       to={`/${props.category}/${props.item._id}`}>
       <Img
         id="ImageClass"
         cursor={"pointer"}

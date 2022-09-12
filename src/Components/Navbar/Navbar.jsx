@@ -363,7 +363,7 @@ const DesktopNav = () => {
               Laptop
             </Text>
           </Link>
-          <Link to={"/products/1"}>
+          <Link to={"/mobiles"}>
             <Text
               fontSize={"13px"}
               fontWeight={"500"}

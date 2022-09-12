@@ -21,12 +21,13 @@ export const SingleProduct = () => {
 
   const getData = () => {
     axios
-      .get(`http://localhost:8080/${category}/${id}`)
+      .get(`https://ecommercecombine.herokuapp.com/${category}/${id}`)
       .then((res) => {
+        console.log(res.data);
         setcurrentProduct(res.data);
-        setcurrentImage1(res.data.images[0].src);
-        setcurrentImage2(res.data.images[1].src);
-        setActiveImage(res.data.images[0].src)
+        setcurrentImage1(res.data.src);
+        setcurrentImage2(res.data.src2);
+        setActiveImage(res.data.src)
       })
       .catch((err) => {
         console.log(err);
@@ -95,32 +96,8 @@ addtocart(
           <span style={{ fontWeight: "bold", fontSize: "22px" }}>
             ₹ {currentProduct.price}{" "}
           </span>
-          <span className={style.text}>
-            4 interest-free payments of $20.50 with Klarna.
-          </span>
-          <p className={style.desc}>
-            A hydrating, oil-free gel foundation with a refreshing and
-            lightweight texture.<strong> BlueRewards Exclusive!</strong>5-piece
-            deluxe sample bag free with any ₹1400+ purchase
-          </p>
-
-          <div className={style.giftBox}>
-            <div>
-              <img
-                src="https://cdn.shopify.com/s/files/1/0283/0185/2747/products/global_images-656509807154-1_64x.jpg?v=1653615606"
-                alt=""
-              />
-            </div>
-            <div style={{ letterSpacing: "1px" }}>
-              <p style={{ color: "grey", fontSize: "14px" }}>
-                Free Gift with Purchase
-              </p>
-              <p style={{ fontSize: "15px" }}>Summer Skincare Essentials</p>
-              <p style={{ color: "grey", fontSize: "14px" }}>
-                Free with any ₹2000+ Chantecaille purchase
-              </p>
-            </div>
-          </div>
+          
+       
 
           <div className={style.btnDiv}>
            
@@ -132,13 +109,6 @@ addtocart(
             </div>
           </div>
         </div>
-      </div>
-
-      <div className={style.aboutDiv}>
-        <ProductAbout />
-      </div>
-      <div className={style.sliderDiv}>
-      <SliderComponent />
       </div>
     </div>
   );

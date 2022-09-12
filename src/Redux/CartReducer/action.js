@@ -21,7 +21,7 @@ console.log(currentProduct)
          });
      };
 
-     export const getCart = async (dispatch) => {
+     export const getCart  = async (dispatch) => {
         dispatch({
           type: GET_CART_REQUEST
         });

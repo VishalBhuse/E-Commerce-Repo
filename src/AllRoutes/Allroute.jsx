@@ -8,6 +8,10 @@ import { Faq } from "../Pages/FAQ/Faq";
 import { Help } from "../Pages/Help/Help";
 import { Review } from "../Pages/Reviews/Revies";
 import { Products } from '../Pages/Products/Products';
+import { SingleProduct } from '../Components/SingleProCom/SingleProduct';
+import { MainCartBag } from '../Components/CartCom/MainCartBag';
+import { CheckOutPage } from '../Components/CheckOutCom/CheckOutPage';
+
 
 
 export const Allroute = () => {
@@ -21,14 +25,15 @@ export const Allroute = () => {
         <Route path="/faq" element={<Faq />} />
         <Route path="/help" element={<Help />} />
         <Route path="/:category" element={<Products />} />
-        {/* <Route path="/:category/:id" element={<SingleProduct />} />
-        <Route path="/mainCartBag" element={<MainCartBag />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/checkout" element={<CheckOutPage />} /> */}
+        <Route path="/:category/:id" element={<SingleProduct />} />
+        <Route path="/cart" element={<MainCartBag />} />
+        <Route path="/checkout" element={<CheckOutPage />} />
+        {/* <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} /> */}
       </Routes>
 
       <Footer />
+      <button onClick={()=>{}}>Test</button>
     </>
   );
 };
