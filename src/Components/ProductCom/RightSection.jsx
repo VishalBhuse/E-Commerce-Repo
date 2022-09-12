@@ -16,13 +16,14 @@ import { Pagination } from "./Pagination";
 import { ProductCard } from "./ProductCard";
 import axios from "axios";
 
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ADD_FILLTER } from "../../Redux/FillterReducer/actionType";
 
 export const RightSection = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const Fillter = useSelector((store) => store.Fillters.Fillter);
-  const [curretpage, setcurretpage] = useState(1);
+  const [curretpage, setcurretpage] = useState(Number(searchParams.get("page")) || 1);
   const [products, setproducts] = useState([]);
   const [sort, setsort] = useState("");
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ export const RightSection = () => {
     } else {
       setcurretpage(direction);
     }
+
   };
 
   const RemoveTag = (category) => {
@@ -66,12 +68,12 @@ export const RightSection = () => {
   };
 
   const FetchDataFromServer = () => {
+    setSearchParams({curretpage})
     axios
-      // .get(`https://ecommercecombine.herokuapp.com/${category}?_page=${curretpage}&_limit=50`)
-      .get(`https://ecommercecombine.herokuapp.com/${category}`)
-      .then((res) => {
-        console.log(res.data);
-        setproducts(res.data);
+    .get(`https://ecommercecombine.herokuapp.com/${category}?page=${curretpage}`)
+    .then((res) => {
+        console.log(res.data.data, category);
+        setproducts(res.data.data);
       })
       .catch((err) => {
         console.log(err);

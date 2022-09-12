@@ -1,3 +1,4 @@
+import { loadData, saveData } from "../../utils/localStorage"
 import { GET_CART_FALIURE, GET_CART_REQUEST, GET_CART_SUCCESS } from "./actionTypes"
 
 
@@ -5,7 +6,7 @@ const intialState={
 
     isLoading:false,
     isError:"",
-    AddtoCart:[]
+    AddtoCart:loadData("Cart")||[]
 }
 
 export const Cartreducer=(state=intialState,action)=>
@@ -23,6 +24,7 @@ switch(type)
         };
         case GET_CART_SUCCESS:
             {
+                saveData("Cart",payload)
                 return {
                     ...state,
                     isError:"",

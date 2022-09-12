@@ -11,7 +11,7 @@ import { getCart } from "../../Redux/CartReducer/action";
 export const MainCartBag = () => {
   const dispatch = useDispatch()
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
-  console.log(AddtoCart);
+  console.log(AddtoCart,"get from redux");
 
   const uniqueIds = [];
 

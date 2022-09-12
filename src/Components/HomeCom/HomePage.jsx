@@ -69,7 +69,7 @@ const HomePage = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {newArrival.map((item)=>
+        {newArrival?.map((item)=>
         {
           return  <SwiperSlide>
           <Stack fontSize={"14px"}>
@@ -172,7 +172,7 @@ const HomePage = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {bestSeller.map((item)=>
+        {bestSeller?.map((item)=>
         {
           return  <SwiperSlide>
           <Stack fontSize={"14px"}>
@@ -268,7 +268,7 @@ const HomePage = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {tranding.map((item)=>
+        {tranding?.map((item)=>
         {
           return  <SwiperSlide>
           <Stack fontSize={"14px"}>

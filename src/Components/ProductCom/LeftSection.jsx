@@ -54,7 +54,7 @@ export const LeftSection = () => {
         FILTER BY
       </Heading>
       <Accordion allowToggle>
-        {Filter.map((obj, index) => (
+        {Filter?.map((obj, index) => (
           <AccordionItem key={index}>
             <h2>
               <AccordionButton>
@@ -88,7 +88,7 @@ export const LeftSection = () => {
                   },
                 }}
               >
-                {obj.Sub.map((item, index) => (
+                {obj.Sub?.map((item, index) => (
                   <Checkbox
                     color={"#657fa1"}
                     defaultChecked={Fillter?.includes(item) ? true : false}

@@ -470,7 +470,7 @@ const Product1 = () => {
         navigation={true}
         modules={[Pagination, Navigation, Autoplay]}
       >
-        {productdata1.map((el) => (
+        {productdata1?.map((el) => (
           <SwiperSlide className={styles.product1img} key={el.id}>
             <span>♡</span>
             <img src={el.imgUrl} alt={"slide" + el.id} />
@@ -695,7 +695,7 @@ const Product2 = () => {
         navigation={true}
         modules={[Pagination, Navigation, Autoplay]}
       >
-        {productdata1.map((el) => (
+        {productdata1?.map((el) => (
           <SwiperSlide className={styles.product1img} key={el.id}>
             <span>♡</span>
             <img src={el.imgUrl} alt={"slide" + el.id} />

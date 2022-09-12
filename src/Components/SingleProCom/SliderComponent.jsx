@@ -28,7 +28,7 @@ export const SliderComponent = () => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {bestSeller.map((item) => {
+          {bestSeller?.map((item) => {
             return (
               <SwiperSlide style={{height: "290px"}}>
                 {/* style={{boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}} */}
