@@ -81,7 +81,7 @@ export const RightSection = () => {
   };
   useEffect(() => {
     FetchDataFromServer();
-  }, [curretpage]);
+  }, [curretpage,category]);
 
   return (
     <Box w="72%" color={"#657fa1"}>
