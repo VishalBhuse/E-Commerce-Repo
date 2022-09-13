@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
   Box,
-  Grid,
-  GridItem,
   Heading,
   Select,
+  SimpleGrid,
+  Skeleton,
   Stack,
   Switch,
   Tag,
@@ -21,9 +21,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { ADD_FILLTER } from "../../Redux/FillterReducer/actionType";
 
 export const RightSection = () => {
+  const [loading, setloading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const Fillter = useSelector((store) => store.Fillters.Fillter);
-  const [curretpage, setcurretpage] = useState(Number(searchParams.get("page")) || 1);
+  const [curretpage, setcurretpage] = useState(
+    Number(searchParams.get("page")) || 1
+  );
   const [products, setproducts] = useState([]);
   const [sort, setsort] = useState("");
   const dispatch = useDispatch();
@@ -55,7 +58,6 @@ export const RightSection = () => {
     } else {
       setcurretpage(direction);
     }
-
   };
 
   const RemoveTag = (category) => {
@@ -68,12 +70,15 @@ export const RightSection = () => {
   };
 
   const FetchDataFromServer = () => {
-    setSearchParams({curretpage})
+    setSearchParams({ curretpage });
     axios
-    .get(`https://ecommercecombine.herokuapp.com/${category}?page=${curretpage}`)
-    .then((res) => {
+      .get(
+        `https://ecommercecombine.herokuapp.com/${category}?page=${curretpage}`
+      )
+      .then((res) => {
         console.log(res.data.data, category);
         setproducts(res.data.data);
+        setloading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -81,10 +86,11 @@ export const RightSection = () => {
   };
   useEffect(() => {
     FetchDataFromServer();
-  }, [curretpage,category]);
+    setloading(true);
+  }, [curretpage, category]);
 
   return (
-    <Box w="72%" color={"#657fa1"}>
+    <Box color={"#5F6F94"}>
       <Box borderBottom={"1px solid"} h={"82px"}>
         <Stack direction="row" justifyContent={"space-between"}>
           <Heading textTransform={"uppercase"}>{category}</Heading>
@@ -105,18 +111,8 @@ export const RightSection = () => {
           </Stack>
         </Stack>
       </Box>
-
       <Stack direction="row" justifyContent="space-between" mt="2" mb={5}>
         <Heading size={"sm"}>{Fillter.length} FILTERS APPLIED</Heading>
-        <Stack direction="row" align="center" gap="10px">
-          <Text fontSize="sm" color={"#888c92"}>
-            Show out of stock items
-          </Text>
-          <Switch colorScheme="gray" />
-          <Text fontSize="sm" color={"#888c92"}>
-            1463 results
-          </Text>
-        </Stack>
       </Stack>
       <Box my={2}>
         {Fillter?.map((item, index) => (
@@ -133,14 +129,43 @@ export const RightSection = () => {
           </Tag>
         ))}
       </Box>
+      {loading ? (
+        <SimpleGrid columns={[1, 2, 2, 4]} spacing={10}>
+          <Box w="100%" h="270">
+            <Skeleton height="270px" />
+          </Box>
+          <Box w="100%" h="270">
+            <Skeleton height="270px" />
+          </Box>
+          <Box w="100%" h="270">
+            <Skeleton height="270px" />
+          </Box>
+          <Box w="100%" h="270">
+            <Skeleton height="270px" />
+          </Box>
 
-      <Grid templateColumns="repeat(4, 1fr)" gap={5}>
-        {products?.map((item, index) => (
-          <GridItem w="100%" h="350" key={index}>
-            <ProductCard item={item} category={category} />
-          </GridItem>
-        ))}
-      </Grid>
+          <Box w="100%" h="270">
+            <Skeleton height="270px" />
+          </Box>
+          <Box w="100%" h="270">
+            <Skeleton height="270px" />
+          </Box>
+          <Box w="100%" h="270">
+            <Skeleton height="270px" />
+          </Box>
+          <Box w="100%" h="270">
+            <Skeleton height="270px" />
+          </Box>
+        </SimpleGrid>
+      ) : (
+        <SimpleGrid columns={[1, 1, 2, 3, 4]} gap={7}>
+          {products?.map((item, index) => (
+            <Box w="100%" h={category == "laptop" ? "350" : "450"} key={index}>
+              <ProductCard item={item} category={category} />
+            </Box>
+          ))}
+        </SimpleGrid>
+      )}
 
       <Box w={"70%"} m={"20px auto"}>
         <Pagination

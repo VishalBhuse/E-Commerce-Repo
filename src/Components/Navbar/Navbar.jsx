@@ -21,7 +21,6 @@ import { AiOutlineUser } from "react-icons/ai";
 import { BsFillBagPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import React from "react";
-import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -70,12 +69,11 @@ export default function Navbar() {
               <DesktopNav />
             </Flex>
           </Flex>
-
           <Stack
             flex={{ base: 1, md: 0 }}
             justify={"flex-end"}
             direction={"row"}
-            spacing={3}
+            spacing={4}
             alignItems={"center"}
             fontSize="20px"
             mr="10px"

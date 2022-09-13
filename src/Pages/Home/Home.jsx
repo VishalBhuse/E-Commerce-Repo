@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Center,
-  Image,
-  SimpleGrid,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Center, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
@@ -17,6 +10,7 @@ import "swiper/css/grid";
 import "swiper/css/autoplay";
 import "./Home.css";
 import styles from "./Home.module.css";
+import { Link } from "react-router-dom";
 
 const Firstslider = () => {
   return (
@@ -193,8 +187,9 @@ const Thirdslider = () => {
                 <Text fontWeight={"600"}>
                   ₹ 23999 <i>₹ 28999</i>
                 </Text>
-
-                <button className={styles.blackbuttonhover}>BUY NOW</button>
+                <Link to="/mobiles">
+                  <button className={styles.blackbuttonhover}>BUY NOW</button>
+                </Link>
               </VStack>
             </Center>
           </SwiperSlide>
@@ -212,7 +207,9 @@ const Thirdslider = () => {
                 <Text fontWeight={"600"}>
                   ₹ 33999 <i>₹ 38999</i>
                 </Text>
-                <button className={styles.blackbuttonhover}>BUY NOW</button>
+                <Link to="/mobiles">
+                  <button className={styles.blackbuttonhover}>BUY NOW</button>
+                </Link>
               </VStack>
             </Center>
           </SwiperSlide>
@@ -230,7 +227,9 @@ const Thirdslider = () => {
                 <Text fontWeight={"600"}>
                   ₹ 33999 <i>₹ 38999</i>
                 </Text>
-                <button className={styles.blackbuttonhover}>BUY NOW</button>
+                <Link to="/mobiles">
+                  <button className={styles.blackbuttonhover}>BUY NOW</button>
+                </Link>{" "}
               </VStack>
             </Center>
           </SwiperSlide>
@@ -248,7 +247,9 @@ const Thirdslider = () => {
                 <Text fontWeight={"600"}>
                   ₹ 14999 <i>₹ 20999</i>
                 </Text>
-                <button className={styles.blackbuttonhover}>BUY NOW</button>
+                <Link to="/mobiles">
+                  <button className={styles.blackbuttonhover}>BUY NOW</button>
+                </Link>{" "}
               </VStack>
             </Center>
           </SwiperSlide>
@@ -267,7 +268,9 @@ const Thirdslider = () => {
                 <Text fontWeight={"600"}>
                   ₹ 13999 <i>₹ 18999</i>
                 </Text>
-                <button className={styles.blackbuttonhover}>BUY NOW</button>
+                <Link to="/mobiles">
+                  <button className={styles.blackbuttonhover}>BUY NOW</button>
+                </Link>{" "}
               </VStack>
             </Center>
           </SwiperSlide>
@@ -285,8 +288,9 @@ const Thirdslider = () => {
                 <Text fontWeight={"600"}>
                   ₹ 26999 <i>₹ 36999</i>
                 </Text>
-
-                <button className={styles.blackbuttonhover}>BUY NOW</button>
+                <Link to="/mobiles">
+                  <button className={styles.blackbuttonhover}>BUY NOW</button>
+                </Link>{" "}
               </VStack>
             </Center>
           </SwiperSlide>
@@ -294,7 +298,9 @@ const Thirdslider = () => {
       </div>
 
       <Center>
-        <button className={styles.blackbuttonhover}>VIEW MORE</button>
+        <Link to="/laptop">
+          <button className={styles.blackbuttonhover}>VIEW MORE</button>
+        </Link>
       </Center>
     </>
   );
@@ -437,79 +443,83 @@ const Product1 = () => {
         </h2>
       </div>
       <Box w="95%" m="auto">
-      <Swiper
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          480: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-          1280: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-        }}
-        slidesPerGroup={4}
-        loop={true}
-        loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{ delay: 5000 }}
-        navigation={true}
-        modules={[Pagination, Navigation, Autoplay]}
-      >
-        {productdata1?.map((el) => (
-          <SwiperSlide className={styles.product1img} key={el.id}>
-            <span>♡</span>
-            <img src={el.imgUrl} alt={"slide" + el.id} />
-            <div className={styles.product1quckview}>
-              <h2>QUICK VIEW</h2>
-            </div>
-            <Center>
-              <VStack>
-                <Text
-                  fontWeight={"600"}
-                  fontSize={"15px"}
-                  mt={"1rem"}
-                  noOfLines={2}
-                >
-                  {el.descr}
-                </Text>
-                <Text
-                  color={"#A3A3A3"}
-                  textAlign={"center"}
-                  fontSize={"12px"}
-                  noOfLines={1}
-                >
-                  {el.offer}
-                </Text>
-                <Text fontSize={"15px"} fontWeight={"500"}>
-                  {el.price}
-                </Text>
-                <Text mb={"20px"} fontSize={"12px"}>
-                  {el.disc}
-                </Text>
-              </VStack>
-            </Center>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <Swiper
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            480: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }}
+          slidesPerGroup={4}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          pagination={{
+            clickable: true,
+          }}
+          autoplay={{ delay: 5000 }}
+          navigation={true}
+          modules={[Pagination, Navigation, Autoplay]}
+        >
+          {productdata1?.map((el, index) => (
+            <SwiperSlide className={styles.product1img} key={index}>
+              <span>♡</span>
+              <img src={el.imgUrl} alt={"slide" + el.descr} />
+              <div className={styles.product1quckview}>
+                <Link to="/laptop">
+                  <h2>QUICK VIEW</h2>
+                </Link>
+              </div>
+              <Center>
+                <VStack>
+                  <Text
+                    fontWeight={"600"}
+                    fontSize={"15px"}
+                    mt={"1rem"}
+                    noOfLines={2}
+                  >
+                    {el.descr}
+                  </Text>
+                  <Text
+                    color={"#A3A3A3"}
+                    textAlign={"center"}
+                    fontSize={"12px"}
+                    noOfLines={1}
+                  >
+                    {el.offer}
+                  </Text>
+                  <Text fontSize={"15px"} fontWeight={"500"}>
+                    {el.price}
+                  </Text>
+                  <Text mb={"20px"} fontSize={"12px"}>
+                    {el.disc}
+                  </Text>
+                </VStack>
+              </Center>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Box>
 
       <Center>
-        <button className={styles.blackbuttonhover}>VIEW MORE</button>
+        <Link to="/laptop">
+          <button className={styles.blackbuttonhover}>VIEW MORE</button>
+        </Link>
       </Center>
     </>
   );
@@ -662,78 +672,83 @@ const Product2 = () => {
         </h2>
       </div>
       <Box w="95%" m="auto">
-      <Swiper
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          480: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-          1280: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-        }}
-        slidesPerGroup={4}
-        loop={true}
-        loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{ delay: 5000 }}
-        navigation={true}
-        modules={[Pagination, Navigation, Autoplay]}
-      >
-        {productdata1?.map((el) => (
-          <SwiperSlide className={styles.product1img} key={el.id}>
-            <span>♡</span>
-            <img src={el.imgUrl} alt={"slide" + el.id} />
-            <div className={styles.product1quckview}>
-              <h2>QUICK VIEW</h2>
-            </div>
-            <Center>
-              <VStack>
-                <Text
-                  fontWeight={"600"}
-                  fontSize={"15px"}
-                  mt={"1rem"}
-                  noOfLines={2}
-                >
-                  {el.descr}
-                </Text>
-                <Text
-                  color={"#A3A3A3"}
-                  textAlign={"center"}
-                  fontSize={"12px"}
-                  noOfLines={1}
-                >
-                  {el.offer}
-                </Text>
-                <Text fontSize={"15px"} fontWeight={"500"}>
-                  {el.price}
-                </Text>
-                <Text mb={"20px"} fontSize={"12px"}>
-                  {el.disc}
-                </Text>
-              </VStack>
-            </Center>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-</Box>
+        <Swiper
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            480: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }}
+          slidesPerGroup={4}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          pagination={{
+            clickable: true,
+          }}
+          autoplay={{ delay: 5000 }}
+          navigation={true}
+          modules={[Pagination, Navigation, Autoplay]}
+        >
+          {productdata1?.map((el, index) => (
+            <SwiperSlide className={styles.product1img} key={index}>
+              <span>♡</span>
+              <img src={el.imgUrl} alt={"slide" + el.descr} />
+              <div className={styles.product1quckview}>
+                <Link to="/mobiles">
+                  <h2>QUICK VIEW</h2>
+                </Link>
+              </div>
+              <Center>
+                <VStack>
+                  <Text
+                    fontWeight={"600"}
+                    fontSize={"15px"}
+                    mt={"1rem"}
+                    noOfLines={2}
+                  >
+                    {el.descr}
+                  </Text>
+                  <Text
+                    color={"#A3A3A3"}
+                    textAlign={"center"}
+                    fontSize={"12px"}
+                    noOfLines={1}
+                  >
+                    {el.offer}
+                  </Text>
+                  <Text fontSize={"15px"} fontWeight={"500"}>
+                    {el.price}
+                  </Text>
+                  <Text mb={"20px"} fontSize={"12px"}>
+                    {el.disc}
+                  </Text>
+                </VStack>
+              </Center>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
+
       <Center>
-        <button className={styles.blackbuttonhover}>VIEW MORE</button>
+        <Link to="/mobiles">
+          <button className={styles.blackbuttonhover}>VIEW MORE</button>
+        </Link>
       </Center>
     </>
   );

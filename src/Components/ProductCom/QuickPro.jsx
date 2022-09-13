@@ -3,9 +3,12 @@ import {
   Button,
   ButtonGroup,
   Center,
+  HStack,
   Img,
+  ListItem,
   Stack,
   Text,
+  UnorderedList,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -13,79 +16,123 @@ import { AiFillStar, AiTwotoneHeart } from "react-icons/ai";
 import { GrFormAdd, GrSubtract } from "react-icons/gr";
 
 export const QuickPro = (props) => {
-  const [qty, setqty] = useState(1)
+  const [qty, setqty] = useState(1);
   const { category } = useParams();
   return (
     <Box>
-      <Stack direction={"row"}>
-        <Box w={"50%"}>
+      <Stack direction={"row"} flexWrap="wrap" m="3">
+        <Box w={["100%", "100%", "49%", "49%"]} m="auto">
           <Img
-            cursor={"pointer"}
             src={props.item.src}
-            w="100%"
-            h="300px"
-            alt=""
-            srcSet=""
+            m="auto"
+            w={category == "laptop" ? "90%" : "40%"}
+            h={category == "laptop" ? "250px" : "290px"}
+            alt="prod"
           />
         </Box>
-        <Box w={"50%"} px={2}>
-          <Stack direction={"column"}>
-            <Text fontSize={"md"} fontWeight={"200"}>
-              {props.item.title}
-            </Text>
-            <Text fontSize={"md"} fontWeight={"600"}>
-              ₹ {props.item.price}
-            </Text>
-          </Stack>
-          <Stack direction={"row"} mb={"25px"}>
+        <Box w={["100%", "100%", "100%", "49%"]} m="auto">
+          <Text
+            fontSize={"md"}
+            fontWeight={"600"}
+            textTransform={"capitalize"}
+            textAlign={"justify"}
+          >
+            {props.item.title}
+          </Text>
+          <HStack justify={"space-between"}>
+            <Box>
+              <HStack>
+                <Text fontSize={"md"} fontWeight={"600"}>
+                  ₹ {props.item.price}
+                </Text>
+                <Text
+                  textDecoration={"line-through"}
+                  fontSize={"12px"}
+                  fontWeight={"600"}
+                >
+                  ₹ {props.item.offerPrice}
+                </Text>
+                <Button size="xs" colorScheme={"orange"}>
+                  {props.item.discount}
+                </Button>
+              </HStack>
+            </Box>
+            <Box>
+              <Button size="xs" colorScheme={"green"}>
+                Free Delivery
+              </Button>
+            </Box>
+          </HStack>
+
+          <Stack direction={"row"} mb={"14px"}>
             <AiFillStar color="gold" />
             <AiFillStar color="gold" />
             <AiFillStar color="gold" />
             <AiFillStar color="gold" />
           </Stack>
-          <Button borderRadius={0} w="100%" my={2} variant="outline">
-            ONLY A FEW LEFT!
-          </Button>
-          <Stack direction={"row"} justify="space-evenly">
-            <ButtonGroup size="md" isAttached variant="outline">
-              <Button onClick={()=>setqty(qty+1)} disabled={qty===5}>
+
+          <UnorderedList my="5">
+            <ListItem>{props.item.displaySize}</ListItem>
+            <ListItem>{props.item.os}</ListItem>
+            <ListItem>{props.item.processor}</ListItem>
+            <ListItem>{props.item.ram}</ListItem>
+            <ListItem>{props.item.storege}</ListItem>
+            <ListItem>{props.item.warranty}</ListItem>
+          </UnorderedList>
+
+          <HStack direction={"row"} justify="space-between">
+            <ButtonGroup size="md" isAttached>
+              <Button
+                borderRadius={0}
+                colorScheme="blackAlpha"
+                onClick={() => setqty(qty + 1)}
+                disabled={qty === 5}
+              >
                 <GrFormAdd />
               </Button>
-              <Button disabled={true}>{qty}</Button>
-              {/* <IconButton aria-label='Add to friends'>{1}</IconButton> */}
-              <Button onClick={()=>setqty(qty-1)} disabled={qty===1}>
+              <Button>{qty}</Button>
+              <Button
+                borderRadius={0}
+                colorScheme="blackAlpha"
+                onClick={() => setqty(qty - 1)}
+                disabled={qty === 1}
+              >
                 <GrSubtract />
               </Button>
             </ButtonGroup>
-
             <Button
               leftIcon={<AiTwotoneHeart />}
-              colorScheme="black"
-              variant="outline"
               borderRadius={0}
+              colorScheme="green"
             >
               ADD TO WISHLIST
             </Button>
-          </Stack>
-
+          </HStack>
           <Button
             borderRadius={0}
             w="100%"
-            my={2}
+            my={4}
             variant="outline"
-            colorScheme={"#12284c"}
+            colorScheme={"whatsapp"}
           >
             ADD TO BAG
           </Button>
+
+          <Link to={`/${category}/${props.item._id}`}>
+            <Button
+              w="100%"
+              variant="outline"
+              borderRadius={0}
+              colorScheme="teal"
+              fontSize={"lg"}
+              fontWeight={"600"}
+              textTransform={"capitalize"}
+            >
+              View Full Details
+            </Button>
+          </Link>
         </Box>
       </Stack>
-      <Center>
-        <Link to={`/${category}/${props.item._id}`}>
-          <Text fontSize={"lg"} fontWeight={"600"}>
-            VIEW FULL DETAILS
-          </Text>
-        </Link>
-      </Center>
     </Box>
   );
 };

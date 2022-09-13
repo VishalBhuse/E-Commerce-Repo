@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect} from "react";
 import {
   Accordion,
   AccordionButton,
@@ -49,7 +49,7 @@ export const LeftSection = () => {
   }, []);
 
   return (
-    <Box mt={5} w="25%" color={"#657fa1"}>
+    <Box mt={5}  color={"#657fa1"}>
       <Heading size="sm" mb={2}>
         FILTER BY
       </Heading>
