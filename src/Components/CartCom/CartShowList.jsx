@@ -10,24 +10,22 @@ import {
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-
 import { useDispatch } from "react-redux";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { deleteitem, getCart } from "../../Redux/CartReducer/action";
+
 export const CartShowList = (props) => {
-  const { price, type, title, quantity, vendor, id } = props;
-  // const { src } = props.src;
-  const [count, setCount] = useState(quantity);
+  const [count, setCount] = useState(1);
   const [abovethreeOrder, setAbovethreeOrder] = useState(false);
   const dispatch = useDispatch();
 
   const handdleUpdate = async (count) => {
-    await axios
-      .patch(`http://localhost:8080/addtocart/${id}`, {
-        quantity: count,
-        priceMax: count * price,
-      })
-      .then(() => getCart(dispatch));
+    // await axios
+    //   .patch(`http://localhost:8080/addtocart/${id}`, {
+    //     quantity: count,
+    //     priceMax: count * price,
+    //   })
+    //   .then(() => getCart(dispatch));
   };
 
   const handdleIncrement = (value) => {
@@ -47,14 +45,11 @@ export const CartShowList = (props) => {
   }, [count]);
 
   useEffect(() => {
-    handdleUpdate(count);
+    // handdleUpdate(count);
   }, [count]);
 
-  // console.log(abovethreeOrder)
   const handlleDelete = async () => {
-    deleteitem(dispatch, id).then(() => {
-      getCart(dispatch);
-    });
+    
   };
 
   return (
@@ -70,9 +65,9 @@ export const CartShowList = (props) => {
             <Image src={props.src} />
           </Box>
           <Box width={"180px"} overflow={"hidden"} whiteSpace={"nowrap"}>
-            <Text>{title}</Text>
-            <Text color={"gray"}>{vendor}</Text>
-            <Text color={"#dcdcdc"}>{type}</Text>
+            <Text>{props.title}</Text>
+            {/* <Text color={"gray"}>{vendor}</Text> */}
+            {/* <Text color={"#dcdcdc"}>{type}</Text> */}
             <Box>{abovethreeOrder ? <Text>Limit: 3 Per Order</Text> : ""}</Box>
           </Box>
         </Stack>
@@ -80,7 +75,7 @@ export const CartShowList = (props) => {
           <Box display={"flex"} justifyContent="space-between">
             <Text color={"gray"}>
               ₹.
-              {price.toLocaleString("hi-IN")}.00
+              {props.price.toLocaleString("hi-IN")}.00
             </Text>
           </Box>
         </Box>
@@ -121,7 +116,7 @@ export const CartShowList = (props) => {
               w="40px"
               m={"auto"}
             >
-              {props.qty}
+              {count}
             </Box>
             <Button
               borderRadius="0px"
@@ -153,7 +148,7 @@ export const CartShowList = (props) => {
         <Box display={"flex"} justifyContent="space-between">
           <Text color={"gray"}>
             ₹.
-            {(quantity * price).toLocaleString("hi-IN")}.00
+            {(count * props.price).toLocaleString("hi-IN")}
           </Text>
         </Box>
       </Box>

@@ -24,13 +24,12 @@ switch(type)
         };
         case GET_CART_SUCCESS:
             {
-                saveData("Cart" , state.AddtoCart)
-                console.log(payload, "redux");
+                saveData("Cart" , payload)
                 return {
                     ...state,
                     isError:"",
                     isLoading:false,
-                    AddtoCart:[...state, ...state.AddtoCart, payload]
+                    AddtoCart:payload
                 }
             };
             case GET_CART_FALIURE:

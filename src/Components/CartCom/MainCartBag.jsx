@@ -1,36 +1,24 @@
 import { WarningIcon } from "@chakra-ui/icons";
-import { Box, Checkbox, Heading, HStack, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Checkbox, Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { AdditionalOffering } from "./AdditionalOffering";
 import { CartShowList } from "./CartShowList";
 import { useDispatch } from "react-redux";
 import { getCart } from "../../Redux/CartReducer/action";
+import { useNavigate } from "react-router-dom";
 
 
 export const MainCartBag = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate();
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
   console.log(AddtoCart,"get from redux");
 
-  const uniqueIds = [];
-
-  const unique = AddtoCart?.filter((element) => {
-    const isDuplicate = uniqueIds.includes(element.id);
-
-    if (!isDuplicate) {
-      uniqueIds.push(element.id);
-
-      return true;
-    }
-
-    return false;
-  });
   let totalPrice = 0;
 
 
   useEffect(() => {
-    getCart(dispatch);
+    // getCart(dispatch);
   }, [])
   
   return (
@@ -50,28 +38,7 @@ export const MainCartBag = () => {
             YOUR BAG
           </Heading>
         </Box>
-        <HStack spacing={"10px"} justifyContent={"flex-end"} h="50px" mr={"4%"}>
-          <Box
-            gap={"10px"}
-            width="500px"
-            fontSize={"20px"}
-            display="flex"
-            fontWeight={400}
-            color={"#12284c"}
-            bgColor={"#f4fafc"}
-            h="50px"
-            fontFamily={`"Montserrat Regular",sans-serif`}
-            pl={10}
-          >
-            <Box mt="2">
-              <WarningIcon color="red.500" w={5} h={5} />
-            </Box>
-            <Text mt="3" fontSize={"14px"} verticalAlign={"baseline"}>
-              Sign up or Sign in to BlueRewards for Free Ground Shipping
-            </Text>
-          </Box>
-        </HStack>
-
+      
         <Box mt="5" fontFamily={`"Montserrat Regular",sans-serif`}>
           <Heading
             letterSpacing={"1px"}
@@ -154,13 +121,48 @@ export const MainCartBag = () => {
           </HStack>
 
           <Box mt="2">
-            {unique?.map((item) => {
-              totalPrice += item.priceMax;
+            {AddtoCart?.map((item) => {
+              totalPrice += item.price;
               return <CartShowList key={item.id} {...item} />;
             })}
           </Box>
         </Box>
-        <AdditionalOffering totalPrice={totalPrice} />
+        {/* <AdditionalOffering totalPrice={totalPrice} /> */}
+        <HStack justifyContent={"flex-end"}>
+        <Heading size={"sm"}>SubTotal </Heading>
+        <Text color={"#12284c"} fontSize="18px" fontWeight={600}>
+          $ {totalPrice}
+        </Text>
+      </HStack>
+      <HStack justifyContent={"flex-end"}>
+        <Text
+          mt="2"
+          fontFamily={`"Montserrat Regular",sans-serif`}
+          fontSize={"14px"}
+          lineHeight={"19px"}
+          fontWeight={500}
+          color={"gray"}
+        >
+          Shipping, Taxes, Beauty Cards, and additional discounts applied at
+          checkout
+        </Text>
+      </HStack>
+      <HStack justifyContent={"flex-end"}>
+        <Button
+          w={"30%"}
+          mt={8}
+          size={"md"}
+          py={"6"}
+          bg="#12284c"
+          fontFamily={"Roboto, sans-serif"}
+          color={"white"}
+          textTransform={"uppercase"}
+          onClick={() => navigate("/checkout")}
+        >
+          Checkout
+        </Button>
+      </HStack>
+      
       </Box>
     </Box>
   );

@@ -6,7 +6,7 @@ import { Box, Button, Image, Img, Spinner, Text, useToast } from "@chakra-ui/rea
 import { ProductAbout } from "./ProductAbout";
 import { SliderComponent } from "./SliderComponent";
 import { addtocart, getCart } from "../../Redux/CartReducer/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ADD_TOCART_SUCCESS, GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 
 
@@ -20,12 +20,14 @@ export const SingleProduct = () => {
   const [currentImage2, setcurrentImage2] = useState("");
   const [activeImage, setActiveImage] = useState(currentImage1);
   const dispatch = useDispatch()
+  const CartItem = useSelector(state=>state.Cartreducer.AddtoCart)
+  console.log(CartItem,"use Selactor"); 
 
   const getData = () => {
     axios
       .get(`https://ecommercecombine.herokuapp.com/${category}/${id}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setcurrentProduct(res.data);
         setcurrentImage1(res.data.src);
         setcurrentImage2(res.data.src2);
@@ -42,17 +44,16 @@ export const SingleProduct = () => {
   
   
 
-const handdleSubmit=()=>
-{
+const handdleSubmit=()=>{
   toast({
     title: 'Product added to cart',
-   position:"top",
+    position:"top",
     status: 'success',
     duration: 2000,
     isClosable: true,
   })
 
-  dispatch({ type: GET_CART_SUCCESS, payload:currentProduct});
+  dispatch({ type: GET_CART_SUCCESS, payload:[...CartItem, currentProduct]});
 
 }
 

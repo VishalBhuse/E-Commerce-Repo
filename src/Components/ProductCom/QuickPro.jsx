@@ -9,15 +9,33 @@ import {
   Stack,
   Text,
   UnorderedList,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AiFillStar, AiTwotoneHeart } from "react-icons/ai";
 import { GrFormAdd, GrSubtract } from "react-icons/gr";
+import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
+import { useDispatch, useSelector } from "react-redux";
 
 export const QuickPro = (props) => {
   const [qty, setqty] = useState(1);
+  const toast = useToast()
   const { category } = useParams();
+  const dispatch = useDispatch()
+  const CartItem = useSelector(state=>state.Cartreducer.AddtoCart)
+
+  const AddToCard = () =>{
+    toast({
+      title: 'Product added to cart',
+      position:"top",
+      status: 'success',
+      duration: 2000,
+      isClosable: true,
+    })
+  console.log(props.item);
+    dispatch({ type: GET_CART_SUCCESS, payload:[...CartItem, props.item]});
+  }
   return (
     <Box>
       <Stack direction={"row"} flexWrap="wrap" m="3">
@@ -110,6 +128,7 @@ export const QuickPro = (props) => {
           </HStack>
           <Button
             borderRadius={0}
+            onClick={()=>AddToCard()}
             w="100%"
             my={4}
             variant="outline"
