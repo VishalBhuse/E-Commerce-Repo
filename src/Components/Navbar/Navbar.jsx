@@ -15,91 +15,24 @@ import {
   useDisclosure,
   VStack,
   HStack,
-  Input,
-  Button,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AiOutlineUser } from "react-icons/ai";
-import { VscLock } from "react-icons/vsc";
-import { FiSearch } from "react-icons/fi";
+import { BsFillBagPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./Navbar.module.css";
-//   import Modal from "react-modal";
-//   import GoogleButton from "react-google-button";
-
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
-//   import { UserAuth } from "./Context/AuthContext";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  const navigate = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const [passwordType, setPasswordType] = useState("password");
-
-  // const { logout, user, setUser } = UserAuth();
-
-  const [modalOpen, setModalOpen] = useState(false);
-  // const {login}= useUserAuth();
-  // const { googleSignIn } = UserAuth();
-
-  const handleChange = () => {
-    if (passwordType == "password") {
-      setPasswordType("text");
-    } else {
-      setPasswordType("password");
-    }
-  };
-
-  // const handlegoogleSignIn = async () => {
-  //   try {
-  //     await googleSignIn();
-  //   } catch (error) {}
-  // };
-
-  // const handleSignOut = async () => {
-  //   try {
-  //     await logout();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const handleEmailLogin = () => {
-  //   // console.log(email,password)
-  //   var logUser = {
-  //     email: email,
-  //     password: password,
-  //   };
-  //   setUser(logUser);
-  //   setEmail("");
-  //   setPassword("");
-  //   setModalOpen(false);
-  // };
-
-  useEffect(() => {
-    const modal = setTimeout(() => {
-      setModalOpen(true);
-    }, 2000);
-
-    return () => clearTimeout(modal);
-  }, []);
 
   return (
-    <div style={{ position: "sticky", top: 0, zIndex: 99 }}>
+    <div style={{ position: "sticky", top: 0, zIndex: 99, height: "75px" }}>
       <Box>
         <Flex
           bg={useColorModeValue("white", "gray.800")}
           color={useColorModeValue("gray.600", "white")}
-          minH={"60px"}
-          py={{ base: 2 }}
-          px={{ base: 4 }}
           align={"center"}
         >
           <Flex
@@ -123,13 +56,17 @@ export default function Navbar() {
           <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Link to={"/"}>
               <Image
-                src="https://cdn.modesens.com/static/img/20190228newlogo-black.svg"
+                src="./img/brandlogo.jpg"
                 width="150px"
-                height={"25px"}
+                height={"65px"}
               ></Image>
             </Link>
 
-            <Flex display={{ base: "none", md: "flex" }} ml={10}>
+            <Flex
+              display={{ base: "none", md: "flex" }}
+              ml={10}
+              alignItems={"center"}
+            >
               <DesktopNav />
             </Flex>
           </Flex>
@@ -139,6 +76,9 @@ export default function Navbar() {
             justify={"flex-end"}
             direction={"row"}
             spacing={3}
+            alignItems={"center"}
+            fontSize="20px"
+            mr="10px"
           >
             <button onClick={toggleColorMode}>
               {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
@@ -162,181 +102,19 @@ export default function Navbar() {
                     </Text>
                   </VStack>
                 </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"/likes"}> My Likes </Link>
-                </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"/alerts"}> My Alerts </Link>
-                </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"/recent"}> My Recently Viewd</Link>
-                </MenuItem>
                 <hr />
                 <MenuItem fontWeight={"600"}>
-                  <Link to={"#"}> My Closet </Link>
+                  <Link to={"/invite"}> Login </Link>
                 </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"#"}> My Orders </Link>
-                </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"#"}> My Save Searches</Link>
-                </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"#"}> My Loyality </Link>
-                </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"#"}> My Message </Link>
-                </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"/invite"}> Invite Friends </Link>
-                </MenuItem>
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"/settings"}> Setting </Link>
-                </MenuItem>
-                <hr />
-                {/* {user ? (
-                    <MenuItem onClick={handleSignOut} fontWeight={"600"}>
-                      Logout
-                    </MenuItem>
-                  ) : (
-                    <MenuItem
-                      onClick={() => setModalOpen(true)}
-                      fontWeight={"600"}
-                    >
-                      Login
-                    </MenuItem>
-                  )} */}
-
-                {/* <Modal
-                    style={{
-                      overlay: {
-                        background: "rgba(255, 255, 255, 0.2)",
-                        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-                        backdropFilter: "blur(5px)",
-                        zIndex: 99,
-                      },
-                      content: {
-                        width: "60%",
-                        margin: "auto",
-                        textAlign: "center",
-                        // padding:'5%'
-                      },
-                    }}
-                    onRequestClose={() => setModalOpen(false)}
-                    isOpen={modalOpen}
-                  >
-                    <p
-                      onClick={() => setModalOpen(false)}
-                      className={styles.close}
-                    >
-                      &times;
-                    </p>
-                    <Image
-                      className={styles.logo}
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfI2p7YKkg-T8uAceBDRoAWhiqVQhYAZi__5zXyA2bD_DhffvrEPMIinaTTcOwY4-tMg&usqp=CAU"
-                      alt="Dan Abramov"
-                    />
-  
-                    <h1
-                      style={{
-                        fontWeight: "bolder",
-                        fontSize: "larger",
-                        marginTop: "20px",
-                      }}
-                    >
-                      Create an Account
-                    </h1>
-                    <h3>
-                      Compare across 500+ stores to find <br /> the best price.
-                    </h3>
-                    <Input
-                      value={email}
-                      required
-                      onChange={(e) => setEmail(e.target.value)}
-                      style={{ width: "70%", marginBottom: "2%" }}
-                      className={styles.inputBox}
-                      placeholder="Email"
-                    />
-  
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        width: "70%",
-                        margin: "auto",
-                      }}
-                    >
-                      <Input
-                        style={{ margin: "auto" }}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        type={passwordType}
-                        className={styles.inputBox}
-                        placeholder="Password"
-                      />
-  
-                      <Button style={{}} onClick={handleChange}>
-                        {passwordType == "password" ? (
-                          <AiFillEyeInvisible />
-                        ) : (
-                          <AiFillEye />
-                        )}
-                      </Button>
-                    </div>
-  
-                    <Button
-                      onClick={handleEmailLogin}
-                      style={{
-                        backgroundColor: "black",
-                        color: "white",
-                        marginTop: "3%",
-                      }}
-                      mr={3}
-                    >
-                      Login
-                    </Button>
-  
-                    <h4 className={styles.line}>or</h4>
-                    <br />
-                    <div>
-                      <GoogleButton
-                        onClick={handlegoogleSignIn}
-                        style={{ margin: "auto" }}
-                        type="light"
-                      />
-                    </div>
-                    <br />
-  
-                    <Link to="/login">
-                      Already have an account? Please sign in
-                    </Link>
-                    <p style={{ marginTop: "13px" }}>
-                      By creating an account, I agree to <br /> the Terms Of Use
-                      and the Privacy Policy
-                    </p>
-                  </Modal> */}
               </MenuList>
             </Menu>
-
             <HStack>
-              <FiSearch />
-              <Menu>
-                <MenuButton as={Box} style={{ cursor: "pointer" }}>
-                  Search
-                </MenuButton>
-                <MenuList width={"100%"} mr="150px" p={0}>
-                  <HStack>
-                    <Input
-                      placeholder="Search by keyword and store URL"
-                      width={"100%"}
-                    />
-                  </HStack>
-                </MenuList>
-              </Menu>
+              <Link to="/cart">
+                <BsFillBagPlusFill />
+              </Link>
             </HStack>
           </Stack>
         </Flex>
-
         <Collapse in={isOpen} animateOpacity>
           <MobileNav />
         </Collapse>
@@ -350,13 +128,13 @@ const DesktopNav = () => {
   return (
     <Stack direction={"row"} spacing={4}>
       <Box>
-        <HStack spacing={"25px"}>
+        <HStack spacing={"25px"} alignItems="center">
           <Link to={"/laptop"}>
             <Text
-              fontSize={"13px"}
+              fontSize={"15px"}
               fontWeight={"500"}
               _hover={{
-                fontSize: "13px",
+                fontSize: "15px",
                 borderBottom: "1px solid red",
               }}
             >
@@ -365,11 +143,11 @@ const DesktopNav = () => {
           </Link>
           <Link to={"/mobiles"}>
             <Text
-              fontSize={"13px"}
+              fontSize={"15px"}
               fontWeight={"500"}
               border="1px inherit"
               _hover={{
-                fontSize: "13px",
+                fontSize: "15px",
                 borderBottom: "1px solid red",
               }}
             >
@@ -380,10 +158,10 @@ const DesktopNav = () => {
             <Text
               border="1px inherit"
               _hover={{
-                fontSize: "13px",
+                fontSize: "15px",
                 borderBottom: "1px solid red",
               }}
-              fontSize={"13px"}
+              fontSize={"15px"}
               fontWeight={"500"}
             >
               Reviews
@@ -393,10 +171,10 @@ const DesktopNav = () => {
             <Text
               border="1px inherit"
               _hover={{
-                fontSize: "13px",
+                fontSize: "15px",
                 borderBottom: "1px solid red",
               }}
-              fontSize={"13px"}
+              fontSize={"15px"}
               fontWeight={"500"}
             >
               About Us
@@ -406,10 +184,10 @@ const DesktopNav = () => {
             <Text
               border="1px inherit"
               _hover={{
-                fontSize: "13px",
+                fontSize: "15px",
                 borderBottom: "1px solid red",
               }}
-              fontSize={"13px"}
+              fontSize={"15px"}
               fontWeight={"500"}
             >
               Faq
@@ -419,52 +197,13 @@ const DesktopNav = () => {
             <Text
               border="1px inherit"
               _hover={{
-                fontSize: "13px",
+                fontSize: "15px",
                 borderBottom: "1px solid red",
               }}
-              fontSize={"13px"}
+              fontSize={"15px"}
               fontWeight={"500"}
             >
               Help
-            </Text>
-          </Link>
-          <Link to={"/products/5"}>
-            <Text
-              border="1px inherit"
-              _hover={{
-                fontSize: "13px",
-                borderBottom: "1px solid red",
-              }}
-              fontSize={"13px"}
-              fontWeight={"500"}
-            >
-              DESINERS
-            </Text>
-          </Link>
-          <Link to={"#"}>
-            <Text
-              border="1px inherit"
-              _hover={{
-                fontSize: "13px",
-                borderBottom: "1px solid red",
-              }}
-              fontSize={"13px"}
-              fontWeight={"500"}
-            >
-              COMMUNITY
-            </Text>
-          </Link>
-          <Link to={"#"}>
-            <Text
-              fontSize={"13px"}
-              fontWeight={"500"}
-              border="1px inherit"
-              _hover={{
-                fontSize: "13px",
-                borderBottom: "1px solid red",
-              }}
-            >
-              WHY MODESENS
             </Text>
           </Link>
         </HStack>
@@ -481,59 +220,13 @@ const MobileNav = () => {
       display={{ md: "none" }}
     >
       <Box>
-        <VStack>
-          <Link to={"#"}>Laptop</Link>
-          <Link to={"#"}>Mobile</Link>
-          <Link to={"#"}>Reviews</Link>
-          <Link to={"#"}>About Us</Link>
-          <Link
-            to={"#"}
-            p={2}
-            fontSize={"15px"}
-            fontWeight={"500"}
-            color={"grey.300"}
-          >
-            Faq
-          </Link>
-          <Link
-            to={"/help"}
-            p={2}
-            fontSize={"15px"}
-            fontWeight={"500"}
-            color={"grey.300"}
-          >
-            Help
-          </Link>
-          <Link
-            to={"#"}
-            p={2}
-            fontSize={"15px"}
-            fontWeight={"500"}
-            color={"grey.300"}
-          >
-            DESINERS
-          </Link>
-          <Link
-            to={"#"}
-            p={2}
-            fontSize={"15px"}
-            fontWeight={"500"}
-            color={"grey.300"}
-            _hover={{
-              textDecoration: "underline",
-            }}
-          >
-            COMMUNITY
-          </Link>
-          <Link
-            to={"#"}
-            p={2}
-            fontSize={"15px"}
-            fontWeight={"500"}
-            color={"grey.300"}
-          >
-            WHY MODESENS
-          </Link>
+        <VStack fontWeight={"600"}>
+          <Link to={"/laptop"}>Laptop</Link>
+          <Link to={"/mobiles"}>Mobile</Link>
+          <Link to={"/review"}>Reviews</Link>
+          <Link to={"/about"}>About Us</Link>
+          <Link to={"/faq"}>Faq</Link>
+          <Link to={"/help"}>Help</Link>
         </VStack>
       </Box>
     </Stack>
