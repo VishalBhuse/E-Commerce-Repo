@@ -15,7 +15,7 @@ export const MainCartBag = () => {
 
   const uniqueIds = [];
 
-  const unique = AddtoCart.filter((element) => {
+  const unique = AddtoCart?.filter((element) => {
     const isDuplicate = uniqueIds.includes(element.id);
 
     if (!isDuplicate) {
@@ -82,7 +82,7 @@ export const MainCartBag = () => {
             as="h2"
             size="xl"
           >
-            Your cart ({AddtoCart.length} items)
+            Your cart ({AddtoCart?.length} items)
           </Heading>
         </Box>
         <Box mt={6}>
@@ -154,19 +154,14 @@ export const MainCartBag = () => {
           </HStack>
 
           <Box mt="2">
-            {unique.map((item) => {
+            {unique?.map((item) => {
               totalPrice += item.priceMax;
               return <CartShowList key={item.id} {...item} />;
             })}
           </Box>
         </Box>
-
         <AdditionalOffering totalPrice={totalPrice} />
       </Box>
-      {/* <Box>
-      <SlidersPrivew />
-      <ShopTopSellers />
-      </Box> */}
     </Box>
   );
 };

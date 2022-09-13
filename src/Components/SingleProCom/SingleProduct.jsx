@@ -7,6 +7,7 @@ import { ProductAbout } from "./ProductAbout";
 import { SliderComponent } from "./SliderComponent";
 import { addtocart, getCart } from "../../Redux/CartReducer/action";
 import { useDispatch } from "react-redux";
+import { ADD_TOCART_SUCCESS, GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 
 
 export const SingleProduct = () => {
@@ -18,6 +19,7 @@ export const SingleProduct = () => {
   const [currentImage1, setcurrentImage1] = useState("");
   const [currentImage2, setcurrentImage2] = useState("");
   const [activeImage, setActiveImage] = useState(currentImage1);
+  const dispatch = useDispatch()
 
   const getData = () => {
     axios
@@ -38,7 +40,6 @@ export const SingleProduct = () => {
     getData();
   }, []);
   
-  const dispatch=useDispatch()
   
 
 const handdleSubmit=()=>
@@ -51,12 +52,8 @@ const handdleSubmit=()=>
     isClosable: true,
   })
 
-addtocart(
-  {currentProduct,
-    dispatch}
-  ).then(() => {
-    getCart(dispatch);
-  });
+  dispatch({ type: GET_CART_SUCCESS, payload:currentProduct});
+
 }
 
   return (
