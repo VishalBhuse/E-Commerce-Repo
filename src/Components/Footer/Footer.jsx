@@ -18,18 +18,10 @@ import {
 export default function Footer() {
   return (
     <>
-      <Center>
-        <Box height={"30vh"}>
-          <Text fontWeight={"600"} mt="40px">
-            When you follow our links to visit a brand or retailer’s website or
-            make a purchase, ModeSens may earn a commission.
-          </Text>
-        </Box>
-      </Center>
-
       <Box
+        mt="50px"
         width={"98%"}
-        margin={"auto"}
+        mx={"auto"}
         borderBottom={"1px solid black"}
         borderTop={"1px solid black"}
         color={useColorModeValue("gray.700", "gray.200")}

@@ -55,7 +55,7 @@ export default function Navbar() {
           <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Link to={"/"}>
               <Image
-                src="./img/brandlogo.jpg"
+                src="https://ecommercemernapp.vercel.app/img/brandlogo.jpg"
                 width="150px"
                 height={"65px"}
               ></Image>

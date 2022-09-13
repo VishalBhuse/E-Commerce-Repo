@@ -70,13 +70,13 @@ export const QuickPro = (props) => {
                 >
                   ₹ {props.item.offerPrice}
                 </Text>
-                <Button size="xs" colorScheme={"orange"}>
+                <Button size="xs" colorScheme={"green"}>
                   {props.item.discount}
                 </Button>
               </HStack>
             </Box>
             <Box>
-              <Button size="xs" colorScheme={"green"}>
+              <Button size="xs" colorScheme={"orange"}>
                 Free Delivery
               </Button>
             </Box>
@@ -140,7 +140,6 @@ export const QuickPro = (props) => {
           <Link to={`/${category}/${props.item._id}`}>
             <Button
               w="100%"
-              variant="outline"
               borderRadius={0}
               colorScheme="teal"
               fontSize={"lg"}

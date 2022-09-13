@@ -1,27 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import style from "./SingleProduct.module.css";
 import axios from "axios";
-import { Box, Button, Image, Img, Spinner, Text, useToast } from "@chakra-ui/react";
-import { ProductAbout } from "./ProductAbout";
-import { SliderComponent } from "./SliderComponent";
+import {
+  Box,
+  Button,
+  Heading,
+  HStack,
+  Image,
+  ListItem,
+  SimpleGrid,
+  Text,
+  UnorderedList,
+  useToast,
+} from "@chakra-ui/react";
 import { addtocart, getCart } from "../../Redux/CartReducer/action";
 import { useDispatch, useSelector } from "react-redux";
-import { ADD_TOCART_SUCCESS, GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
-
+import {
+  ADD_TOCART_SUCCESS,
+  GET_CART_SUCCESS,
+} from "../../Redux/CartReducer/actionTypes";
 
 export const SingleProduct = () => {
-  const toast = useToast()
-  const [isLoading,setIsloading]=useState(true)
+  const toast = useToast();
+  const [isLoading, setIsloading] = useState(true);
   const { id } = useParams();
   const { category } = useParams();
   const [currentProduct, setcurrentProduct] = useState({});
   const [currentImage1, setcurrentImage1] = useState("");
   const [currentImage2, setcurrentImage2] = useState("");
   const [activeImage, setActiveImage] = useState(currentImage1);
-  const dispatch = useDispatch()
-  const CartItem = useSelector(state=>state.Cartreducer.AddtoCart)
-  console.log(CartItem,"use Selactor"); 
+  const dispatch = useDispatch();
+  const CartItem = useSelector((state) => state.Cartreducer.AddtoCart);
+  console.log(CartItem, "use Selactor");
 
   const getData = () => {
     axios
@@ -31,7 +41,7 @@ export const SingleProduct = () => {
         setcurrentProduct(res.data);
         setcurrentImage1(res.data.src);
         setcurrentImage2(res.data.src2);
-        setActiveImage(res.data.src)
+        setActiveImage(res.data.src);
       })
       .catch((err) => {
         console.log(err);
@@ -41,73 +51,94 @@ export const SingleProduct = () => {
   useEffect(() => {
     getData();
   }, []);
-  
-  
 
-const handdleSubmit=()=>{
-  toast({
-    title: 'Product added to cart',
-    position:"top",
-    status: 'success',
-    duration: 2000,
-    isClosable: true,
-  })
+  const handdleSubmit = () => {
+    toast({
+      title: "Product added to cart",
+      position: "top",
+      status: "success",
+      duration: 2000,
+      isClosable: true,
+    });
 
-  dispatch({ type: GET_CART_SUCCESS, payload:[...CartItem, currentProduct]});
-
-}
+    dispatch({
+      type: GET_CART_SUCCESS,
+      payload: [...CartItem, currentProduct],
+    });
+  };
 
   return (
-    <div className={style.outerdiv}>
-      <div className={style.mainDiv}>
-        <div className={style.thumbnail} id="thumbnail-image">
-          <div>
-            <img
-              className={style.thumbnail}
-              onClick={()=>{setActiveImage(currentImage1)}}
-              id="main-img"
-              src={currentImage1}
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className={style.thumbnail}
-              onClick={()=>{setActiveImage(currentImage2)}}
-              id="main-img-1"
-              src={currentImage2}
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div className={style.imgDiv}>
-        
-          <img id={style.featured} className={style.img}  src={activeImage} alt="" />
-        </div>
-
-        <div className={style.info}>
-          <h2 className={style.type}>{currentProduct.type}</h2>
-
-          <h1 className={style.title}>{currentProduct.title}</h1>
-          <p className={style.sell}>BEST SELLER CONCIOUS BEAUTY</p>
-          <span style={{ fontWeight: "bold", fontSize: "22px" }}>
-            ₹ {currentProduct.price}{" "}
-          </span>
-          
-       
-
-          <div className={style.btnDiv}>
-           
-        <Button variant={"ghosht"} m="auto" onClick={handdleSubmit} >Add to Cart ₹ {currentProduct.price}</Button>
-         
-
-            <div>
-              <p>  </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <SimpleGrid
+        bg="gray.100"
+        p="3"
+        py="16"
+        color={"#5F6F94"}
+        columns={[1, 1, 1, 2]}
+        my="5"
+      >
+        <Box w="100%" p="2">
+          <HStack alignItems={"flex-start"}>
+            <Box w={["100%", "100%", "40%"]}>
+              <Image
+                w={category == "laptop" ? "80%" : "50%"}
+                m="0 auto"
+                height={category == "laptop" ? "200px" : "300px"}
+                src={currentImage1}
+              />
+            </Box>
+            <Box w={["100%", "100%", "60%"]}>
+              <Image
+                w={category == "laptop" ? "100%" : "60%"}
+                m="auto"
+                height={category == "laptop" ? "400px" : "450px"}
+                src={currentImage1}
+              />
+            </Box>
+          </HStack>
+        </Box>
+        <Box w="100%" p="2">
+          <Box m="auto" w="90%">
+            <Heading as="h4" size="md" textTransform={"capitalize"}>
+              {currentProduct.title}
+            </Heading>
+            <UnorderedList my="5">
+              <ListItem>{currentProduct.displaySize}</ListItem>
+              <ListItem>{currentProduct.os}</ListItem>
+              <ListItem>{currentProduct.processor}</ListItem>
+              <ListItem>{currentProduct.ram}</ListItem>
+              <ListItem>{currentProduct.storege}</ListItem>
+              <ListItem>{currentProduct.warranty}</ListItem>
+            </UnorderedList>
+            <Text fontWeight={"600"}>BEST SELLER CONCIOUS BEAUTY</Text>
+            <HStack my="5">
+              <Text fontSize={"20px"} fontWeight={"600"}>
+                ₹ {currentProduct.price}
+              </Text>
+              <Text
+                textDecoration={"line-through"}
+                fontSize={"12px"}
+                fontWeight={"600"}
+              >
+                ₹ {currentProduct.offerPrice}
+              </Text>
+            </HStack>
+            <Box m="auto" w="90%">
+              <Button
+                w="100%"
+                h="10vh"
+                p="20px"
+                fontSize="20px"
+                borderRadius={0}
+                colorScheme="facebook"
+                onClick={handdleSubmit}
+              >
+                Add to Cart ₹ {currentProduct.price}
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </SimpleGrid>
+    </>
   );
 };

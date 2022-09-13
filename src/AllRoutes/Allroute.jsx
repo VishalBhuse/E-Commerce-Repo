@@ -1,5 +1,5 @@
-import React from 'react'
-import Homeindex from '../Pages/Home/Homeindex'
+import React from "react";
+import Homeindex from "../Pages/Home/Homeindex";
 import { Route, Routes } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar/Navbar";
@@ -7,12 +7,10 @@ import { About } from "../Pages/About/About";
 import { Faq } from "../Pages/FAQ/Faq";
 import { Help } from "../Pages/Help/Help";
 import { Review } from "../Pages/Reviews/Revies";
-import { Products } from '../Pages/Products/Products';
-import { SingleProduct } from '../Components/SingleProCom/SingleProduct';
-import { MainCartBag } from '../Components/CartCom/MainCartBag';
-import { CheckOutPage } from '../Components/CheckOutCom/CheckOutPage';
-
-
+import { Products } from "../Pages/Products/Products";
+import { SingleProduct } from "../Components/SingleProCom/SingleProduct";
+import { MainCartBag } from "../Components/CartCom/MainCartBag";
+import { CheckOutPage } from "../Components/CheckOutCom/CheckOutPage";
 
 export const Allroute = () => {
   return (
@@ -33,7 +31,6 @@ export const Allroute = () => {
       </Routes>
 
       <Footer />
-      <button onClick={()=>{}}>Test</button>
     </>
   );
 };

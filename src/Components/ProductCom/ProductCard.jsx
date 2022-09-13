@@ -90,7 +90,7 @@ export const ProductCard = (props) => {
         >
           {props.item.title}
         </Text>
-        <HStack my="2" justifyContent={'space-between'}>
+        <HStack my="2" justifyContent={"space-between"}>
           <Box>
             <HStack>
               <Text fontSize={"15px"} fontWeight={"500"}>
@@ -110,7 +110,8 @@ export const ProductCard = (props) => {
               size="xs"
               colorScheme={"yellow"}
               fontSize={"9px"}
-              fontWeight={"500"}
+              color="blue"
+              fontWeight={"700"}
             >
               {props.item.ratings.split(" ")[0]} &nbsp; <AiFillStar />
             </Button>
