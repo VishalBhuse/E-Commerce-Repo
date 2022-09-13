@@ -13,7 +13,7 @@ console.log(currentProduct)
        })
          .then((res) => {
             console.log(res.data);
-           dispatch({ type: ADD_TOCART_SUCCESS, });
+           dispatch({ type: ADD_TOCART_SUCCESS, payload:currentProduct});
          })
          .catch((err) => {
            console.log(err);

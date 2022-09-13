@@ -16,4 +16,3 @@ const rootReduser=combineReducers({
 const composeEnhaneser=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})|| compose
 export const  store =legacy_createStore(rootReduser,composeEnhaneser(applyMiddleware(thunk)))
 
-

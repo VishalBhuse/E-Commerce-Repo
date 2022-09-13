@@ -37,6 +37,7 @@ export const CartShowList = (props) => {
       setCount(count + value);
     }
   };
+  
   useEffect(() => {
     if (count == 3) {
       setAbovethreeOrder(true);
@@ -44,12 +45,13 @@ export const CartShowList = (props) => {
       setAbovethreeOrder(false);
     }
   }, [count]);
+
   useEffect(() => {
     handdleUpdate(count);
   }, [count]);
+
   // console.log(abovethreeOrder)
   const handlleDelete = async () => {
-   
     deleteitem(dispatch, id).then(() => {
       getCart(dispatch);
     });
