@@ -2,6 +2,13 @@
 ## Home Page :-
 ![image](https://user-images.githubusercontent.com/101569259/190075688-53bbe281-e091-4205-8cf6-88104f09c950.png)
 
+## Laptop Product Page :-
+![image](https://user-images.githubusercontent.com/101569259/190076511-4978af83-3298-41be-96e0-f216197cce6e.png)
+
+## Mobile Product Page :-
+![image](https://user-images.githubusercontent.com/101569259/190076709-dc866178-61c0-4285-bc21-c6b2c6132c1d.png)
+
+
 ## Faq Page :-
 ![image](https://user-images.githubusercontent.com/101569259/190076247-c409b449-000d-4693-ae5a-d9156e96d8f5.png)
 
