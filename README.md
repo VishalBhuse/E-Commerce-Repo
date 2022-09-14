@@ -1,6 +1,8 @@
 
 ## Home Page :-
 ![image](https://user-images.githubusercontent.com/101569259/190075688-53bbe281-e091-4205-8cf6-88104f09c950.png)
+## Faq Page :-
+![image](https://user-images.githubusercontent.com/101569259/190075914-cb266121-73f5-4e41-bdce-cf5eb8327202.png)
 
 
 # Getting Started with Create React App
