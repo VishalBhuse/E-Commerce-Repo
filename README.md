@@ -6,7 +6,7 @@
 ![image](https://user-images.githubusercontent.com/101569259/190076511-4978af83-3298-41be-96e0-f216197cce6e.png)
 
 ## Mobile Product Page :-
-![image](https://user-images.githubusercontent.com/101569259/190076709-dc866178-61c0-4285-bc21-c6b2c6132c1d.png)
+![image](https://user-images.githubusercontent.com/101569259/190076867-3c2dd12b-e642-48a4-8de4-833c4f4d97ec.png)
 
 
 ## Faq Page :-
