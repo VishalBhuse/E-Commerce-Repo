@@ -15,6 +15,7 @@ import {
   useDisclosure,
   VStack,
   HStack,
+  Button,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { AiOutlineUser } from "react-icons/ai";
@@ -22,7 +23,10 @@ import { BsFillBagPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import React from "react";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 export default function Navbar() {
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -85,25 +89,82 @@ export default function Navbar() {
               <MenuButton>
                 <AiOutlineUser />
               </MenuButton>
-              <MenuList fontSize={"13px"}>
-                <MenuItem>
+              <MenuList fontSize={"13px"} cursor="unset">
+                {/* <MenuItem> */}
+                <HStack spacing={3} alignItems="center" justify="center" w="90%" m="auto">
                   <Image
-                    boxSize="2rem"
-                    src="https://cdn.modesens.com/static/img/20180905footer_logo.svg"
+                    boxSize="2.3rem"
+                    src={isAuthenticated ? user.picture : "./img/logo.jpg"}
                     alt="Fluffybuns the destroyer"
                     mr="25px"
                   />
-                  <VStack align={"left"}>
-                    <Text>Earn Points</Text>
-                    <Text color={"tomato"}>
-                      Sign up to unlock all the benifits
+                  <VStack align={"left"} textAlign={isAuthenticated ? "left" : "center"} >
+                    <Text
+                    fontWeight={"600"}
+                      color={"tomato"}
+                      fontSize="19px"
+                      textTransform={"capitalize"}
+                    >
+                      {isAuthenticated ? user.nickname : "Welcome To Our World"}
+                    </Text>
+                    <Text color={"tomato"} fontSize="15px">
+                      {isAuthenticated ? user.name : ""}
                     </Text>
                   </VStack>
-                </MenuItem>
+                {/* </MenuItem> */}
+                </HStack>
                 <hr />
-                <MenuItem fontWeight={"600"}>
-                  <Link to={"/invite"}> Login </Link>
-                </MenuItem>
+                {isAuthenticated ? (
+                  <MenuItem>
+                    <Button
+                      w="100%"
+                      size="md"
+                      colorScheme={"red"}
+                      onClick={() =>
+                        logout({ returnTo: window.location.origin })
+                      }
+                    >
+                      Log-out
+                    </Button>
+                  </MenuItem>
+                ) : (
+                  <MenuItem fontWeight={"600"}>
+                    <Button
+                      w="100%"
+                      size="md"
+                      colorScheme={"green"}
+                      onClick={() => loginWithRedirect()}
+                    >
+                      {" "}
+                      Login{" "}
+                    </Button>
+                  </MenuItem>
+                )}
+                {/* {!isAuthenticated ? (
+                  <MenuItem fontWeight={"600"}>
+                    <Button
+                      onClick={() =>
+                        logout({ returnTo: window.location.origin })
+                      }
+                      w="100%"
+                      size="md"
+                      colorScheme={"red"}
+                    >
+                      Log-Out
+                    </Button>
+                  </MenuItem>
+                ) : (
+                  <MenuItem fontWeight={"600"}>
+                    <Button
+                      onClick={() => loginWithRedirect()}
+                      w="100%"
+                      size="md"
+                      colorScheme={"green"}
+                    >
+                      Login
+                    </Button>
+                  </MenuItem>
+                )} */}
               </MenuList>
             </Menu>
             <HStack>
