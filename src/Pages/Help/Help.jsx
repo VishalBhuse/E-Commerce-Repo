@@ -26,7 +26,7 @@ export const Help = () => {
         alignItems="center"
         justifyContent={"center"}
       >
-        <Heading fontSize={"40px"}>Frequently Asked Questions</Heading>
+        <Heading fontSize={"40px"}>Online Help</Heading>
       </Box>
       <Box w="80%" m="60px auto">
         <Tabs variant="unstyled" border="#fff">
