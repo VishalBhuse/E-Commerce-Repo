@@ -16,6 +16,10 @@ export const MainCartBag = () => {
 
   let totalPrice = 0;
 
+  const HandleCheckout=()=>{
+    navigate("/checkout")
+  }
+
 
   useEffect(() => {
     // getCart(dispatch);
@@ -131,7 +135,7 @@ export const MainCartBag = () => {
         <HStack justifyContent={"flex-end"}>
         <Heading size={"sm"}>SubTotal </Heading>
         <Text color={"#12284c"} fontSize="18px" fontWeight={600}>
-          $ {totalPrice}
+        ₹. {totalPrice}
         </Text>
       </HStack>
       <HStack justifyContent={"flex-end"}>
@@ -157,7 +161,8 @@ export const MainCartBag = () => {
           fontFamily={"Roboto, sans-serif"}
           color={"white"}
           textTransform={"uppercase"}
-          onClick={() => navigate("/checkout")}
+          // onClick={() => navigate("/checkout")}
+          onClick={HandleCheckout}
         >
           Checkout
         </Button>

@@ -61,7 +61,7 @@ export const SingleProduct = () => {
 
     dispatch({
       type: GET_CART_SUCCESS,
-      payload: [...CartItem, currentProduct],
+      payload: [...CartItem, {...currentProduct,quantity:1}],
     });
   };
 

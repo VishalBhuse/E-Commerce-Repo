@@ -34,7 +34,8 @@ export const QuickPro = (props) => {
       isClosable: true,
     })
   console.log(props.item);
-    dispatch({ type: GET_CART_SUCCESS, payload:[...CartItem, props.item]});
+
+    dispatch({ type: GET_CART_SUCCESS, payload:[...CartItem, {...props.item,quantity:qty}]});
   }
   return (
     <Box>

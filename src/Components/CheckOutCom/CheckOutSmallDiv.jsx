@@ -2,8 +2,7 @@ import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 export const CheckOutSmallDiv = (props) => {
-  const { price, type, title, quantity, vendor, id } = props;
-  const { src } = props.images[0];
+  const { price, title, quantity, src } = props;
   return (
     <Box>
       <Box display={"flex"} flexWrap={"wrap"} gap="20px" p="6">
@@ -22,7 +21,7 @@ export const CheckOutSmallDiv = (props) => {
           w={"20px"}
           ml="-30"
         >
-          {quantity}
+          {quantity || 1} 
         </Box>
         <Box width={"180px"} p="5">
           <Box

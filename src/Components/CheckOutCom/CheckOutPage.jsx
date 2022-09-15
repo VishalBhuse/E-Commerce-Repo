@@ -2,14 +2,11 @@ import {
   Box,
   Button,
   Flex,
-  FormErrorMessage,
-  FormHelperText,
   FormLabel,
   Checkbox,
   Heading,
   Image,
   Input,
-  Select,
   Text,
   useToast,
 } from "@chakra-ui/react";
@@ -18,28 +15,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addAdress, getAdress } from "../../Redux/Adress/action";
-import { CheckoutHeader } from "./CheckoutHeader";
-
 import { CheckOutSmallDiv } from "./CheckOutSmallDiv";
 
 export const CheckOutPage = () => {
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
 
-    const uniqueIds = [];
-console.log(AddtoCart)
-const unique = AddtoCart.filter(element => {
-  const isDuplicate = uniqueIds.includes(element.id);
-
-  if (!isDuplicate) {
-    uniqueIds.push(element.id);
-
-    return true;
-  }
-
-  return false;
-});
   let totalPrice = 0;
-  const [adress,setAdress]=useState({})
+  const [adress, setAdress] = useState({});
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const inputName = e.target.name;
@@ -48,65 +30,90 @@ const unique = AddtoCart.filter(element => {
       [inputName]: e.target.value,
     });
   };
-  const isError = adress === {}
+  const isError = adress === {};
   const haddleSubmit = (e) => {
     e.preventDefault();
     var value = adress;
-console.log(value);
+    console.log(value);
     if (value) {
       addAdress({
         value,
         dispatch,
       }).then(() => {
         getAdress(dispatch);
-      });;
+      });
     }
-    var x = document.forms["myForm"]["Firstname"]["Lastname"]["City"]["State"]["PIN"]["Phone"].value;
+    var x =
+      document.forms["myForm"]["Firstname"]["Lastname"]["City"]["State"]["PIN"][
+        "Phone"
+      ].value;
     if (x == "") {
       alert("Name must be filled out");
       return false;
     }
   };
-  let navigate=useNavigate()
-  const handdleClick=()=>
-  {
- 
-  }
+  let navigate = useNavigate();
+  const handleOrder = () => {
+    var options = {
+      key: "rzp_test_Ir8rhszHzFG7Xg",
+      key_secret:"ec3Q9O6SUrm9iNvEPqdKvlhN",
+      amount: 12599 * 100,
+      currency:"INR",
+      name:"E-Shop",
+      description:"for testing purpose",
+      handler: function(response){
+        alert(response.razorpay_payment_id);
+      },
+      prefill: {
+        name:"Velmurugan",
+        email:"mvel1620r@gmail.com",
+        contact:"7904425033"
+      },
+      notes:{
+        address:"Razorpay Corporate office"
+      },
+      theme: {
+        color:"#12284c"
+      }
+    };
+    var pay = new window.Razorpay(options);
+    pay.open();
+  };
   const toast = useToast();
   return (
     <Box>
       <Box>
         <Flex>
           <Box width="50%" p="4">
-           <CheckoutHeader />
             <Flex justifyContent={"space-between"}>
               <FormLabel htmlFor="email">Contanct Information</FormLabel>
-              <FormLabel onClick={()=>navigate("/login")}>
+              <FormLabel onClick={() => navigate("/login")}>
                 {" "}
                 Already have an account?Log in
               </FormLabel>
             </Flex>
 
             <Input placeholder="Email" size="lg" width={"100%"} />
-            <Checkbox defaultChecked color={"#dcdcdc"} >Email me with news and offers</Checkbox>
+            <Checkbox defaultChecked color={"#dcdcdc"}>
+              Email me with news and offers
+            </Checkbox>
             <Box mt={"20px"}>
               <FormLabel>Shipping Adress</FormLabel>
 
-              <form name="myForm" onSubmit={haddleSubmit} isInvalid={isError} required>
-              <Input
-                  placeholder="contry"
-                  size="lg"
-                  mt={"10px"}
-                  width={"98%"}
+              <form
+                name="myForm"
+                onSubmit={haddleSubmit}
+                isInvalid={isError}
+                required
+              >
+                <Input
+                  placeholder="First Name"
                   type={"text"}
-            name="contry"
-            onChange={handleChange}
-  
+                  name="Firstname"
+                  onChange={handleChange}
+                  size="lg"
+                  width={"48%"}
                 />
-
-                <Input placeholder="First Name"   type={"text"}
-            name="Firstname"
-            onChange={handleChange} size="lg" width={"48%"} />
 
                 <Input
                   placeholder="Last Name"
@@ -115,8 +122,18 @@ console.log(value);
                   ml="4"
                   width={"48%"}
                   type={"text"}
-            name="Lastname"
-            onChange={handleChange}
+                  name="Lastname"
+                  onChange={handleChange}
+                />
+
+                <Input
+                  placeholder="Contry"
+                  size="lg"
+                  mt={"10px"}
+                  width={"98%"}
+                  type={"text"}
+                  name="contry"
+                  onChange={handleChange}
                 />
 
                 <Input
@@ -125,8 +142,8 @@ console.log(value);
                   mt={"10px"}
                   width={"98%"}
                   type={"text"}
-            name="Adress"
-            onChange={handleChange}
+                  name="Adress"
+                  onChange={handleChange}
                 />
                 <Flex justifyContent={"space-around"} width={"98%"}>
                   <Input
@@ -169,80 +186,52 @@ console.log(value);
                   name="Phone"
                   onChange={handleChange}
                 />
+
                 <Input
-                borderRadius={"0px"}
+                  borderRadius={"0px"}
                   type="submit"
                   placeholder="Phone"
                   size="lg"
                   mt={"10px"}
-                  value="CONTINUE TO SHIPPING METHOD"
+                  value="ORDER NOW"
                   ml={"37%"}
                   bg="#12284c"
                   color={"white"}
                   width={"60%"}
-                  _hover={{
-                    transform: "translateY(2px)",
-                    boxShadow: "lg",
-                  }}
-                  onClick={() =>
-                    handdleClick(
-                      toast({
-                        position: "top",
-                        isClosable: true,
+                  
+                  onClick={handleOrder}     
+                  />
 
-                        bg: "blue",
-                        duration: 3000,
-                        render: () => (
-                          <Box borderRadius={"50px"}>
-                            <Box
-                              color="white"
-                              textAlign={"center"}
-                              width={"500px"}
-                              p={3}
-                          
-                            
-                            >
-                              <Heading>Order Successfull</Heading>
-                       <Image src={"https://assets.materialup.com/uploads/9157d69a-f77a-4dd7-8efa-0dbcf2dca0f5/preview.gif"}/>
-                          
-                            </Box>
-                            
-                          </Box>
-                        ),
-                 
-                      })
-                    )
-                  }
-                />
               </form>
             </Box>
-      
           </Box>
-      
+
           <Box bg="#f5f5f5" width="50%" p="6">
             <Box>
-              {unique.map((item) => {
-            totalPrice+=item.priceMax
+              {AddtoCart.map((item) => {
+                totalPrice += item.priceMax;
                 return <CheckOutSmallDiv key={item.id} {...item} />;
               })}
             </Box>
             <Box bg="gray" h={"1px"} width={"80%"}></Box>
             <Box display={"flex"} p="2" mt="10px" mr={"10%"} gap={"10px"}>
               <Input placeholder="Apply Coupen Code" size="lg" width={"60%"} />
-              <Button  w={"30%"}
-     
-          size={"lg"}
-         borderRadius="0px"
-          bg="#12284c"
-          fontFamily={"Roboto, sans-serif"}
-          color={"white"}
-          >Apply</Button>
+              <Button
+                w={"30%"}
+                size={"lg"}
+                borderRadius="0px"
+                bg="#12284c"
+                fontFamily={"Roboto, sans-serif"}
+                color={"white"}
+              >
+                Apply
+              </Button>
             </Box>
             <Box bg="gray" h={"1px"} mt="10px" width={"80%"}></Box>
             <Box color="gray" mt="10px" width={"80%"}>
               <Flex justifyContent={"space-between"}>
                 <Text>Subtotal</Text>
-                <Text> ₹.{(totalPrice).toLocaleString("hi-IN")} .00</Text>
+                <Text> ₹.{totalPrice.toLocaleString("hi-IN")} .00</Text>
               </Flex>
               <Flex justifyContent={"space-between"}>
                 <Text>Shipping</Text>
@@ -250,9 +239,15 @@ console.log(value);
               </Flex>
             </Box>
             <Box bg="gray" h={"1px"} mt="10px" width={"80%"}></Box>
-            <Flex mt="10px" fontSize={"20px"} fontWeight={800} justifyContent={"space-between"} width={"80%"}>
-                <Text>Total</Text>
-                <Text> ₹.{(totalPrice).toLocaleString("hi-IN")} .00</Text>
+            <Flex
+              mt="10px"
+              fontSize={"20px"}
+              fontWeight={800}
+              justifyContent={"space-between"}
+              width={"80%"}
+            >
+              <Text>Total</Text>
+              <Text> ₹.{totalPrice.toLocaleString("hi-IN")} .00</Text>
             </Flex>
           </Box>
         </Flex>
