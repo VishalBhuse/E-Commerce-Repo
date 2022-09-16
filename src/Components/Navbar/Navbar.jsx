@@ -7,7 +7,6 @@ import {
   Menu,
   MenuButton,
   MenuList,
-  MenuItem,
   Collapse,
   useColorModeValue,
   Image,
@@ -91,16 +90,25 @@ export default function Navbar() {
               </MenuButton>
               <MenuList fontSize={"13px"} cursor="unset">
                 {/* <MenuItem> */}
-                <HStack spacing={3} alignItems="center" justify="center" w="90%" m="auto">
+                <HStack
+                  spacing={3}
+                  alignItems="center"
+                  justify="center"
+                  w="90%"
+                  m="auto"
+                >
                   <Image
                     boxSize="2.3rem"
                     src={isAuthenticated ? user.picture : "./img/logo.jpg"}
                     alt="Fluffybuns the destroyer"
                     mr="25px"
                   />
-                  <VStack align={"left"} textAlign={isAuthenticated ? "left" : "center"} >
+                  <VStack
+                    align={"left"}
+                    textAlign={isAuthenticated ? "left" : "center"}
+                  >
                     <Text
-                    fontWeight={"600"}
+                      fontWeight={"600"}
                       color={"tomato"}
                       fontSize="19px"
                       textTransform={"capitalize"}
@@ -111,60 +119,28 @@ export default function Navbar() {
                       {isAuthenticated ? user.name : ""}
                     </Text>
                   </VStack>
-                {/* </MenuItem> */}
+                  {/* </MenuItem> */}
                 </HStack>
                 <hr />
                 {isAuthenticated ? (
-                  <MenuItem>
-                    <Button
-                      w="100%"
-                      size="md"
-                      colorScheme={"red"}
-                      onClick={() =>
-                        logout({ returnTo: window.location.origin })
-                      }
-                    >
-                      Log-out
-                    </Button>
-                  </MenuItem>
+                  <Button
+                    w="100%"
+                    size="md"
+                    colorScheme={"red"}
+                    onClick={() => logout({ returnTo: window.location.origin })}
+                  >
+                    Log-out
+                  </Button>
                 ) : (
-                  <MenuItem fontWeight={"600"}>
-                    <Button
-                      w="100%"
-                      size="md"
-                      colorScheme={"green"}
-                      onClick={() => loginWithRedirect()}
-                    >
-                      {" "}
-                      Login{" "}
-                    </Button>
-                  </MenuItem>
+                  <Button
+                    w="100%"
+                    size="md"
+                    colorScheme={"green"}
+                    onClick={() => loginWithRedirect()}
+                  >
+                    Login
+                  </Button>
                 )}
-                {/* {!isAuthenticated ? (
-                  <MenuItem fontWeight={"600"}>
-                    <Button
-                      onClick={() =>
-                        logout({ returnTo: window.location.origin })
-                      }
-                      w="100%"
-                      size="md"
-                      colorScheme={"red"}
-                    >
-                      Log-Out
-                    </Button>
-                  </MenuItem>
-                ) : (
-                  <MenuItem fontWeight={"600"}>
-                    <Button
-                      onClick={() => loginWithRedirect()}
-                      w="100%"
-                      size="md"
-                      colorScheme={"green"}
-                    >
-                      Login
-                    </Button>
-                  </MenuItem>
-                )} */}
               </MenuList>
             </Menu>
             <HStack>
