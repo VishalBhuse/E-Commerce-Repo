@@ -1,320 +1,104 @@
 import {
   Box,
+  chakra,
   Container,
-  Stack,
-  SimpleGrid,
-  Text,
   Link,
-  Heading,
-  useColorModeValue,
-  Button,
-  Center,
   Image,
+  Stack,
+  Text,
+  useColorModeValue,
+  VisuallyHidden,
   HStack,
-  Input,
-  Checkbox,
 } from "@chakra-ui/react";
+import { FaInstagram, FaYoutube, FaGithub } from "react-icons/fa";
 
-export default function Footer() {
+const SocialButton = ({ children, label, href }) => {
   return (
-    <>
-      <Box
-        mt="50px"
-        width={"98%"}
-        mx={"auto"}
-        borderBottom={"1px solid black"}
-        borderTop={"1px solid black"}
-        color={useColorModeValue("gray.700", "gray.200")}
+    <chakra.button
+      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+      rounded={"full"}
+      w={8}
+      h={8}
+      cursor={"pointer"}
+      as={"a"}
+      href={href}
+      display={"inline-flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      transition={"background 0.3s ease"}
+      _hover={{
+        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
+      }}
+    >
+      <VisuallyHidden>{label}</VisuallyHidden>
+      {children}
+    </chakra.button>
+  );
+};
+
+export default function SmallCentered() {
+  return (
+    <Box
+      bg={useColorModeValue("gray.50", "gray.900")}
+      color={useColorModeValue("gray.700", "gray.200")}
+    >
+      <Container
+        as={Stack}
+        maxW={"6xl"}
+        py={4}
+        spacing={4}
+        justify={"center"}
+        align={"center"}
       >
-        <Container as={Stack} maxW={"8xl"} py={10}>
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 5 }} spacing={8}>
-            <Stack align={"flex-start"}>
-              <Heading
-                as="h4"
-                mb={"5px"}
-                size="md"
-                fontSize={"15px"}
-                fontWeight={"500"}
-                letterSpacing={"3px"}
-              >
-                CUSTOMER CARE
-              </Heading>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Shopper Protection
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Loyalty Program
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Help Center
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Size Guides
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Contact Us / Feedback
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Shipping / Returns
-              </Link>
-            </Stack>
+        <Image
+          h="10vh"
+          src={"https://ecommercemernapp.vercel.app/img/brandlogo.jpg"}
+        />
+        <Stack direction={"row"} fontWeight="600" spacing={6}>
+          <Link href={"/"}>Home</Link>
+          <Link href={"/about"}>About</Link>
+          <Link href={"/faq"}>Faq</Link>
+          <Link href={"/help"}>Help</Link>
+        </Stack>
+      </Container>
 
-            <Stack align={"flex-start"}>
-              <Heading
-                as="h4"
-                mb={"5px"}
-                size="md"
-                fontSize={"15px"}
-                fontWeight={"500"}
-                letterSpacing={"3px"}
-              >
-                INFORMATION
-              </Heading>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"/about"}
-              >
-                About Us
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Influencer Program
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Partner Stores
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Sitemap
-              </Link>
-            </Stack>
-
-            <Stack align={"flex-start"}>
-              <Heading
-                as="h4"
-                mb={"5px"}
-                size="md"
-                fontSize={"15px"}
-                fontWeight={"500"}
-                letterSpacing={"3px"}
-              >
-                Legal
-              </Heading>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Terms Of Use
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Disclosure
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                fontSize={"15px"}
-                color={"#7F7F7F"}
-                lineHeight={"16px"}
-                fontWeight={"600"}
-                href={"#"}
-              >
-                Community Guidelines
-              </Link>
-            </Stack>
-
-            <Stack align={"flex-start"}>
-              <Heading
-                as="h4"
-                mb={"5px"}
-                size="md"
-                fontSize={"15px"}
-                fontWeight={"500"}
-                letterSpacing={"3px"}
-              >
-                CONNECT WITH US
-              </Heading>
-              <HStack>
-                <Image
-                  src="https://cdn.modesens.com/static/img/20181127add_app.svg"
-                  boxSize={"30px"}
-                ></Image>
-
-                <Link
-                  fontSize={"15px"}
-                  color={"#7F7F7F"}
-                  lineHeight={"16px"}
-                  fontWeight={"600"}
-                  href={"#"}
-                >
-                  ModeSens App for IOS & Android
-                </Link>
-              </HStack>
-
-              <HStack>
-                <Image
-                  src="https://cdn.modesens.com/static/img/20181127add_browse.svg"
-                  boxSize={"30px"}
-                ></Image>
-
-                <Link
-                  fontSize={"15px"}
-                  color={"#7F7F7F"}
-                  lineHeight={"16px"}
-                  fontWeight={"600"}
-                  href={"#"}
-                >
-                  Add to Browser
-                </Link>
-              </HStack>
-            </Stack>
-
-            <Stack align={"flex-start"}>
-              <Heading
-                as="h4"
-                mb={"5px"}
-                size="md"
-                fontSize={"15px"}
-                fontWeight={"500"}
-                letterSpacing={"3px"}
-              >
-                NEWSLETTER SIGN UP
-              </Heading>
-              <Input placeholder="Enter Email" variant={"flushed"} />
-              <HStack mt="20px" spacing={"50px"}>
-                <Checkbox>Women's</Checkbox>
-                <Checkbox>Man's</Checkbox>
-              </HStack>
-              <br />
-              <Button colorScheme={"blackAlpha"} w={"100%"}>
-                Submit
-              </Button>
-            </Stack>
-          </SimpleGrid>
-        </Container>
-      </Box>
-
-      <Box m={"20px"}>
+      <Box
+        borderTopWidth={1}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.700")}
+      >
         <Container
           as={Stack}
-          maxW={"8xl"}
+          maxW={"6xl"}
           py={4}
           direction={{ base: "column", md: "row" }}
           spacing={4}
-          justify={{ md: "space-between" }}
-          align={{ md: "center" }}
+          justify={{ base: "center", md: "space-between" }}
+          align={{ base: "center", md: "center" }}
         >
           <HStack>
-            <Image
-              src="https://cdn.modesens.com/static/img/20180905footer_logo.svg"
-              boxSize={"2rem"}
-            ></Image>
-            <Text fontWeight={"500"} fontSize={"14px"}>
-              © 2022, ModeSens In
-            </Text>
+            <Image src="http://localhost:3000/img/logo.jpg" h="50px" />
+            <Text fontWeight="600">E-commerce Webiste @ 2022</Text>
           </HStack>
           <Stack direction={"row"} spacing={6}>
-            <HStack>
-              <Image
-                src="https://cdn.modesens.com/static/img/20181008footer-pit.svg"
-                boxSize={"30px"}
-                width={"50px"}
-              ></Image>
-              <Image
-                src="https://cdn.modesens.com/static/img/20181008footer-tt.svg"
-                boxSize={"30px"}
-                width={"50px"}
-              ></Image>
-              <Image
-                src="https://cdn.modesens.com/static/img/footer-p.svg"
-                width={"50px"}
-              ></Image>
-              <Image
-                src="https://cdn.modesens.com/static/img/footer-fb.svg"
-                width={"50px"}
-              ></Image>
-              <Image
-                src="https://cdn.modesens.com/static/img/footer-wb.svg"
-                width={"50px"}
-              ></Image>
-              <Image
-                src="https://cdn.modesens.com/static/img/footer-wx.svg"
-                width={"50px"}
-              ></Image>
-            </HStack>
+            <SocialButton
+              label={"FaGithub"}
+              href={"https://github.com/VishalBhuse/E-Commerce-Repo"}
+            >
+              <FaGithub />
+            </SocialButton>
+            <SocialButton label={"YouTube"} href={"https://www.youtube.com/"}>
+              <FaYoutube />
+            </SocialButton>
+            <SocialButton
+              label={"Instagram"}
+              href={"https://www.instagram.com/"}
+            >
+              <FaInstagram />
+            </SocialButton>
           </Stack>
         </Container>
       </Box>
-    </>
+    </Box>
   );
 }

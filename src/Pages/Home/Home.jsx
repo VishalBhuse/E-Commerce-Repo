@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Center, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { Box, Center, Image, Text, VStack } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
@@ -160,8 +160,6 @@ const Thirdslider = () => {
               spaceBetween: 30,
             },
           }}
-          // slidesPerView={3}
-          // spaceBetween={30}
           slidesPerGroup={3}
           loop={true}
           loopFillGroupWithBlank={true}
@@ -766,75 +764,12 @@ const Lastslider = () => {
   );
 };
 
-const Secondlastsection = () => {
-  return (
-    <>
-      <Box
-        backgroundColor={"#F8F7F6"}
-        color={"black"}
-        w="100%"
-        mt={"100px"}
-        p={15}
-      >
-        <SimpleGrid columns={[1, 1, 2]} spacing={10}>
-          <Box w={"100%"} p={10}>
-            <Center>
-              <VStack>
-                <Text textAlign={"center"} fontWeight={"600"} fontSize={"23px"}>
-                  Download the <br />
-                  ModeSens App
-                </Text>
-                <Text textAlign={"center"} fontWeight={"500"} fontSize={"15px"}>
-                  A seamless experience that takes your style <br /> to the next
-                  level.
-                </Text>
-                <button className={styles.lastdownloadbutton}>
-                  Download Alpha
-                </button>
-                <Image
-                  height={"400px"}
-                  width={"200px"}
-                  alt="downl"
-                  src="https://cdn.modesens.com/static/img/20220420AppDownloaden.png"
-                ></Image>
-              </VStack>
-            </Center>
-          </Box>
-          <Box w={"100%"} p={10}>
-            <Center>
-              <VStack>
-                <Text textAlign={"center"} fontWeight={"600"} fontSize={"23px"}>
-                  Install the ModeSens <br /> Browser Extension
-                </Text>
-                <Text fontWeight={"500"} fontSize={"15px"} textAlign={"center"}>
-                  Get timely, accurate product information <br /> every time you
-                  browse.
-                </Text>
-                <button className={styles.lastdownloadbutton}>
-                  Install Now
-                </button>
-                <Image
-                  height={"400px"}
-                  width={"390px"}
-                  src="https://cdn.modesens.com/static/img/20211109downloadright.png"
-                  alt="downl"
-                ></Image>
-              </VStack>
-            </Center>
-          </Box>
-        </SimpleGrid>
-      </Box>
-    </>
-  );
-};
-
 export {
   Firstslider,
   Mid1,
   Secondslider,
   Thirdslider,
   Lastslider,
-  Secondlastsection,
   Product1,
   Product2,
 };

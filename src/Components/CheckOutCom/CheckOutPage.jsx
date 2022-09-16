@@ -5,29 +5,22 @@ import {
   Flex,
   FormLabel,
   Checkbox,
-  Heading,
-  Image,
   Input,
   Text,
   SimpleGrid,
   Divider,
-  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { addAdress, getAdress } from "../../Redux/Adress/action";
 import { CheckOutSmallDiv } from "./CheckOutSmallDiv";
 
 export const CheckOutPage = () => {
-  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-  console.log(user);
+  const { loginWithRedirect, user } = useAuth0();
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
   const [adress, setAdress] = useState({});
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const toast = useToast();
+
   let totalPrice = 0;
 
   const handleChange = (e) => {
@@ -39,27 +32,6 @@ export const CheckOutPage = () => {
   };
   const isError = adress === {};
 
-  const haddleSubmit = (e) => {
-    e.preventDefault();
-    var value = adress;
-    console.log(value);
-    if (value) {
-      addAdress({
-        value,
-        dispatch,
-      }).then(() => {
-        getAdress(dispatch);
-      });
-    }
-    var x =
-      document.forms["myForm"]["Firstname"]["Lastname"]["City"]["State"]["PIN"][
-        "Phone"
-      ].value;
-    if (x == "") {
-      alert("Name must be filled out");
-      return false;
-    }
-  };
   const handleOrder = () => {
     var options = {
       key: "rzp_test_Ir8rhszHzFG7Xg",
@@ -118,7 +90,6 @@ export const CheckOutPage = () => {
                 variant="filled"
                 bg="#F7F7F7"
                 name="myForm"
-                onSubmit={haddleSubmit}
                 isInvalid={isError}
                 required
               >

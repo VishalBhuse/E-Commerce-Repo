@@ -14,12 +14,8 @@ import {
   UnorderedList,
   useToast,
 } from "@chakra-ui/react";
-import { addtocart, getCart } from "../../Redux/CartReducer/action";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  ADD_TOCART_SUCCESS,
-  GET_CART_SUCCESS,
-} from "../../Redux/CartReducer/actionTypes";
+import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 
 export const SingleProduct = () => {
   const toast = useToast();
@@ -30,7 +26,7 @@ export const SingleProduct = () => {
   const [currentImage1, setcurrentImage1] = useState("");
   const dispatch = useDispatch();
   const CartItem = useSelector((state) => state.Cartreducer.AddtoCart);
-  console.log(CartItem, "use Selactor");
+  // console.log(CartItem, "use Selactor");
 
   const getData = () => {
     axios
@@ -41,7 +37,7 @@ export const SingleProduct = () => {
         setIsloading(false);
       })
       .catch((err) => {
-        console.log(err);
+        //  console.log(err);
       });
   };
 
@@ -61,7 +57,7 @@ export const SingleProduct = () => {
 
     dispatch({
       type: GET_CART_SUCCESS,
-      payload: [...CartItem, {...currentProduct,quantity:1}],
+      payload: [...CartItem, { ...currentProduct, quantity: 1 }],
     });
   };
 
@@ -89,17 +85,17 @@ export const SingleProduct = () => {
             <HStack alignItems={"flex-start"}>
               <Box w={["100%", "100%", "40%"]}>
                 <Image
-                  w={category == "laptop" ? "80%" : "50%"}
+                  w={category === "laptop" ? "80%" : "50%"}
                   m="0 auto"
-                  height={category == "laptop" ? "200px" : "300px"}
+                  height={category === "laptop" ? "200px" : "300px"}
                   src={currentImage1}
                 />
               </Box>
               <Box w={["100%", "100%", "60%"]}>
                 <Image
-                  w={category == "laptop" ? "100%" : "60%"}
+                  w={category === "laptop" ? "100%" : "60%"}
                   m="auto"
-                  height={category == "laptop" ? "400px" : "450px"}
+                  height={category === "laptop" ? "400px" : "450px"}
                   src={currentImage1}
                 />
               </Box>

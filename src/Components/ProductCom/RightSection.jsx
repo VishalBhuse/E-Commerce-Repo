@@ -6,11 +6,9 @@ import {
   SimpleGrid,
   Skeleton,
   Stack,
-  Switch,
   Tag,
   TagCloseButton,
   TagLabel,
-  Text,
 } from "@chakra-ui/react";
 import { Pagination } from "./Pagination";
 import { ProductCard } from "./ProductCard";
@@ -47,7 +45,7 @@ export const RightSection = () => {
       default:
         break;
     }
-    console.log(products, str);
+    // console.log(products, str);
   };
 
   const onPageChange = (direction) => {
@@ -66,7 +64,7 @@ export const RightSection = () => {
       newFillter.splice(newFillter.indexOf(category), 1);
     }
     dispatch({ type: ADD_FILLTER, payload: newFillter });
-    console.log(newFillter);
+    // console.log(newFillter);
   };
 
   const FetchDataFromServer = () => {
@@ -76,12 +74,12 @@ export const RightSection = () => {
         `https://ecommercecombine.herokuapp.com/${category}?page=${curretpage}`
       )
       .then((res) => {
-        console.log(res.data.data, category);
+        // console.log(res.data.data, category);
         setproducts(res.data.data);
         setloading(false);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
   useEffect(() => {

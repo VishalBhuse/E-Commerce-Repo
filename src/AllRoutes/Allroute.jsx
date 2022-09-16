@@ -26,8 +26,6 @@ export const Allroute = () => {
         <Route path="/:category/:id" element={<SingleProduct />} />
         <Route path="/cart" element={<MainCartBag />} />
         <Route path="/checkout" element={<CheckOutPage />} />
-        {/* <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} /> */}
       </Routes>
 
       <Footer />

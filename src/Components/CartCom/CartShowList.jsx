@@ -5,22 +5,19 @@ import {
   SimpleGrid,
   Divider,
   ButtonGroup,
-  Stack,
   Text,
 } from "@chakra-ui/react";
 import { GrFormAdd, GrSubtract } from "react-icons/gr";
 
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 
 export const CartShowList = (props) => {
   const [count, setCount] = useState(props.quantity);
   const [abovethreeOrder, setAbovethreeOrder] = useState(false);
 
   const handdleIncrement = (value) => {
-    if (value == 1 && count < 5) {
+    if (value === 1 && count < 5) {
       setCount(count + value);
       props.handleQuantityChange(props._id, count + 1);
     } else if (value === -1 && count > 1) {
@@ -30,7 +27,7 @@ export const CartShowList = (props) => {
   };
 
   useEffect(() => {
-    if (count == 5) {
+    if (count === 5) {
       setAbovethreeOrder(true);
     } else {
       setAbovethreeOrder(false);

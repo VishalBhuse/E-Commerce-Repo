@@ -1,5 +1,5 @@
 import React from 'react'
-import { Firstslider, Lastslider, Mid1,  Product1,  Product2,  Secondlastsection, Secondslider, Thirdslider } from './Home'
+import { Firstslider, Lastslider, Mid1,  Product1,  Product2,  Secondslider, Thirdslider } from './Home'
 
 const Homeindex = () => {
   return (
@@ -11,7 +11,6 @@ const Homeindex = () => {
         <Product1 />
         <Product2 />
         <Lastslider />
-        <Secondlastsection />
     </div>
   )
 }
