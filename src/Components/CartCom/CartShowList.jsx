@@ -1,23 +1,20 @@
 import {
   Box,
   Button,
-  Heading,
   Image,
-  SlideFade,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { DeleteIcon } from "@chakra-ui/icons";
-import { deleteitem, getCart } from "../../Redux/CartReducer/action";
+import { useDispatch, useSelector } from "react-redux";
+import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 
 export const CartShowList = (props) => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(props.quantity);
   const [abovethreeOrder, setAbovethreeOrder] = useState(false);
   const dispatch = useDispatch();
+  const CartData = useSelector((state) => state.Cartreducer.AddtoCart);
 
   const handdleUpdate = async (count) => {
     // await axios
@@ -44,13 +41,6 @@ export const CartShowList = (props) => {
     }
   }, [count]);
 
-  useEffect(() => {
-    // handdleUpdate(count);
-  }, [count]);
-
-  const handlleDelete = async () => {
-    
-  };
 
   return (
     <Box>
@@ -64,7 +54,7 @@ export const CartShowList = (props) => {
           <Box w={"120px"} h="150px">
             <Image src={props.src} />
           </Box>
-          <Box width={"180px"} overflow={"hidden"} whiteSpace={"nowrap"}>
+          <Box width={"180px"}  overflow={"hidden"} >
             <Text>{props.title}</Text>
             {/* <Text color={"gray"}>{vendor}</Text> */}
             {/* <Text color={"#dcdcdc"}>{type}</Text> */}
@@ -139,7 +129,7 @@ export const CartShowList = (props) => {
               _hover={{
                 cursor: "pointer",
               }}
-              onClick={handlleDelete}
+              onClick={()=>props.handlleDelete(props._id)}
             >
               Remove
             </Text>

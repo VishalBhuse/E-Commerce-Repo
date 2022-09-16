@@ -1,29 +1,33 @@
-import { WarningIcon } from "@chakra-ui/icons";
-import { Box, Button, Checkbox, Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { Box, Button, Checkbox, Heading, HStack, Stack, Text } from "@chakra-ui/react";
 import { CartShowList } from "./CartShowList";
 import { useDispatch } from "react-redux";
-import { getCart } from "../../Redux/CartReducer/action";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 
 
 export const MainCartBag = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
-  console.log(AddtoCart,"get from redux");
-
   let totalPrice = 0;
+
 
   const HandleCheckout=()=>{
     navigate("/checkout")
   }
 
+  const handlleDelete = (id) => {
+    console.log(AddtoCart,id,"AddtoCart");
+      let UpdateCart = AddtoCart.filter((item)=> item._id !== id)
+      console.log(UpdateCart,"UpdateCart");
+      dispatch({
+        type: GET_CART_SUCCESS,
+        payload: UpdateCart,
+      });
+    };
 
-  useEffect(() => {
-    // getCart(dispatch);
-  }, [])
   
   return (
     <Box>
@@ -127,7 +131,7 @@ export const MainCartBag = () => {
           <Box mt="2">
             {AddtoCart?.map((item) => {
               totalPrice += item.price;
-              return <CartShowList key={item.id} {...item} />;
+              return <CartShowList key={item.id} {...item} handlleDelete={handlleDelete}/>;
             })}
           </Box>
         </Box>
