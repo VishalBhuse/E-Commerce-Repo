@@ -13,28 +13,20 @@ import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 export const CartShowList = (props) => {
   const [count, setCount] = useState(props.quantity);
   const [abovethreeOrder, setAbovethreeOrder] = useState(false);
-  const dispatch = useDispatch();
-  const CartData = useSelector((state) => state.Cartreducer.AddtoCart);
 
-  const handdleUpdate = async (count) => {
-    // await axios
-    //   .patch(`http://localhost:8080/addtocart/${id}`, {
-    //     quantity: count,
-    //     priceMax: count * price,
-    //   })
-    //   .then(() => getCart(dispatch));
-  };
 
   const handdleIncrement = (value) => {
-    if (value == 1 && count < 3) {
+    if (value == 1 && count < 5) {
       setCount(count + value);
+      props.handleQuantityChange(props._id,count+1)
     } else if (value === -1 && count > 1) {
       setCount(count + value);
+      props.handleQuantityChange(props._id,count-1)
     }
   };
   
   useEffect(() => {
-    if (count == 3) {
+    if (count == 5) {
       setAbovethreeOrder(true);
     } else {
       setAbovethreeOrder(false);
@@ -58,14 +50,13 @@ export const CartShowList = (props) => {
             <Text>{props.title}</Text>
             {/* <Text color={"gray"}>{vendor}</Text> */}
             {/* <Text color={"#dcdcdc"}>{type}</Text> */}
-            <Box>{abovethreeOrder ? <Text>Limit: 3 Per Order</Text> : ""}</Box>
+            <Box>{abovethreeOrder ? <Text>Limit: 5 Per Order</Text> : ""}</Box>
           </Box>
         </Stack>
         <Box>
           <Box display={"flex"} justifyContent="space-between">
             <Text color={"gray"}>
-              ₹.
-              {props.price.toLocaleString("hi-IN")}.00
+              ₹ {props.price.toLocaleString("hi-IN")}
             </Text>
           </Box>
         </Box>
@@ -137,8 +128,7 @@ export const CartShowList = (props) => {
         </Box>
         <Box display={"flex"} justifyContent="space-between">
           <Text color={"gray"}>
-            ₹.
-            {(count * props.price).toLocaleString("hi-IN")}
+            ₹ {(count * props.price).toLocaleString("hi-IN")}
           </Text>
         </Box>
       </Box>

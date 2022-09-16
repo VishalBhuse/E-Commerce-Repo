@@ -21,7 +21,7 @@ export const CheckOutSmallDiv = (props) => {
           w={"20px"}
           ml="-30"
         >
-          {quantity || 1} 
+          {quantity} 
         </Box>
         <Box width={"180px"} p="5">
           <Box
@@ -35,7 +35,7 @@ export const CheckOutSmallDiv = (props) => {
           </Box>
         </Box>
         <Box p="5" fontFamily={""} fontSize="18px" fontWeight={500}>
-          ₹.{(price).toLocaleString("hi-IN")} .00
+          ₹ {(price*quantity).toLocaleString("hi-IN")}
         </Box>
       </Box>
     </Box>

@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   Box,
   Button,
@@ -18,11 +19,15 @@ import { addAdress, getAdress } from "../../Redux/Adress/action";
 import { CheckOutSmallDiv } from "./CheckOutSmallDiv";
 
 export const CheckOutPage = () => {
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+  console.log(user);
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
-
-  let totalPrice = 0;
   const [adress, setAdress] = useState({});
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const toast = useToast();
+  let totalPrice = 0;
+
   const handleChange = (e) => {
     const inputName = e.target.name;
     setAdress({
@@ -31,6 +36,7 @@ export const CheckOutPage = () => {
     });
   };
   const isError = adress === {};
+
   const haddleSubmit = (e) => {
     e.preventDefault();
     var value = adress;
@@ -52,12 +58,11 @@ export const CheckOutPage = () => {
       return false;
     }
   };
-  let navigate = useNavigate();
   const handleOrder = () => {
     var options = {
       key: "rzp_test_Ir8rhszHzFG7Xg",
       key_secret:"ec3Q9O6SUrm9iNvEPqdKvlhN",
-      amount: 12599 * 100,
+      amount: totalPrice * 100,
       currency:"INR",
       name:"E-Shop",
       description:"for testing purpose",
@@ -65,9 +70,9 @@ export const CheckOutPage = () => {
         alert(response.razorpay_payment_id);
       },
       prefill: {
-        name:"Velmurugan",
-        email:"mvel1620r@gmail.com",
-        contact:"7904425033"
+        name:user?.nickname,
+        email:user?.email,
+        // contact:"7904425033"
       },
       notes:{
         address:"Razorpay Corporate office"
@@ -79,7 +84,7 @@ export const CheckOutPage = () => {
     var pay = new window.Razorpay(options);
     pay.open();
   };
-  const toast = useToast();
+
   return (
     <Box>
       <Box>
@@ -87,9 +92,8 @@ export const CheckOutPage = () => {
           <Box width="50%" p="4">
             <Flex justifyContent={"space-between"}>
               <FormLabel htmlFor="email">Contanct Information</FormLabel>
-              <FormLabel onClick={() => navigate("/login")}>
-                {" "}
-                Already have an account?Log in
+              <FormLabel onClick={() => loginWithRedirect()}>
+                Already have an account? Log in
               </FormLabel>
             </Flex>
 
@@ -209,7 +213,7 @@ export const CheckOutPage = () => {
           <Box bg="#f5f5f5" width="50%" p="6">
             <Box>
               {AddtoCart.map((item) => {
-                totalPrice += item.priceMax;
+                totalPrice += item.price*item.quantity;
                 return <CheckOutSmallDiv key={item.id} {...item} />;
               })}
             </Box>
@@ -231,12 +235,12 @@ export const CheckOutPage = () => {
             <Box color="gray" mt="10px" width={"80%"}>
               <Flex justifyContent={"space-between"}>
                 <Text>Subtotal</Text>
-                <Text> ₹.{totalPrice.toLocaleString("hi-IN")} .00</Text>
+                <Text> ₹ {totalPrice.toLocaleString("hi-IN")}</Text>
               </Flex>
-              <Flex justifyContent={"space-between"}>
+              {/* <Flex justifyContent={"space-between"}>
                 <Text>Shipping</Text>
                 <Text fontSize={"13px"}>Calculated at next step</Text>
-              </Flex>
+              </Flex> */}
             </Box>
             <Box bg="gray" h={"1px"} mt="10px" width={"80%"}></Box>
             <Flex
@@ -247,7 +251,7 @@ export const CheckOutPage = () => {
               width={"80%"}
             >
               <Text>Total</Text>
-              <Text> ₹.{totalPrice.toLocaleString("hi-IN")} .00</Text>
+              <Text> ₹ {totalPrice.toLocaleString("hi-IN")}</Text>
             </Flex>
           </Box>
         </Flex>

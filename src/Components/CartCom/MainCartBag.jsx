@@ -9,14 +9,23 @@ import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 
 export const MainCartBag = () => {
   const dispatch = useDispatch()
+  const [refesh, setrefesh] = useState(false)
   const navigate = useNavigate();
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
   let totalPrice = 0;
 
-
-  const HandleCheckout=()=>{
-    navigate("/checkout")
-  }
+  const handleQuantityChange = (id, count) => {
+    AddtoCart.map((item)=>{
+      if(item._id==id){
+        item.quantity=count
+      }
+    })
+    dispatch({
+      type: GET_CART_SUCCESS,
+      payload: AddtoCart,
+    });
+    setrefesh(!refesh)
+  } 
 
   const handlleDelete = (id) => {
     console.log(AddtoCart,id,"AddtoCart");
@@ -32,7 +41,7 @@ export const MainCartBag = () => {
   return (
     <Box>
       <Box width={"80%"} m="auto">
-        <Box pt="10" pb="10" fontFamily={`"Montserrat Regular",sans-serif`}>
+        <Box fontFamily={`"Montserrat Regular",sans-serif`}>
           <Heading
             fontWeight={500}
             fontStyle="normal"
@@ -47,7 +56,7 @@ export const MainCartBag = () => {
           </Heading>
         </Box>
       
-        <Box mt="5" fontFamily={`"Montserrat Regular",sans-serif`}>
+        <Box fontFamily={`"Montserrat Regular",sans-serif`}>
           <Heading
             letterSpacing={"1px"}
             fontSize="20px"
@@ -60,32 +69,8 @@ export const MainCartBag = () => {
             Your cart ({AddtoCart?.length} items)
           </Heading>
         </Box>
-        <Box mt={6}>
-          <Stack
-            gap={"15px"}
-            direction="row"
-            fontSize="25px"
-            color={"#12284c"}
-            fontWeight={700}
-            as="h2"
-            size="xl"
-          >
-            <Checkbox size="lg">IS THIS ORDER A GIFT?</Checkbox>
-          </Stack>
-          <Text
-            mt="5"
-            fontFamily={`"Montserrat Regular",sans-serif`}
-            fontSize={"14px"}
-            verticalAlign={"baseline"}
-            lineHeight={"19px"}
-            fontWeight={500}
-            color={"gray"}
-            ml="10px"
-          >
-            The price of your order will be hidden on the gift receipt.
-          </Text>
-        </Box>
-        <Box mt="10">
+         
+        <Box mt="5">
           <HStack
             justifyContent={"space-between"}
             borderBottom={"1px solid #dcdcdc"}
@@ -130,16 +115,15 @@ export const MainCartBag = () => {
 
           <Box mt="2">
             {AddtoCart?.map((item) => {
-              totalPrice += item.price;
-              return <CartShowList key={item.id} {...item} handlleDelete={handlleDelete}/>;
+              totalPrice += item.price*item.quantity;
+              return <CartShowList key={item.id} {...item} handlleDelete={handlleDelete} handleQuantityChange={handleQuantityChange}/>;
             })}
           </Box>
         </Box>
-        {/* <AdditionalOffering totalPrice={totalPrice} /> */}
         <HStack justifyContent={"flex-end"}>
-        <Heading size={"sm"}>SubTotal </Heading>
+        <Heading size={"sm"}>SUB TOTAL </Heading>
         <Text color={"#12284c"} fontSize="18px" fontWeight={600}>
-        ₹. {totalPrice}
+        ₹ {totalPrice.toLocaleString("hi-IN")}
         </Text>
       </HStack>
       <HStack justifyContent={"flex-end"}>
@@ -165,8 +149,7 @@ export const MainCartBag = () => {
           fontFamily={"Roboto, sans-serif"}
           color={"white"}
           textTransform={"uppercase"}
-          // onClick={() => navigate("/checkout")}
-          onClick={HandleCheckout}
+          onClick={() => navigate("/checkout")}
         >
           Checkout
         </Button>
