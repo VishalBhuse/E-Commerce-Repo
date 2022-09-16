@@ -2,9 +2,14 @@ import {
   Box,
   Button,
   Image,
+  SimpleGrid,
+  Divider,
+  ButtonGroup,
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { GrFormAdd, GrSubtract } from "react-icons/gr";
+
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,17 +19,16 @@ export const CartShowList = (props) => {
   const [count, setCount] = useState(props.quantity);
   const [abovethreeOrder, setAbovethreeOrder] = useState(false);
 
-
   const handdleIncrement = (value) => {
     if (value == 1 && count < 5) {
       setCount(count + value);
-      props.handleQuantityChange(props._id,count+1)
+      props.handleQuantityChange(props._id, count + 1);
     } else if (value === -1 && count > 1) {
       setCount(count + value);
-      props.handleQuantityChange(props._id,count-1)
+      props.handleQuantityChange(props._id, count - 1);
     }
   };
-  
+
   useEffect(() => {
     if (count == 5) {
       setAbovethreeOrder(true);
@@ -33,107 +37,93 @@ export const CartShowList = (props) => {
     }
   }, [count]);
 
-
   return (
     <Box>
-      <Box
-        display={"flex"}
-        flexWrap={"wrap"}
-        gap="20px"
-        justifyContent={"space-between"}
+      <SimpleGrid
+        textAlign="center"
+        columns={[2, 2, 3, 6]}
+        spacing={10}
+        alignItems="center"
+        justifyContent={"space-around"}
       >
-        <Stack direction={"row"}>
-          <Box w={"120px"} h="150px">
-            <Image src={props.src} />
-          </Box>
-          <Box width={"180px"}  overflow={"hidden"} >
-            <Text>{props.title}</Text>
-            {/* <Text color={"gray"}>{vendor}</Text> */}
-            {/* <Text color={"#dcdcdc"}>{type}</Text> */}
-            <Box>{abovethreeOrder ? <Text>Limit: 5 Per Order</Text> : ""}</Box>
-          </Box>
-        </Stack>
+        <Box p="5">
+          <Image src={props.src} />
+        </Box>
         <Box>
-          <Box display={"flex"} justifyContent="space-between">
-            <Text color={"gray"}>
-              ₹ {props.price.toLocaleString("hi-IN")}
-            </Text>
+          <Text
+            color={"gray"}
+            noOfLines={2}
+            fontSize={"15px"}
+            fontweight={"700"}
+          >
+            {props.title}
+          </Text>
+          <Box>
+            {abovethreeOrder ? (
+              <Text color="red" fontweight="600">
+                Limit: 5 Per Order
+              </Text>
+            ) : (
+              ""
+            )}
           </Box>
         </Box>
-        <Box
-          display={"block"}
-          h="30px"
-          mt="1px"
-          w={"100px"}
-          justifyContent="space-around"
-          textAlign="center"
-        >
+        <Box>
+          <Text fontSize={"15px"} fontweight={"700"} color={"gray"}>
+            ₹ {props.price.toLocaleString("hi-IN")}
+          </Text>
+        </Box>
+        <Box textAlign="center">
           <Box
             display={"flex"}
             h="30px"
             mt="10px"
+            m="auto"
             w={"100px"}
-            justifyContent="space-around"
             textAlign="center"
           >
-            <Button
-              bgColor="#f8f8f8"
-              fontSize={"20px"}
-              borderRadius="0px"
-              border="1px black solid"
-              w={"40px"}
-              h="30px"
-              _hover={{
-                cursor: "pointer",
-              }}
-              onClick={() => handdleIncrement(-1)}
-            >
-              -
-            </Button>
-            <Box
-              bgColor="#ffffff"
-              border="1px black solid"
-              h="30px"
-              w="40px"
-              m={"auto"}
-            >
-              {count}
-            </Box>
-            <Button
-              borderRadius="0px"
-              bgColor="#f8f8f8"
-              fontSize={"20px"}
-              border="1px black solid"
-              w={"40px"}
-              h="30px"
-              onClick={() => handdleIncrement(1)}
-              _hover={{
-                cursor: "pointer",
-              }}
-            >
-              +
-            </Button>
-          </Box>
-
-          <Box>
-            <Text
-              _hover={{
-                cursor: "pointer",
-              }}
-              onClick={()=>props.handlleDelete(props._id)}
-            >
-              Remove
-            </Text>
+            <ButtonGroup size="md" isAttached>
+              <Button
+                borderRadius={0}
+                colorScheme="blackAlpha"
+                onClick={() => handdleIncrement(1)}
+              >
+                <GrFormAdd />
+              </Button>
+              <Button>{count}</Button>
+              <Button
+                onClick={() => handdleIncrement(-1)}
+                borderRadius={0}
+                colorScheme="blackAlpha"
+              >
+                <GrSubtract />
+              </Button>
+            </ButtonGroup>
           </Box>
         </Box>
-        <Box display={"flex"} justifyContent="space-between">
-          <Text color={"gray"}>
+        <Box>
+          <Button
+            onClick={() => props.handlleDelete(props._id)}
+            colorScheme="orange"
+            fontSize={"15px"}
+          >
+            Remove
+          </Button>
+        </Box>
+        <Box>
+          <Text fontSize={"15px"} fontweight={"700"} color={"gray"}>
             ₹ {(count * props.price).toLocaleString("hi-IN")}
           </Text>
         </Box>
-      </Box>
-      <Box borderBottom={"1px solid #dcdcdc"} mt="3" mb={"3"} ></Box>
-      
+      </SimpleGrid>
+      <Divider
+        w="100%"
+        my="5"
+        orientation="horizontal"
+        size="10px"
+        border="2"
+        opacity={8}
+      />
     </Box>
   );
 };

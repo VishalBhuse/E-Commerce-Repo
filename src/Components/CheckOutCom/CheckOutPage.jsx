@@ -9,6 +9,8 @@ import {
   Image,
   Input,
   Text,
+  SimpleGrid,
+  Divider,
   useToast,
 } from "@chakra-ui/react";
 import React from "react";
@@ -61,35 +63,43 @@ export const CheckOutPage = () => {
   const handleOrder = () => {
     var options = {
       key: "rzp_test_Ir8rhszHzFG7Xg",
-      key_secret:"ec3Q9O6SUrm9iNvEPqdKvlhN",
+      key_secret: "ec3Q9O6SUrm9iNvEPqdKvlhN",
       amount: totalPrice * 100,
-      currency:"INR",
-      name:"E-Shop",
-      description:"for testing purpose",
-      handler: function(response){
+      currency: "INR",
+      name: "E-Shop",
+      description: "for testing purpose",
+      handler: function (response) {
         alert(response.razorpay_payment_id);
       },
       prefill: {
-        name:user?.nickname,
-        email:user?.email,
+        name: user?.nickname,
+        email: user?.email,
         // contact:"7904425033"
       },
-      notes:{
-        address:"Razorpay Corporate office"
+      notes: {
+        address: "Razorpay Corporate office",
       },
       theme: {
-        color:"#12284c"
-      }
+        color: "#12284c",
+      },
     };
     var pay = new window.Razorpay(options);
     pay.open();
   };
 
   return (
-    <Box>
+    <>
+      <Box bg="#EDF2F7"></Box>
       <Box>
-        <Flex>
-          <Box width="50%" p="4">
+        <SimpleGrid
+          padding="50px"
+          columns={[1, 1, 2, 2]}
+          spacing={"50px"}
+          w="90%"
+          m="auto"
+          bg="#fff"
+        >
+          <Box>
             <Flex justifyContent={"space-between"}>
               <FormLabel htmlFor="email">Contanct Information</FormLabel>
               <FormLabel onClick={() => loginWithRedirect()}>
@@ -97,43 +107,48 @@ export const CheckOutPage = () => {
               </FormLabel>
             </Flex>
 
-            <Input placeholder="Email" size="lg" width={"100%"} />
-            <Checkbox defaultChecked color={"#dcdcdc"}>
+            <Input variant="filled" bg="#F7F7F7" placeholder="Email" />
+
+            <Checkbox mt="2" defaultChecked color={"#dcdcdc"}>
               Email me with news and offers
             </Checkbox>
             <Box mt={"20px"}>
               <FormLabel>Shipping Adress</FormLabel>
-
               <form
+                variant="filled"
+                bg="#F7F7F7"
                 name="myForm"
                 onSubmit={haddleSubmit}
                 isInvalid={isError}
                 required
               >
                 <Input
+                  variant="filled"
+                  bg="#F7F7F7"
                   placeholder="First Name"
                   type={"text"}
                   name="Firstname"
                   onChange={handleChange}
-                  size="lg"
-                  width={"48%"}
+                  size="md"
                 />
 
                 <Input
+                  variant="filled"
+                  bg="#F7F7F7"
                   placeholder="Last Name"
-                  size="lg"
-                  mt={"10px"}
-                  ml="4"
-                  width={"48%"}
+                  size="md"
+                  mt={"30px"}
                   type={"text"}
                   name="Lastname"
                   onChange={handleChange}
                 />
 
                 <Input
+                  variant="filled"
+                  bg="#F7F7F7"
                   placeholder="Contry"
-                  size="lg"
-                  mt={"10px"}
+                  size="md"
+                  mt={"30px"}
                   width={"98%"}
                   type={"text"}
                   name="contry"
@@ -142,8 +157,10 @@ export const CheckOutPage = () => {
 
                 <Input
                   placeholder="Adress"
-                  size="lg"
-                  mt={"10px"}
+                  size="md"
+                  variant="filled"
+                  bg="#F7F7F7"
+                  mt={"30px"}
                   width={"98%"}
                   type={"text"}
                   name="Adress"
@@ -152,17 +169,21 @@ export const CheckOutPage = () => {
                 <Flex justifyContent={"space-around"} width={"98%"}>
                   <Input
                     placeholder="City"
-                    size="lg"
-                    mt={"10px"}
+                    size="md"
+                    mt={"30px"}
                     width={"30%"}
                     type={"text"}
+                    variant="filled"
+                    bg="#F7F7F7"
                     name="City"
                     onChange={handleChange}
                   />
                   <Input
                     placeholder="State"
-                    size="lg"
-                    mt={"10px"}
+                    size="md"
+                    mt={"30px"}
+                    variant="filled"
+                    bg="#F7F7F7"
                     width={"30%"}
                     ml="3"
                     type={"text"}
@@ -171,8 +192,10 @@ export const CheckOutPage = () => {
                   />
                   <Input
                     placeholder="PIN code"
-                    size="lg"
-                    mt={"10px"}
+                    variant="filled"
+                    bg="#F7F7F7"
+                    size="md"
+                    mt={"30px"}
                     width={"31%"}
                     ml="4"
                     type={"text"}
@@ -183,47 +206,72 @@ export const CheckOutPage = () => {
 
                 <Input
                   placeholder="Phone"
-                  size="lg"
-                  mt={"10px"}
+                  size="md"
+                  mt={"30px"}
                   width={"98%"}
-                  type={"text"}
+                  variant="filled"
+                  bg="#F7F7F7"
+                  type={"number"}
                   name="Phone"
                   onChange={handleChange}
                 />
 
-                <Input
+                <Button
+                  colorScheme={"#12284c"}
                   borderRadius={"0px"}
                   type="submit"
-                  placeholder="Phone"
-                  size="lg"
-                  mt={"10px"}
-                  value="ORDER NOW"
+                  mt={"30px"}
                   ml={"37%"}
                   bg="#12284c"
                   color={"white"}
                   width={"60%"}
-                  
-                  onClick={handleOrder}     
-                  />
-
+                  onClick={handleOrder}
+                >
+                  Order Now
+                </Button>
               </form>
             </Box>
           </Box>
 
-          <Box bg="#f5f5f5" width="50%" p="6">
+          <Box>
+            <FormLabel>Your Order</FormLabel>
+
+            <Divider
+              w="90%"
+              orientation="horizontal"
+              m="auto"
+              size="10px"
+              border="2"
+              opacity={8}
+            />
             <Box>
               {AddtoCart.map((item) => {
-                totalPrice += item.price*item.quantity;
+                totalPrice += item.price * item.quantity;
                 return <CheckOutSmallDiv key={item.id} {...item} />;
               })}
             </Box>
-            <Box bg="gray" h={"1px"} width={"80%"}></Box>
-            <Box display={"flex"} p="2" mt="10px" mr={"10%"} gap={"10px"}>
-              <Input placeholder="Apply Coupen Code" size="lg" width={"60%"} />
+            <Divider
+              w="90%"
+              orientation="horizontal"
+              m="auto"
+              size="10px"
+              border="2"
+              opacity={8}
+            />
+            <Box
+              w="90%"
+              m={"auto"}
+              display={"flex"}
+              my="5"
+              gap={"10px"}
+              justifyContent="space-between"
+            >
+              <Input placeholder="Apply Coupen Code" size="md" width={"60%"} />
               <Button
                 w={"30%"}
                 size={"lg"}
                 borderRadius="0px"
+                colorScheme={"#12284c"}
                 bg="#12284c"
                 fontFamily={"Roboto, sans-serif"}
                 color={"white"}
@@ -231,19 +279,31 @@ export const CheckOutPage = () => {
                 Apply
               </Button>
             </Box>
-            <Box bg="gray" h={"1px"} mt="10px" width={"80%"}></Box>
-            <Box color="gray" mt="10px" width={"80%"}>
-              <Flex justifyContent={"space-between"}>
+            <Divider
+              w="90%"
+              orientation="horizontal"
+              m="auto"
+              size="10px"
+              border="2"
+              opacity={8}
+            />
+            <Box color="gray" my="10px" w="90%" m={"auto"}>
+              <Flex justifyContent={"space-between"} p="5">
                 <Text>Subtotal</Text>
                 <Text> ₹ {totalPrice.toLocaleString("hi-IN")}</Text>
               </Flex>
-              {/* <Flex justifyContent={"space-between"}>
-                <Text>Shipping</Text>
-                <Text fontSize={"13px"}>Calculated at next step</Text>
-              </Flex> */}
             </Box>
-            <Box bg="gray" h={"1px"} mt="10px" width={"80%"}></Box>
+            <Divider
+              w="90%"
+              orientation="horizontal"
+              m="auto"
+              size="10px"
+              border="2"
+              opacity={8}
+            />
             <Flex
+              w="90%"
+              m={"auto"}
               mt="10px"
               fontSize={"20px"}
               fontWeight={800}
@@ -254,8 +314,8 @@ export const CheckOutPage = () => {
               <Text> ₹ {totalPrice.toLocaleString("hi-IN")}</Text>
             </Flex>
           </Box>
-        </Flex>
+        </SimpleGrid>
       </Box>
-    </Box>
+    </>
   );
 };

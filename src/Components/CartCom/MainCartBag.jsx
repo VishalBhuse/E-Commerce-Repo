@@ -90,27 +90,6 @@ export const MainCartBag = () => {
                 Ready to Ship
               </Heading>
             </Box>
-            <Stack
-              direction={"row"}
-              justifyContent={"space-around"}
-              gap={220}
-              fontFamily={`"Montserrat Regular",sans-serif`}
-              fontSize={"16px"}
-              verticalAlign={"baseline"}
-              lineHeight={"29px"}
-              fontWeight={400}
-              color={"gray"}
-            >
-              <Box>
-                <Text>Price</Text>
-              </Box>
-              <Box>
-                <Text>Quantity</Text>
-              </Box>
-              <Box>
-                <Text>Total</Text>
-              </Box>
-            </Stack>
           </HStack>
 
           <Box mt="2">
@@ -141,6 +120,7 @@ export const MainCartBag = () => {
       </HStack>
       <HStack justifyContent={"flex-end"}>
         <Button
+        colorScheme={'#12284c'}
           w={"30%"}
           mt={8}
           size={"md"}
