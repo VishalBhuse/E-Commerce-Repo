@@ -7,6 +7,7 @@ import {
   Box,
   Checkbox,
   Heading,
+  HStack,
   Input,
   InputGroup,
   InputRightAddon,
@@ -89,16 +90,20 @@ export const LeftSection = () => {
                 }}
               >
                 {obj.Sub?.map((item, index) => (
-                  <Checkbox
-                    color={"#657fa1"}
-                    defaultChecked={Fillter?.includes(item) ? true : false}
-                    colorScheme="#657fa1"
-                    size="lg"
+                  <HStack spacing={"10px"}>
+                  <Box>
+                  <input
+                    style={{height:"18px",width:"18px", display:"flex", alignItems:"center"}}
+                    type={"checkbox"}
+                    checked={Fillter.includes(item)}
                     key={index}
-                    onChange={() => handleAddFilter(item)}
-                  >
+                    onClick={() => handleAddFilter(item)}
+                    />
+                    </Box>
+                    <Box>
                     {item}
-                  </Checkbox>
+                    </Box>
+                  </HStack>
                 ))}
               </Stack>
             </AccordionPanel>

@@ -19,6 +19,7 @@ export const CheckOutPage = () => {
   const { loginWithRedirect, user } = useAuth0();
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
   const [adress, setAdress] = useState({});
+  console.log(adress);
   const dispatch = useDispatch();
 
   let totalPrice = 0;

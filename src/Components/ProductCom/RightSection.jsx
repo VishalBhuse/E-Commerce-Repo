@@ -13,7 +13,6 @@ import {
 import { Pagination } from "./Pagination";
 import { ProductCard } from "./ProductCard";
 import axios from "axios";
-
 import { useParams, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ADD_FILLTER } from "../../Redux/FillterReducer/actionType";
@@ -29,6 +28,7 @@ export const RightSection = () => {
   const [sort, setsort] = useState("");
   const dispatch = useDispatch();
   const { category } = useParams();
+  console.log(Fillter);
 
   const HandleSort = (str) => {
     switch (str) {
