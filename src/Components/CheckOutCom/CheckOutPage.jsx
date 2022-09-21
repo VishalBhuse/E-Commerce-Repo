@@ -35,8 +35,8 @@ export const CheckOutPage = () => {
 
   const handleOrder = () => {
     var options = {
-      key: "rzp_test_Ir8rhszHzFG7Xg",
-      key_secret: "ec3Q9O6SUrm9iNvEPqdKvlhN",
+      key: "rzp_test_EYtq2efJzkB7wg",
+      key_secret: "c9uBIusanwftwxBqkTbSsazR",
       amount: totalPrice * 100,
       currency: "INR",
       name: "E-Shop",
@@ -45,8 +45,8 @@ export const CheckOutPage = () => {
         alert(response.razorpay_payment_id);
       },
       prefill: {
-        name: user?.nickname,
-        email: user?.email,
+        // name: user?.nickname,
+        // email: user?.email,
         // contact:"7904425033"
       },
       notes: {
@@ -191,7 +191,7 @@ export const CheckOutPage = () => {
                 <Button
                   colorScheme={"#12284c"}
                   borderRadius={"0px"}
-                  type="submit"
+                  // type="submit"
                   mt={"30px"}
                   ml={"37%"}
                   bg="#12284c"
