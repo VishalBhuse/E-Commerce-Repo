@@ -9,17 +9,24 @@ import {
   Text,
   SimpleGrid,
   Divider,
+  useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import swal from 'sweetalert';
+import axios from 'axios';
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckOutSmallDiv } from "./CheckOutSmallDiv";
+import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
+import { useNavigate } from 'react-router-dom'
 
 export const CheckOutPage = () => {
   const { loginWithRedirect, user } = useAuth0();
   const AddtoCart = useSelector((state) => state.Cartreducer.AddtoCart);
   const [adress, setAdress] = useState({});
-  console.log(adress);
+  const Navigator = useNavigate();
+  const toast = useToast();
+
   const dispatch = useDispatch();
 
   let totalPrice = 0;
@@ -31,34 +38,50 @@ export const CheckOutPage = () => {
       [inputName]: e.target.value,
     });
   };
+
   const isError = adress === {};
 
   const handleOrder = () => {
-    var options = {
-      key: "rzp_test_EYtq2efJzkB7wg",
-      key_secret: "c9uBIusanwftwxBqkTbSsazR",
-      amount: totalPrice * 100,
-      currency: "INR",
-      name: "E-Shop",
-      description: "for testing purpose",
-      handler: function (response) {
-        alert(response.razorpay_payment_id);
-      },
-      prefill: {
-        // name: user?.nickname,
-        // email: user?.email,
-        // contact:"7904425033"
-      },
-      notes: {
-        address: "Razorpay Corporate office",
-      },
-      theme: {
-        color: "#12284c",
-      },
-    };
-    var pay = new window.Razorpay(options);
-    pay.open();
+    if (!adress.Firstname){
+      console.log("all filed");
+      toast({
+        title: 'Filled all field.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      })
+    } else {
+      let options = {
+        key: "rzp_test_EYtq2efJzkB7wg",
+        key_secret: "c9uBIusanwftwxBqkTbSsazR",
+        amount: totalPrice * 100,
+        currency: "INR",
+        name: "E-Shop",
+        description: "for testing purpose",
+        handler: function (response) {
+          dispatch({type:GET_CART_SUCCESS,payload:[]})
+          swal("Good job!", "order placed successfully...!\n Order Details Send On Mail", "success");
+          Navigator("/")
+        },
+        prefill: {
+          name: user?.nickname,
+          email: user?.email,
+          contact: adress.Phone,
+        },
+        notes: {
+          address: "Razorpay Corporate office",
+        },
+        theme: {
+          color: "#12284c",
+        },
+      };
+      var pay = new window.Razorpay(options);
+      pay.open();
+    }
   };
+  useEffect(() => {
+    setAdress({...adress, email:user?.email});
+  }, []);
 
   return (
     <>
@@ -171,7 +194,7 @@ export const CheckOutPage = () => {
                     width={"31%"}
                     ml="4"
                     type={"text"}
-                    name="PIN"
+                    name="pincode"
                     onChange={handleChange}
                   />
                 </Flex>
