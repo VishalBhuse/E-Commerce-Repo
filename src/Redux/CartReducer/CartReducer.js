@@ -1,48 +1,45 @@
-import { loadData, saveData } from "../../utils/localStorage"
-import { GET_CART_FALIURE, GET_CART_REQUEST, GET_CART_SUCCESS } from "./actionTypes"
+import { loadData, saveData } from "../../utils/localStorage";
+import {
+  GET_CART_FALIURE,
+  GET_CART_REQUEST,
+  GET_CART_SUCCESS,
+} from "./actionTypes";
 
+const intialState = {
+  isLoading: false,
+  isError: "",
+  AddtoCart: loadData("Cart") || [],
+};
 
-const intialState={
-
-    isLoading:false,
-    isError:"",
-    AddtoCart:loadData("Cart")||[]
-}
-
-export const Cartreducer=(state=intialState,action)=>
-{
-const {type,payload} =action 
-switch(type)
-{
-    case GET_CART_REQUEST:
-        {
-            return {
-                ...state,
-                isError:"",
-                isLoading:true
-            }
-        };
-        case GET_CART_SUCCESS:
-            {
-                saveData("Cart" , payload)
-                return {
-                    ...state,
-                    isError:"",
-                    isLoading:false,
-                    AddtoCart:payload
-                }
-            };
-            case GET_CART_FALIURE:
-                {
-                    return {
-                        ...state,
-                        isError:payload,
-                        isLoading:false,
-                        AddtoCart:null
-                    }
-                };
-                default: {
-                    return { ...state };
-                  }
-}  
-}
+export const Cartreducer = (state = intialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case GET_CART_REQUEST: {
+      return {
+        ...state,
+        isError: "",
+        isLoading: true,
+      };
+    }
+    case GET_CART_SUCCESS: {
+      saveData("Cart", payload);
+      return {
+        ...state,
+        isError: "",
+        isLoading: false,
+        AddtoCart: payload,
+      };
+    }
+    case GET_CART_FALIURE: {
+      return {
+        ...state,
+        isError: payload,
+        isLoading: false,
+        AddtoCart: null,
+      };
+    }
+    default: {
+      return { ...state };
+    }
+  }
+};

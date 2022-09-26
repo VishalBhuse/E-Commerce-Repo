@@ -20,23 +20,26 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const QuickPro = (props) => {
   const [qty, setqty] = useState(1);
-  const toast = useToast()
+  const toast = useToast();
   const { category } = useParams();
-  const dispatch = useDispatch()
-  const CartItem = useSelector(state=>state.Cartreducer.AddtoCart)
+  const dispatch = useDispatch();
+  const CartItem = useSelector((state) => state.Cartreducer.AddtoCart);
 
-  const AddToCard = () =>{
+  const AddToCard = () => {
     toast({
-      title: 'Product added to cart',
-      position:"top",
-      status: 'success',
+      title: "Product added to cart",
+      position: "top",
+      status: "success",
       duration: 2000,
       isClosable: true,
-    })
-  console.log(props.item);
+    });
+    console.log(props.item);
 
-    dispatch({ type: GET_CART_SUCCESS, payload:[...CartItem, {...props.item,quantity:qty}]});
-  }
+    dispatch({
+      type: GET_CART_SUCCESS,
+      payload: [...CartItem, { ...props.item, quantity: qty }],
+    });
+  };
   return (
     <Box>
       <Stack direction={"row"} flexWrap="wrap" m="3">
@@ -71,13 +74,13 @@ export const QuickPro = (props) => {
                 >
                   ₹ {props.item.offerPrice}
                 </Text>
-                <Button size="xs" colorScheme={"green"}>
+                <Button size="xs" colorScheme={"green"} cursor={"text"}>
                   {props.item.discount}
                 </Button>
               </HStack>
             </Box>
             <Box>
-              <Button size="xs" colorScheme={"orange"}>
+              <Button size="xs" colorScheme={"orange"} cursor={"text"}>
                 Free Delivery
               </Button>
             </Box>
@@ -109,7 +112,7 @@ export const QuickPro = (props) => {
               >
                 <GrFormAdd />
               </Button>
-              <Button>{qty}</Button>
+              <Button cursor={"text"}>{qty}</Button>
               <Button
                 borderRadius={0}
                 colorScheme="blackAlpha"
@@ -129,7 +132,7 @@ export const QuickPro = (props) => {
           </HStack>
           <Button
             borderRadius={0}
-            onClick={()=>AddToCard()}
+            onClick={() => AddToCard()}
             w="100%"
             my={4}
             variant="outline"

@@ -46,7 +46,7 @@ export const ProductCard = (props) => {
       className={styles.product1img}
     >
       <HStack justify={"space-between"} my="4">
-        <Button size="xs" colorScheme={"green"}>
+        <Button size="xs" colorScheme={"green"} cursor={"text"}>
           {props.item.discount}
         </Button>
         <Box
@@ -112,6 +112,7 @@ export const ProductCard = (props) => {
               fontSize={"9px"}
               color="blue"
               fontWeight={"700"}
+              cursor={"text"}
             >
               {props.item.ratings.split(" ")[0]} &nbsp; <AiFillStar />
             </Button>
