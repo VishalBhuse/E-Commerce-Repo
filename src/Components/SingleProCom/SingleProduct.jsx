@@ -44,6 +44,7 @@ export const SingleProduct = () => {
   useEffect(() => {
     getData();
     setIsloading(true);
+    window.scrollTo(0, 0);
   }, []);
 
   const handdleSubmit = () => {

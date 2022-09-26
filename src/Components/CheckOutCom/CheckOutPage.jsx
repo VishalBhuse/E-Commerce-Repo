@@ -81,6 +81,7 @@ export const CheckOutPage = () => {
   };
   useEffect(() => {
     setAdress({...adress, email:user?.email});
+    window.scrollTo(0, 0);
   }, []);
 
   return (

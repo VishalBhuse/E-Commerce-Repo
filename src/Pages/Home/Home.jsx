@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Center, Image, Text, VStack } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,6 +13,10 @@ import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 
 const Firstslider = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
   return (
     <>
       <Swiper

@@ -33,6 +33,10 @@ export const CartShowList = (props) => {
       setAbovethreeOrder(false);
     }
   }, [count]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
 
   return (
     <Box>
