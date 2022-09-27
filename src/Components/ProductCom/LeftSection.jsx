@@ -1,22 +1,18 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import {
   Accordion,
   AccordionButton,
   AccordionItem,
   AccordionPanel,
   Box,
-  Checkbox,
   Heading,
   HStack,
-  Input,
-  InputGroup,
-  InputRightAddon,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { AddIcon, SearchIcon } from "@chakra-ui/icons";
+import { AddIcon } from "@chakra-ui/icons";
 import { Filter } from "./FillterData";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_FILLTER } from "../../Redux/FillterReducer/actionType";
 
@@ -50,7 +46,7 @@ export const LeftSection = () => {
   }, []);
 
   return (
-    <Box mt={5}  color={"#657fa1"}>
+    <Box mt={5} color={"#657fa1"}>
       <Heading size="sm" mb={2}>
         FILTER BY
       </Heading>
@@ -72,12 +68,6 @@ export const LeftSection = () => {
             </h2>
             <AccordionPanel pb={4}>
               <hr />
-              <InputGroup size="sm" my={2}>
-                <Input placeholder="Search" />
-                <InputRightAddon>
-                  <SearchIcon />
-                </InputRightAddon>
-              </InputGroup>
               <Stack
                 spacing={2}
                 direction="column"
@@ -91,18 +81,21 @@ export const LeftSection = () => {
               >
                 {obj.Sub?.map((item, index) => (
                   <HStack spacing={"10px"}>
-                  <Box>
-                  <input
-                    style={{height:"18px",width:"18px", display:"flex", alignItems:"center"}}
-                    type={"checkbox"}
-                    checked={Fillter.includes(item)}
-                    key={index}
-                    onClick={() => handleAddFilter(item)}
-                    />
-                    </Box>
                     <Box>
-                    {item}
+                      <input
+                        style={{
+                          height: "18px",
+                          width: "18px",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                        type={"checkbox"}
+                        checked={Fillter.includes(item)}
+                        key={index}
+                        onClick={() => handleAddFilter(item)}
+                      />
                     </Box>
+                    <Box>{item}</Box>
                   </HStack>
                 ))}
               </Stack>
