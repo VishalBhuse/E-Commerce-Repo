@@ -1,4 +1,5 @@
-# E-Shop (E-Commerce) 
+# E-Shop (E-Commerce) :
+E-Shop it is a E-commerce website. E-commerce is revolutionizing the way we all shop in India in our website you can make your choice of laptop and mobile.
 ### Our Team Members :
 
 - Vishal Bhuse 
