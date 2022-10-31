@@ -25,7 +25,7 @@ E-Shop it is a E-commerce website. E-commerce is revolutionizing the way we all 
 ## Mobile Product Page :-
 ![image](https://user-images.githubusercontent.com/101569259/190621480-8c1bf71f-8990-4c32-b343-0e7ac3a52c40.png)
 
-## REview Page :-
+## Review Page :-
 ![image](https://user-images.githubusercontent.com/101569259/190621726-a3436576-d301-4dba-82b4-ebd053d04cce.png)
 
 
@@ -35,6 +35,10 @@ E-Shop it is a E-commerce website. E-commerce is revolutionizing the way we all 
 
 ## Help Page :-
 ![image](https://user-images.githubusercontent.com/101569259/190621655-2ba33e89-5dd9-4e21-b24f-34a1b3175f7c.png)
+
+## Cart Page :- 
+![image](https://user-images.githubusercontent.com/101569259/199032369-f079edf8-1b13-468e-b415-87092b1767f5.png)
+
 
 ## Payment Section :-
 ![image](https://user-images.githubusercontent.com/101569259/199031716-7b0a7b6a-ddad-4a99-a3d9-8c11c168ce81.png)
