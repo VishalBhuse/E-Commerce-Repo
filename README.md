@@ -36,6 +36,10 @@ E-Shop it is a E-commerce website. E-commerce is revolutionizing the way we all 
 ## Help Page :-
 ![image](https://user-images.githubusercontent.com/101569259/190621655-2ba33e89-5dd9-4e21-b24f-34a1b3175f7c.png)
 
+## Payment Section :-
+![image](https://user-images.githubusercontent.com/101569259/199031716-7b0a7b6a-ddad-4a99-a3d9-8c11c168ce81.png)
+
+
 
 # Getting Started with Create React App
 
