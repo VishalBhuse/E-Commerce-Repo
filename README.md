@@ -1,3 +1,18 @@
+# E-Shop (E-Commerce) :
+E-Shop it is a E-commerce website. E-commerce is revolutionizing the way we all shop in India in our website you can make your choice of laptop and mobile.
+### Our Team Members :
+
+- Vishal Bhuse 
+
+- Rohan Telangur
+
+## Tech Used -
+- React JS,
+- Redux,
+- Chakra UI,
+- Swiper JS,
+- RazorPay
+- Router-Dom
 
 ## Home Page :-
 ![image](https://user-images.githubusercontent.com/101569259/190621002-a1c514ed-83c7-428e-b38d-a1c1d70135a7.png)
