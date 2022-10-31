@@ -77,7 +77,7 @@ export default function SmallCentered() {
           align={{ base: "center", md: "center" }}
         >
           <HStack>
-            <Image src="http://localhost:3000/img/logo.jpg" h="50px" />
+            <Image src="/img/logo.jpg" h="50px" />
             <Text fontWeight="600">E-commerce Webiste @ 2022</Text>
           </HStack>
           <Stack direction={"row"} spacing={6}>
