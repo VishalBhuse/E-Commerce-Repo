@@ -83,7 +83,7 @@
   border: 1px solid #000;
   display: none;
   margin-top: -40px;
-  
+
   position: relative;
   background: hsla(0, 0%, 100%, 0.6);
   z-index: 99;
@@ -157,3 +157,25 @@
     }
     
      */
+
+@media only screen and (max-width: 600px) {
+  .slidefirstimg {
+    width: 100% !important;
+    height: 30vh !important;
+  }
+  .img222 {
+    width: 100% !important;
+    height: 50vh !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .slidefirstimg {
+    width: 100% !important;
+    height: 50vh !important;
+  }
+  .img222 {
+    width: 100% !important;
+    height: 70vh !important;
+  }
+}
