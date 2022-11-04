@@ -17,7 +17,7 @@ export const Pagination = ({ total, selected, onPageChange }) => {
               onClick={() => onPageChange(index+1)}
               m={1}
               key={index}
-              className={+selected === index + 1 ? "btnselected" : ""}
+              colorScheme={+selected === index + 1 ? "blue" : "gray"}
               >
             {index + 1}
           </Button>

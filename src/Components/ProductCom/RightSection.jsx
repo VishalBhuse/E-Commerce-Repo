@@ -28,7 +28,6 @@ export const RightSection = () => {
   const [sort, setsort] = useState("");
   const dispatch = useDispatch();
   const { category } = useParams();
-  console.log(Fillter);
 
   const HandleSort = (str) => {
     switch (str) {
@@ -74,7 +73,6 @@ export const RightSection = () => {
         `https://ecommercecombine.herokuapp.com/${category}?page=${curretpage}`
       )
       .then((res) => {
-        // console.log(res.data.data, category);
         setproducts(res.data.data);
         setloading(false);
       })
@@ -167,7 +165,7 @@ export const RightSection = () => {
 
       <Box w={"70%"} m={"20px auto"}>
         <Pagination
-          total={10}
+          total={7}
           selected={curretpage}
           onPageChange={onPageChange}
         />
