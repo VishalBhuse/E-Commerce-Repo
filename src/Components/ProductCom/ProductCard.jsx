@@ -3,8 +3,6 @@ import {
   Img,
   Text,
   Stack,
-  VStack,
-  Center,
   HStack,
   Button,
 } from "@chakra-ui/react";
@@ -71,8 +69,8 @@ export const ProductCard = (props) => {
           cursor={"pointer"}
           src={props.item.src}
           m="auto"
-          w={props.category == "laptop" ? "100%" : "80%"}
-          h={props.category == "laptop" ? "150px" : "270px"}
+          w={props.category === "laptop" ? "100%" : "80%"}
+          h={props.category === "laptop" ? "150px" : "270px"}
           alt={props.title}
         />
       </Link>

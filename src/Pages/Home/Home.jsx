@@ -15,8 +15,8 @@ import { Link } from "react-router-dom";
 const Firstslider = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
-  
+  }, []);
+
   return (
     <>
       <Swiper
@@ -27,6 +27,7 @@ const Firstslider = () => {
       >
         <SwiperSlide>
           <img
+            className={styles.slidefirstimg}
             src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-pro/section01s.jpg"
             alt="slide1"
           />
@@ -34,42 +35,49 @@ const Firstslider = () => {
 
         <SwiperSlide>
           <img
+            className={styles.slidefirstimg}
             src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-pro/section03s.jpg"
             alt="slide2"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
+            className={styles.slidefirstimg}
             src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-book-pro/section08s.jpg"
             alt="slide3"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
+            className={styles.slidefirstimg}
             src="https://images.samsung.com/is/image/samsung/assets/in/offer/online/samsung-fest/b2c-bluefest-mseries-1920x545-010922.jpg"
             alt="slide4"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
+            className={styles.slidefirstimg}
             src="https://img.freepik.com/free-vector/realistic-phones-different-views_52683-28436.jpg?size=626&ext=jpg&ga=GA1.2.564934570.1662384569"
             alt="slide5"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
+            className={styles.slidefirstimg}
             src="https://images.samsung.com/is/image/samsung/assets/in/offer/online/samsung-fest/b2c-bluefest-television-1920x545-010922.jpg"
             alt="slide6"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
+            className={styles.slidefirstimg}
             src="https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-note-11t-5g/section10.jpg"
             alt="slide7"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
+            className={styles.slidefirstimg}
             src="https://i02.appmifile.com/204_operator_sg/29/11/2021/36d661f93fead82bc3c7443f1c137f39.jpg"
             alt="slide8"
           />

@@ -28,7 +28,6 @@ export const RightSection = () => {
   const [sort, setsort] = useState("");
   const dispatch = useDispatch();
   const { category } = useParams();
-  console.log(Fillter);
 
   const HandleSort = (str) => {
     switch (str) {
@@ -71,10 +70,9 @@ export const RightSection = () => {
     setSearchParams({ curretpage });
     axios
       .get(
-        `https://ecommercecombine.herokuapp.com/${category}?page=${curretpage}`
+        `https://eshoprestapis.onrender.com/${category}?page=${curretpage}`
       )
       .then((res) => {
-        // console.log(res.data.data, category);
         setproducts(res.data.data);
         setloading(false);
       })
@@ -158,7 +156,7 @@ export const RightSection = () => {
       ) : (
         <SimpleGrid columns={[1, 1, 2, 3, 4]} gap={7}>
           {products?.map((item, index) => (
-            <Box w="100%" h={category == "laptop" ? "350" : "450"} key={index}>
+            <Box w="100%" h={category === "laptop" ? "350" : "450"} key={index}>
               <ProductCard item={item} category={category} />
             </Box>
           ))}
@@ -167,7 +165,7 @@ export const RightSection = () => {
 
       <Box w={"70%"} m={"20px auto"}>
         <Pagination
-          total={10}
+          total={7}
           selected={curretpage}
           onPageChange={onPageChange}
         />

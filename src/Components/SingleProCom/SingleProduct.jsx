@@ -30,7 +30,7 @@ export const SingleProduct = () => {
 
   const getData = () => {
     axios
-      .get(`https://ecommercecombine.herokuapp.com/${category}/${id}`)
+      .get(`https://eshoprestapis.onrender.com/${category}/${id}`)
       .then((res) => {
         setcurrentProduct(res.data);
         setcurrentImage1(res.data.src);

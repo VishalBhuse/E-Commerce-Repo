@@ -38,13 +38,13 @@ console.log(currentProduct)
           });
         }
       };
-      export const deleteitem = async (dispatch, id) => {
-        console.log(id);
-        let res = await axios.delete(`http://localhost:8080/addtocart/${id}`);
+      // export const deleteitem = async (dispatch, id) => {
+      //   console.log(id);
+      //   let res = await axios.delete(`http://localhost:8080/addtocart/${id}`);
       
-        dispatch({
-          type: DELETE_FROM_CART,
-          payload: id,
-        });
+      //   dispatch({
+      //     type: DELETE_FROM_CART,
+      //     payload: id,
+      //   });
         
-      };
+      // };

@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Center,
   HStack,
   Img,
   ListItem,
@@ -13,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { AiFillStar, AiTwotoneHeart } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 import { GrFormAdd, GrSubtract } from "react-icons/gr";
 import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
 import { useDispatch, useSelector } from "react-redux";
@@ -47,8 +46,8 @@ export const QuickPro = (props) => {
           <Img
             src={props.item.src}
             m="auto"
-            w={category == "laptop" ? "90%" : "40%"}
-            h={category == "laptop" ? "250px" : "290px"}
+            w={category === "laptop" ? "90%" : "40%"}
+            h={category === "laptop" ? "250px" : "290px"}
             alt="prod"
           />
         </Box>
@@ -102,7 +101,7 @@ export const QuickPro = (props) => {
             <ListItem>{props.item.warranty}</ListItem>
           </UnorderedList>
 
-          <HStack direction={"row"} justify="space-between">
+          <HStack direction={"row"} justify="center">
             <ButtonGroup size="md" isAttached>
               <Button
                 borderRadius={0}
@@ -122,13 +121,13 @@ export const QuickPro = (props) => {
                 <GrSubtract />
               </Button>
             </ButtonGroup>
-            <Button
+            {/* <Button
               leftIcon={<AiTwotoneHeart />}
               borderRadius={0}
               colorScheme="green"
             >
               ADD TO WISHLIST
-            </Button>
+            </Button> */}
           </HStack>
           <Button
             borderRadius={0}
