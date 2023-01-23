@@ -2,40 +2,40 @@ import {
   Box,
   Img,
   Text,
-  Stack,
   HStack,
   Button,
 } from "@chakra-ui/react";
 import React from "react";
-import { AiFillHeart, AiOutlineHeart, AiFillStar } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux";
+import {  AiFillStar } from "react-icons/ai";
+// import { AiFillHeart, AiOutlineHeart, AiFillStar } from "react-icons/ai";
+// import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { ADD_TO_WISH_LIST_SUCCESS } from "../../Redux/WishListReducer/actionType";
+// import { ADD_TO_WISH_LIST_SUCCESS } from "../../Redux/WishListReducer/actionType";
 import { OuickView } from "./OuickView";
 import styles from "./Quick.module.css";
 
 export const ProductCard = (props) => {
-  const dispatch = useDispatch();
-  const WithListData = useSelector((store) => store.WishList.WishListData);
-  const ProId = useSelector((store) => store.WishList.ProId);
+  // const dispatch = useDispatch();
+  // const WithListData = useSelector((store) => store.WishList.WishListData);
+  // const ProId = useSelector((store) => store.WishList.ProId);
 
-  const AddToFevrate = () => {
-    let newWishList = [...WithListData];
-    let newProId = [...ProId];
-    if (ProId.includes(props.item.src)) {
-      newProId.splice(newProId.indexOf(props.item.src), 1);
-      newWishList.splice(ProId.indexOf(props.item.src), 1);
-    } else {
-      newProId = [...ProId, props.item.src];
-      newWishList = [...WithListData, props.item];
-    }
+  // const AddToFevrate = () => {
+  //   let newWishList = [...WithListData];
+  //   let newProId = [...ProId];
+  //   if (ProId.includes(props.item.src)) {
+  //     newProId.splice(newProId.indexOf(props.item.src), 1);
+  //     newWishList.splice(ProId.indexOf(props.item.src), 1);
+  //   } else {
+  //     newProId = [...ProId, props.item.src];
+  //     newWishList = [...WithListData, props.item];
+  //   }
 
-    const payload = {
-      WithListData: newWishList,
-      ProId: newProId,
-    };
-    dispatch({ type: ADD_TO_WISH_LIST_SUCCESS, payload });
-  };
+  //   const payload = {
+  //     WithListData: newWishList,
+  //     ProId: newProId,
+  //   };
+  //   dispatch({ type: ADD_TO_WISH_LIST_SUCCESS, payload });
+  // };
   return (
     <Box
       p={2}
@@ -52,14 +52,14 @@ export const ProductCard = (props) => {
           h="30px"
           mr={1}
           align="center"
-          onClick={() => AddToFevrate()}
-          cursor={"pointer"}
+          // onClick={() => AddToFevrate()}
+          // cursor={"pointer"}
         >
-          {ProId.includes(props.item.src) ? (
+          {/* {ProId.includes(props.item.src) ? (
             <AiFillHeart style={{ fontSize: "30px", color: "red" }} />
           ) : (
             <AiOutlineHeart style={{ fontSize: "30px" }} />
-          )}
+          )} */}
         </Box>
       </HStack>
 
@@ -116,14 +116,14 @@ export const ProductCard = (props) => {
             </Button>
           </Box>
         </HStack>
-
+{/* 
         <Stack direction={"row"} justify="center">
-          {/* <AiFillStar color="gold"/>
           <AiFillStar color="gold"/>
           <AiFillStar color="gold"/>
           <AiFillStar color="gold"/>
-          <AiFillStar color="gold"/> */}
-        </Stack>
+          <AiFillStar color="gold"/>
+          <AiFillStar color="gold"/>
+        </Stack> */}
       </Box>
     </Box>
   );

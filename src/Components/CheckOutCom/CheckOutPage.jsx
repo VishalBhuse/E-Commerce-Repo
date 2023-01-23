@@ -11,14 +11,13 @@ import {
   Divider,
   useToast,
 } from "@chakra-ui/react";
-import swal from 'sweetalert';
-import axios from 'axios';
+import swal from "sweetalert";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckOutSmallDiv } from "./CheckOutSmallDiv";
 import { GET_CART_SUCCESS } from "../../Redux/CartReducer/actionTypes";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export const CheckOutPage = () => {
   const { loginWithRedirect, user } = useAuth0();
@@ -32,24 +31,30 @@ export const CheckOutPage = () => {
   let totalPrice = 0;
 
   const handleChange = (e) => {
-    const inputName = e.target.name;
+    // const inputName = e.target.name;
+    const { name, value } = e.target;
     setAdress({
       ...adress,
-      [inputName]: e.target.value,
+      [name]: value,
+      // [inputName]: e.target.value,
     });
   };
 
   const isError = adress === {};
 
   const handleOrder = () => {
-    if (!adress.Firstname){
-      console.log("all filed");
+    if (
+      !adress.Firstname ||
+      !adress.Lastname ||
+      !adress.contry ||
+      !adress.address
+    ) {
       toast({
-        title: 'Filled all field.',
-        status: 'error',
+        title: "Filled all field.",
+        status: "error",
         duration: 5000,
         isClosable: true,
-      })
+      });
     } else {
       let options = {
         key: "rzp_test_EYtq2efJzkB7wg",
@@ -59,9 +64,13 @@ export const CheckOutPage = () => {
         name: "E-Shop",
         description: "for testing purpose",
         handler: function (response) {
-          dispatch({type:GET_CART_SUCCESS,payload:[]})
-          swal("Good job!", "order placed successfully...!\n Order Details Send On Mail", "success");
-          Navigator("/")
+          dispatch({ type: GET_CART_SUCCESS, payload: [] });
+          swal(
+            "Order Placed Successfully...!",
+            "Order Details Send On Mail",
+            "success"
+          );
+          Navigator("/");
         },
         prefill: {
           name: user?.nickname,
@@ -80,7 +89,7 @@ export const CheckOutPage = () => {
     }
   };
   useEffect(() => {
-    setAdress({...adress, email:user?.email});
+    setAdress({ ...adress, email: user?.email });
     window.scrollTo(0, 0);
   }, []);
 
@@ -110,7 +119,7 @@ export const CheckOutPage = () => {
               Email me with news and offers
             </Checkbox>
             <Box mt={"20px"}>
-              <FormLabel>Shipping Adress</FormLabel>
+              <FormLabel>Shipping Address</FormLabel>
               <form
                 variant="filled"
                 bg="#F7F7F7"
@@ -152,14 +161,14 @@ export const CheckOutPage = () => {
                 />
 
                 <Input
-                  placeholder="Adress"
+                  placeholder="Address"
                   size="md"
                   variant="filled"
                   bg="#F7F7F7"
                   mt={"30px"}
                   width={"98%"}
                   type={"text"}
-                  name="Adress"
+                  name="address"
                   onChange={handleChange}
                 />
                 <Flex justifyContent={"space-around"} width={"98%"}>
