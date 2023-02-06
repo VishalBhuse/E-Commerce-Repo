@@ -9,7 +9,7 @@ export const Filter = [
     id: 2,
     Name: "Ram",
     subtitle: "5 available",
-    Sub: ["2 GB", "4 GB", "8 GB", "12 GB", "16 GB"],
+    Sub: ["2 GB", "4 GB", "8 GB", "16 GB", "32 GB"],
   },
   {
     id: 3,

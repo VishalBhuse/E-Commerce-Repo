@@ -12,19 +12,21 @@ import {
 } from "@chakra-ui/react";
 import { Pagination } from "./Pagination";
 import { ProductCard } from "./ProductCard";
-import axios from "axios";
+// import axios from "axios";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ADD_FILLTER } from "../../Redux/FillterReducer/actionType";
+import { getProductsAPI } from "../../Redux/AppReducer/action";
 
 export const RightSection = () => {
-  const [loading, setloading] = useState(true);
+  // const [loading, setloading] = useState(true);
+  // const [products, setproducts] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const Fillter = useSelector((store) => store.Fillters.Fillter);
+  const { data, loading } = useSelector((store) => store.Appreducer);
   const [curretpage, setcurretpage] = useState(
     Number(searchParams.get("page")) || 1
   );
-  const [products, setproducts] = useState([]);
   const [sort, setsort] = useState("");
   const dispatch = useDispatch();
   const { category } = useParams();
@@ -32,19 +34,18 @@ export const RightSection = () => {
   const HandleSort = (str) => {
     switch (str) {
       case "PriceLowToHigh":
-        setproducts(products.sort((a, b) => a.price - b.price));
+        data.sort((a, b) => a.offerPrice - b.offerPrice);
         setsort(str);
         break;
 
       case "PriceHighToLow":
-        setproducts(products.sort((a, b) => b.price - a.price));
+        data.sort((a, b) => b.offerPrice - a.offerPrice);
         setsort(str);
         break;
 
       default:
         break;
     }
-    // console.log(products, str);
   };
 
   const onPageChange = (direction) => {
@@ -66,23 +67,24 @@ export const RightSection = () => {
     // console.log(newFillter);
   };
 
-  const FetchDataFromServer = () => {
-    setSearchParams({ curretpage });
-    axios
-      .get(
-        `https://eshoprestapis.onrender.com/${category}?page=${curretpage}`
-      )
-      .then((res) => {
-        setproducts(res.data.data);
-        setloading(false);
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  };
+  // const FetchDataFromServer = () => {
+  //   setSearchParams({ curretpage });
+  //   axios
+  //     .get(`https://verceljson.vercel.app/${category}?page=${curretpage}`)
+  //     .then((res) => {
+  //       setproducts(res.data.data);
+  //       // setloading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  //   };
+  //   // FetchDataFromServer();
+
   useEffect(() => {
-    FetchDataFromServer();
-    setloading(true);
+    setSearchParams({ curretpage });
+    dispatch(getProductsAPI(category, curretpage));
+    // setloading(true);
   }, [curretpage, category]);
 
   return (
@@ -99,9 +101,9 @@ export const RightSection = () => {
                   HandleSort(e.target.value);
                 }}
               >
-                <option value="BestSellers">Best Sellers</option>
-                <option value="PriceLowToHigh">Price, Low to High</option>
-                <option value="PriceHighToLow">Price, High to Low</option>
+                <option value="BestSellers">Price</option>
+                <option value="PriceLowToHigh"> Low to High</option>
+                <option value="PriceHighToLow"> High to Low</option>
               </Select>
             </Stack>
           </Stack>
@@ -155,7 +157,7 @@ export const RightSection = () => {
         </SimpleGrid>
       ) : (
         <SimpleGrid columns={[1, 1, 2, 3, 4]} gap={7}>
-          {products?.map((item, index) => (
+          {data?.map((item, index) => (
             <Box w="100%" h={category === "laptop" ? "350" : "450"} key={index}>
               <ProductCard item={item} category={category} />
             </Box>

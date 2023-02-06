@@ -11,6 +11,7 @@ import { Products } from "../Pages/Products/Products";
 import { SingleProduct } from "../Components/SingleProCom/SingleProduct";
 import { MainCartBag } from "../Components/CartCom/MainCartBag";
 import { CheckOutPage } from "../Components/CheckOutCom/CheckOutPage";
+import { ScrollTotTop } from "../Components/GoToTop/ScrollTotTop";
 
 export const Allroute = () => {
   return (
@@ -22,13 +23,13 @@ export const Allroute = () => {
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/help" element={<Help />} />
-        <Route path="/:category" element={<Products />} />
-        <Route path="/:category/:id" element={<SingleProduct />} />
         <Route path="/cart" element={<MainCartBag />} />
         <Route path="/checkout" element={<CheckOutPage />} />
+        <Route path="/:category" element={<Products />} />
+        <Route path="/:category/:id" element={<SingleProduct />} />
       </Routes>
-
       <Footer />
+      <ScrollTotTop />
     </>
   );
 };

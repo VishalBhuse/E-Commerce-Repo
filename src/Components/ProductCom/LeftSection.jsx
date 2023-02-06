@@ -19,11 +19,16 @@ import { ADD_FILLTER } from "../../Redux/FillterReducer/actionType";
 export const LeftSection = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const Fillter = useSelector((store) => store.Fillters.Fillter);
+  // const [brand, setbrand] = useState([]);
+  // const handlBrand = (value) => {
+  //   setbrand([...brand, value]);
+  // };
 
   const dispatch = useDispatch();
   // const { category } = useParams();
 
-  const handleAddFilter = (category) => {
+  const handleAddFilter = (category,name) => {
+    console.log(name)
     let newFillter = [...Fillter];
 
     if (newFillter.includes(category)) {
@@ -80,7 +85,7 @@ export const LeftSection = () => {
                 }}
               >
                 {obj.Sub?.map((item, index) => (
-                  <HStack spacing={"10px"}>
+                  <HStack spacing={"10px"} key={index}>
                     <Box>
                       <input
                         style={{
@@ -92,7 +97,8 @@ export const LeftSection = () => {
                         type={"checkbox"}
                         checked={Fillter.includes(item)}
                         key={index}
-                        onClick={() => handleAddFilter(item)}
+                        onChange={() => handleAddFilter(item,obj.Name)}
+                        // onClick={() => handleAddFilter(item)}
                       />
                     </Box>
                     <Box>{item}</Box>

@@ -2,7 +2,6 @@ import {
   Box,
   chakra,
   Container,
-  Link,
   Image,
   Stack,
   Text,
@@ -11,6 +10,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { FaInstagram, FaYoutube, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -55,10 +55,11 @@ export default function SmallCentered() {
           src={"https://ecommercemernapp.vercel.app/img/brandlogo.jpg"}
         />
         <Stack direction={"row"} fontWeight="600" spacing={6}>
-          <Link href={"/"}>Home</Link>
-          <Link href={"/about"}>About</Link>
-          <Link href={"/faq"}>Faq</Link>
-          <Link href={"/help"}>Help</Link>
+          <Link to={"/"}>Home</Link>
+          <Link to={"/about"}>About</Link>
+          <Link to={"/faq"}>Faq</Link>
+          <Link to={"/review"}>Reviews</Link>
+          <Link to={"/help"}>Help</Link>
         </Stack>
       </Container>
 

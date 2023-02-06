@@ -55,13 +55,13 @@ export const CartShowList = (props) => {
             color={"gray"}
             noOfLines={2}
             fontSize={"15px"}
-            fontweight={"700"}
+            fontWeight={"700"}
           >
             {props.title}
           </Text>
           <Box>
             {abovethreeOrder ? (
-              <Text color="red" fontweight="600">
+              <Text color="red" fontWeight="600">
                 Limit: 5 Per Order
               </Text>
             ) : (
@@ -70,7 +70,7 @@ export const CartShowList = (props) => {
           </Box>
         </Box>
         <Box>
-          <Text fontSize={"15px"} fontweight={"700"} color={"gray"}>
+          <Text fontSize={"15px"} fontWeight={"700"} color={"gray"}>
             ₹ {props.price.toLocaleString("hi-IN")}
           </Text>
         </Box>
@@ -112,7 +112,7 @@ export const CartShowList = (props) => {
           </Button>
         </Box>
         <Box>
-          <Text fontSize={"15px"} fontweight={"700"} color={"gray"}>
+          <Text fontSize={"15px"} fontWeight={"700"} color={"gray"}>
             ₹ {(count * props.price).toLocaleString("hi-IN")}
           </Text>
         </Box>

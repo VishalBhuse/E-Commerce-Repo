@@ -30,14 +30,14 @@ export const SingleProduct = () => {
 
   const getData = () => {
     axios
-      .get(`https://eshoprestapis.onrender.com/${category}/${id}`)
+      .get(`https://verceljson.vercel.app/${category}/${id}`)
       .then((res) => {
         setcurrentProduct(res.data);
         setcurrentImage1(res.data.src);
         setIsloading(false);
       })
       .catch((err) => {
-        //  console.log(err);
+         console.log(err);
       });
   };
 
